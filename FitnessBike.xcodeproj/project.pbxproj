@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B01B7DB3D8002BADDA /* AppDelegate.swift */; };
+		8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B21B7DB3D8002BADDA /* FitnessBike.xcdatamodeld */; };
+		8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B51B7DB3D8002BADDA /* ViewController.swift */; };
+		8A2149B91B7DB3D8002BADDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2149B71B7DB3D8002BADDA /* Main.storyboard */; };
+		8A2149BB1B7DB3D8002BADDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2149BA1B7DB3D8002BADDA /* Images.xcassets */; };
+		8A2149BE1B7DB3D8002BADDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A2149BC1B7DB3D8002BADDA /* LaunchScreen.xib */; };
+		8A2149CA1B7DB3D9002BADDA /* FitnessBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149C91B7DB3D9002BADDA /* FitnessBikeTests.swift */; };
+		8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149D71B7DC037002BADDA /* CtrlViewController.swift */; };
+		8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */; };
+		8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */; };
+		8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */; };
+		8AC46A571B8334E10025D25A /* BleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A521B8334E10025D25A /* BleDevice.m */; };
+		8AC46A581B8334E10025D25A /* MyBleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A561B8334E10025D25A /* MyBleService.m */; };
+		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
+		8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */; };
+		8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A2149C41B7DB3D9002BADDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A2149A31B7DB3D8002BADDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A2149AA1B7DB3D8002BADDA;
+			remoteInfo = FitnessBike;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8A2149AB1B7DB3D8002BADDA /* FitnessBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2149AF1B7DB3D8002BADDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A2149B01B7DB3D8002BADDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8A2149B31B7DB3D8002BADDA /* FitnessBike.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitnessBike.xcdatamodel; sourceTree = "<group>"; };
+		8A2149B51B7DB3D8002BADDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A2149B81B7DB3D8002BADDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8A2149BA1B7DB3D8002BADDA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8A2149BD1B7DB3D8002BADDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8A2149C31B7DB3D9002BADDA /* FitnessBikeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessBikeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2149C81B7DB3D9002BADDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A2149C91B7DB3D9002BADDA /* FitnessBikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessBikeTests.swift; sourceTree = "<group>"; };
+		8A2149D71B7DC037002BADDA /* CtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CtrlViewController.swift; sourceTree = "<group>"; };
+		8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
+		8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
+		8AC46A511B8334E10025D25A /* BleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleDevice.h; sourceTree = "<group>"; };
+		8AC46A521B8334E10025D25A /* BleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleDevice.m; sourceTree = "<group>"; };
+		8AC46A531B8334E10025D25A /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		8AC46A541B8334E10025D25A /* MC10_GATT_DEFINE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MC10_GATT_DEFINE.H; sourceTree = "<group>"; };
+		8AC46A551B8334E10025D25A /* MyBleService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBleService.h; sourceTree = "<group>"; };
+		8AC46A561B8334E10025D25A /* MyBleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBleService.m; sourceTree = "<group>"; };
+		8AC46A591B83387C0025D25A /* SwiftWithOC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftWithOC-Bridging-Header.h"; sourceTree = "<group>"; };
+		8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefTableViewCell.swift; sourceTree = "<group>"; };
+		8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A2149A81B7DB3D8002BADDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2149C01B7DB3D9002BADDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A2149A21B7DB3D8002BADDA = {
+			isa = PBXGroup;
+			children = (
+				8A2149AD1B7DB3D8002BADDA /* FitnessBike */,
+				8A2149C61B7DB3D9002BADDA /* FitnessBikeTests */,
+				8A2149AC1B7DB3D8002BADDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8A2149AC1B7DB3D8002BADDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149AB1B7DB3D8002BADDA /* FitnessBike.app */,
+				8A2149C31B7DB3D9002BADDA /* FitnessBikeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
+			isa = PBXGroup;
+			children = (
+				8AC46A591B83387C0025D25A /* SwiftWithOC-Bridging-Header.h */,
+				8AC46A501B8334E10025D25A /* BLE */,
+				8A2149D91B7DCA14002BADDA /* Utils */,
+				8A2149D61B7DC00D002BADDA /* Activity */,
+				8A2149D51B7DC000002BADDA /* Ranking */,
+				8A2149D41B7DBFF0002BADDA /* Person */,
+				8A2149D31B7DBFDD002BADDA /* Ctrler */,
+				8A2149B01B7DB3D8002BADDA /* AppDelegate.swift */,
+				8A2149B51B7DB3D8002BADDA /* ViewController.swift */,
+				8A2149B71B7DB3D8002BADDA /* Main.storyboard */,
+				8A2149BA1B7DB3D8002BADDA /* Images.xcassets */,
+				8A2149BC1B7DB3D8002BADDA /* LaunchScreen.xib */,
+				8A2149B21B7DB3D8002BADDA /* FitnessBike.xcdatamodeld */,
+				8A2149AE1B7DB3D8002BADDA /* Supporting Files */,
+			);
+			path = FitnessBike;
+			sourceTree = "<group>";
+		};
+		8A2149AE1B7DB3D8002BADDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149AF1B7DB3D8002BADDA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A2149C61B7DB3D9002BADDA /* FitnessBikeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149C91B7DB3D9002BADDA /* FitnessBikeTests.swift */,
+				8A2149C71B7DB3D9002BADDA /* Supporting Files */,
+			);
+			path = FitnessBikeTests;
+			sourceTree = "<group>";
+		};
+		8A2149C71B7DB3D9002BADDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149C81B7DB3D9002BADDA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A2149D31B7DBFDD002BADDA /* Ctrler */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149D71B7DC037002BADDA /* CtrlViewController.swift */,
+			);
+			path = Ctrler;
+			sourceTree = "<group>";
+		};
+		8A2149D41B7DBFF0002BADDA /* Person */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		8A2149D51B7DC000002BADDA /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
+				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		8A2149D61B7DC00D002BADDA /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */,
+				8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */,
+				8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		8A2149D91B7DCA14002BADDA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8AC46A501B8334E10025D25A /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				8AC46A511B8334E10025D25A /* BleDevice.h */,
+				8AC46A521B8334E10025D25A /* BleDevice.m */,
+				8AC46A531B8334E10025D25A /* Const.h */,
+				8AC46A541B8334E10025D25A /* MC10_GATT_DEFINE.H */,
+				8AC46A551B8334E10025D25A /* MyBleService.h */,
+				8AC46A561B8334E10025D25A /* MyBleService.m */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A2149AA1B7DB3D8002BADDA /* FitnessBike */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2149CD1B7DB3D9002BADDA /* Build configuration list for PBXNativeTarget "FitnessBike" */;
+			buildPhases = (
+				8A2149A71B7DB3D8002BADDA /* Sources */,
+				8A2149A81B7DB3D8002BADDA /* Frameworks */,
+				8A2149A91B7DB3D8002BADDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitnessBike;
+			productName = FitnessBike;
+			productReference = 8A2149AB1B7DB3D8002BADDA /* FitnessBike.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8A2149C21B7DB3D9002BADDA /* FitnessBikeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2149D01B7DB3D9002BADDA /* Build configuration list for PBXNativeTarget "FitnessBikeTests" */;
+			buildPhases = (
+				8A2149BF1B7DB3D9002BADDA /* Sources */,
+				8A2149C01B7DB3D9002BADDA /* Frameworks */,
+				8A2149C11B7DB3D9002BADDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A2149C51B7DB3D9002BADDA /* PBXTargetDependency */,
+			);
+			name = FitnessBikeTests;
+			productName = FitnessBikeTests;
+			productReference = 8A2149C31B7DB3D9002BADDA /* FitnessBikeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A2149A31B7DB3D8002BADDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "钟其鸿";
+				TargetAttributes = {
+					8A2149AA1B7DB3D8002BADDA = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 7V84BGCR9B;
+					};
+					8A2149C21B7DB3D9002BADDA = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 7V84BGCR9B;
+						TestTargetID = 8A2149AA1B7DB3D8002BADDA;
+					};
+				};
+			};
+			buildConfigurationList = 8A2149A61B7DB3D8002BADDA /* Build configuration list for PBXProject "FitnessBike" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A2149A21B7DB3D8002BADDA;
+			productRefGroup = 8A2149AC1B7DB3D8002BADDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A2149AA1B7DB3D8002BADDA /* FitnessBike */,
+				8A2149C21B7DB3D9002BADDA /* FitnessBikeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A2149A91B7DB3D8002BADDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2149B91B7DB3D8002BADDA /* Main.storyboard in Resources */,
+				8A2149BE1B7DB3D8002BADDA /* LaunchScreen.xib in Resources */,
+				8A2149BB1B7DB3D8002BADDA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2149C11B7DB3D9002BADDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A2149A71B7DB3D8002BADDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
+				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
+				8AC46A571B8334E10025D25A /* BleDevice.m in Sources */,
+				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
+				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
+				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
+				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
+				8AC46A581B8334E10025D25A /* MyBleService.m in Sources */,
+				8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */,
+				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
+				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
+				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2149BF1B7DB3D9002BADDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2149CA1B7DB3D9002BADDA /* FitnessBikeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A2149C51B7DB3D9002BADDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A2149AA1B7DB3D8002BADDA /* FitnessBike */;
+			targetProxy = 8A2149C41B7DB3D9002BADDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A2149B71B7DB3D8002BADDA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A2149B81B7DB3D8002BADDA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8A2149BC1B7DB3D8002BADDA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A2149BD1B7DB3D8002BADDA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A2149CB1B7DB3D9002BADDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: qi lin (N57A2UML24)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qi lin (N57A2UML24)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "83d37f1b-71e5-43db-a19d-93dc3f969215";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A2149CC1B7DB3D9002BADDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: qi lin (N57A2UML24)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qi lin (N57A2UML24)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "83d37f1b-71e5-43db-a19d-93dc3f969215";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A2149CE1B7DB3D9002BADDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: qi lin (N57A2UML24)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FitnessBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		8A2149CF1B7DB3D9002BADDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FitnessBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		8A2149D11B7DB3D9002BADDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FitnessBikeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitnessBike.app/FitnessBike";
+			};
+			name = Debug;
+		};
+		8A2149D21B7DB3D9002BADDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FitnessBikeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitnessBike.app/FitnessBike";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A2149A61B7DB3D8002BADDA /* Build configuration list for PBXProject "FitnessBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2149CB1B7DB3D9002BADDA /* Debug */,
+				8A2149CC1B7DB3D9002BADDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2149CD1B7DB3D9002BADDA /* Build configuration list for PBXNativeTarget "FitnessBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2149CE1B7DB3D9002BADDA /* Debug */,
+				8A2149CF1B7DB3D9002BADDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2149D01B7DB3D9002BADDA /* Build configuration list for PBXNativeTarget "FitnessBikeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2149D11B7DB3D9002BADDA /* Debug */,
+				8A2149D21B7DB3D9002BADDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A2149B21B7DB3D8002BADDA /* FitnessBike.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A2149B31B7DB3D8002BADDA /* FitnessBike.xcdatamodel */,
+			);
+			currentVersion = 8A2149B31B7DB3D8002BADDA /* FitnessBike.xcdatamodel */;
+			path = FitnessBike.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8A2149A31B7DB3D8002BADDA /* Project object */;
+}
