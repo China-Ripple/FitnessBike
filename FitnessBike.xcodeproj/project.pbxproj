@@ -18,6 +18,15 @@
 		8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */; };
 		8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */; };
 		8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */; };
+		8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2711B8595FA0003E1C8 /* PNBar.swift */; };
+		8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */; };
+		8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */; };
+		8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2751B8595FB0003E1C8 /* PNLineChart.swift */; };
+		8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2761B8595FB0003E1C8 /* PNLineChartData.swift */; };
+		8A57C27F1B85965B0003E1C8 /* PNChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C27D1B85965B0003E1C8 /* PNChartConfig.swift */; };
+		8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C27E1B85965B0003E1C8 /* PNValue.swift */; };
+		8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */; };
+		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
 		8AC46A571B8334E10025D25A /* BleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A521B8334E10025D25A /* BleDevice.m */; };
 		8AC46A581B8334E10025D25A /* MyBleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A561B8334E10025D25A /* MyBleService.m */; };
 		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
@@ -51,6 +60,16 @@
 		8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
+		8A57C2711B8595FA0003E1C8 /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
+		8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
+		8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartLabel.swift; sourceTree = "<group>"; };
+		8A57C2751B8595FB0003E1C8 /* PNLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChart.swift; sourceTree = "<group>"; };
+		8A57C2761B8595FB0003E1C8 /* PNLineChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChartData.swift; sourceTree = "<group>"; };
+		8A57C27D1B85965B0003E1C8 /* PNChartConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartConfig.swift; sourceTree = "<group>"; };
+		8A57C27E1B85965B0003E1C8 /* PNValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNValue.swift; sourceTree = "<group>"; };
+		8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartDelegate.swift; sourceTree = "<group>"; };
+		8A57C2821B8596C10003E1C8 /* PNChartSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartSwift.h; sourceTree = "<group>"; };
+		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		8AC46A511B8334E10025D25A /* BleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleDevice.h; sourceTree = "<group>"; };
 		8AC46A521B8334E10025D25A /* BleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleDevice.m; sourceTree = "<group>"; };
 		8AC46A531B8334E10025D25A /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -102,6 +121,9 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8A57C27C1B85963B0003E1C8 /* PNChartConfig */,
+				8A57C2701B8595FA0003E1C8 /* PNBarChart */,
+				8A57C2731B8595FA0003E1C8 /* PNLineChart */,
 				8AC46A591B83387C0025D25A /* SwiftWithOC-Bridging-Header.h */,
 				8AC46A501B8334E10025D25A /* BLE */,
 				8A2149D91B7DCA14002BADDA /* Utils */,
@@ -156,6 +178,7 @@
 		8A2149D41B7DBFF0002BADDA /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -185,6 +208,36 @@
 				8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A57C2701B8595FA0003E1C8 /* PNBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				8A57C2711B8595FA0003E1C8 /* PNBar.swift */,
+				8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */,
+			);
+			path = PNBarChart;
+			sourceTree = "<group>";
+		};
+		8A57C2731B8595FA0003E1C8 /* PNLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */,
+				8A57C2751B8595FB0003E1C8 /* PNLineChart.swift */,
+				8A57C2761B8595FB0003E1C8 /* PNLineChartData.swift */,
+			);
+			path = PNLineChart;
+			sourceTree = "<group>";
+		};
+		8A57C27C1B85963B0003E1C8 /* PNChartConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */,
+				8A57C2821B8596C10003E1C8 /* PNChartSwift.h */,
+				8A57C27D1B85965B0003E1C8 /* PNChartConfig.swift */,
+				8A57C27E1B85965B0003E1C8 /* PNValue.swift */,
+			);
+			path = PNChartConfig;
 			sourceTree = "<group>";
 		};
 		8AC46A501B8334E10025D25A /* BLE */ = {
@@ -304,16 +357,25 @@
 			files = (
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
+				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8AC46A571B8334E10025D25A /* BleDevice.m in Sources */,
+				8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */,
+				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
+				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
 				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
+				8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */,
+				8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */,
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
+				8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */,
 				8AC46A581B8334E10025D25A /* MyBleService.m in Sources */,
 				8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */,
 				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
 				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
+				8A57C27F1B85965B0003E1C8 /* PNChartConfig.swift in Sources */,
 				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
+				8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
