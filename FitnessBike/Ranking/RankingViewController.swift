@@ -14,14 +14,26 @@ class RankingViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
-    var memberList:[RankingModel]!
+    var memberList:NSMutableArray! = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        memberList = [RankingModel]()
+        layoutNavigationBar()
+        
+
+        for i in 0...100 {
+            var model = RankingModel()
+            model.position = Int64(i+1)
+            model.name = "宁泽涛 \(i)"
+            memberList.addObject(model)
+            
+        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         
 
@@ -29,8 +41,7 @@ class RankingViewController: UIViewController {
         
         
       
-        
-        layoutNavigationBar()
+   
         
         
     }
@@ -67,6 +78,9 @@ class RankingViewController: UIViewController {
     
     func addFriends(sender:AnyObject?){
         
+        var friendRecommenderVC = FriendRecommenderViewController();
+        
+        self.navigationController!.pushViewController(friendRecommenderVC, animated:true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,11 +101,45 @@ class RankingViewController: UIViewController {
 
 }
 
-extension RankingViewController:UITableViewDataSource{
+extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
+    {
+        return "  PK  "
+    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    
+    {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            memberList.removeObjectAtIndex(indexPath.row)
+//            // Delete the row from the data source.
+            
+            
+//            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
+            
+            var competitionVC = CompetitionViewController();
+            
+            self.navigationController!.pushViewController(competitionVC, animated:true)
+            
+        }
+        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
+        return  true
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        
+        return 100
+    }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        return 100
+        return memberList.count
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -101,24 +149,17 @@ extension RankingViewController:UITableViewDataSource{
        
         
         
-        let cell:UITableViewCell!
-        
-        if(indexPath.row == 0){
-            cell = tableView.dequeueReusableCellWithIdentifier("cellForTips", forIndexPath: indexPath)
-            as? UITableViewCell
-            
-            
-            
-        }
-        else{
-            cell = tableView.dequeueReusableCellWithIdentifier("cellForList", forIndexPath: indexPath)
-                as? UITableViewCell
-            
-            var model = memberList[indexPath.row]
+        var cell:RankingTableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellForCell") as? RankingTableViewCell
+
+        if(cell == nil){
+            cell = RankingTableViewCell(style:UITableViewCellStyle.Default,reuseIdentifier:"cellForCell")
 
         }
-        
-     
+//
+         var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
+            
+
+        cell!.fillCell(model)
   
         
         

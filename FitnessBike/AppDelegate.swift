@@ -13,14 +13,34 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var baseX:CGFloat!
+    var baseY:CGFloat!
+    
+
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
        // self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            
-            
+        
+        var size = UIScreen.mainScreen().bounds.size
+        
+        self.baseX = size.width / 375
+        
+        self.baseY = size.height / 667
+        
+        
+       self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var viewCtrl:UIViewController!
+        
+        viewCtrl = AccessViewController()
+        
+        
+        
+        self.window!.rootViewController = viewCtrl
         
         
         return true

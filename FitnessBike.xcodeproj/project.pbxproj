@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */; };
+		8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */; };
+		8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C4B1B94388400E4B53B /* FriendModel.swift */; };
+		8A1C3C4F1B944E3500E4B53B /* FriendHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C4E1B944E3500E4B53B /* FriendHeaderButton.swift */; };
+		8A1C3C521B946A7900E4B53B /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C511B946A7900E4B53B /* AccessViewController.swift */; };
+		8A1C3C561B9477E900E4B53B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C551B9477E900E4B53B /* LoginViewController.swift */; };
 		8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B01B7DB3D8002BADDA /* AppDelegate.swift */; };
 		8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B21B7DB3D8002BADDA /* FitnessBike.xcdatamodeld */; };
 		8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149B51B7DB3D8002BADDA /* ViewController.swift */; };
@@ -27,6 +33,8 @@
 		8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C27E1B85965B0003E1C8 /* PNValue.swift */; };
 		8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */; };
 		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
+		8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */; };
+		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
 		8AC46A571B8334E10025D25A /* BleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A521B8334E10025D25A /* BleDevice.m */; };
 		8AC46A581B8334E10025D25A /* MyBleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A561B8334E10025D25A /* MyBleService.m */; };
 		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
@@ -45,6 +53,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderViewController.swift; sourceTree = "<group>"; };
+		8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderCollectionCell.swift; sourceTree = "<group>"; };
+		8A1C3C4B1B94388400E4B53B /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		8A1C3C4E1B944E3500E4B53B /* FriendHeaderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHeaderButton.swift; sourceTree = "<group>"; };
+		8A1C3C511B946A7900E4B53B /* AccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
+		8A1C3C551B9477E900E4B53B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8A2149AB1B7DB3D8002BADDA /* FitnessBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2149AF1B7DB3D8002BADDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A2149B01B7DB3D8002BADDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +84,8 @@
 		8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartDelegate.swift; sourceTree = "<group>"; };
 		8A57C2821B8596C10003E1C8 /* PNChartSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartSwift.h; sourceTree = "<group>"; };
 		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		8AC46A511B8334E10025D25A /* BleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleDevice.h; sourceTree = "<group>"; };
 		8AC46A521B8334E10025D25A /* BleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleDevice.m; sourceTree = "<group>"; };
 		8AC46A531B8334E10025D25A /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -100,6 +116,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1C3C461B9426EA00E4B53B /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */,
+				8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */,
+				8A1C3C4B1B94388400E4B53B /* FriendModel.swift */,
+				8A1C3C4E1B944E3500E4B53B /* FriendHeaderButton.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		8A1C3C501B946A4700E4B53B /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				8A1C3C511B946A7900E4B53B /* AccessViewController.swift */,
+				8A1C3C551B9477E900E4B53B /* LoginViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		8A2149A21B7DB3D8002BADDA = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +157,8 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8A1C3C501B946A4700E4B53B /* Account */,
+				8A1C3C461B9426EA00E4B53B /* Friends */,
 				8A57C27C1B85963B0003E1C8 /* PNChartConfig */,
 				8A57C2701B8595FA0003E1C8 /* PNBarChart */,
 				8A57C2731B8595FA0003E1C8 /* PNLineChart */,
@@ -188,6 +226,8 @@
 			children = (
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
+				8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */,
+				8A8694191B8F422500C2350E /* CompetitionViewController.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -355,26 +395,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */,
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8AC46A571B8334E10025D25A /* BleDevice.m in Sources */,
+				8A1C3C561B9477E900E4B53B /* LoginViewController.swift in Sources */,
 				8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
+				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
 				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
 				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
+				8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */,
 				8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */,
 				8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */,
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
+				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
 				8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */,
+				8A1C3C521B946A7900E4B53B /* AccessViewController.swift in Sources */,
 				8AC46A581B8334E10025D25A /* MyBleService.m in Sources */,
 				8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */,
 				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
 				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
 				8A57C27F1B85965B0003E1C8 /* PNChartConfig.swift in Sources */,
 				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
+				8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */,
+				8A1C3C4F1B944E3500E4B53B /* FriendHeaderButton.swift in Sources */,
 				8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
