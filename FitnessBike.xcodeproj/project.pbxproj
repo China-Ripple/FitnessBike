@@ -35,6 +35,13 @@
 		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
 		8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */; };
 		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
+		8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD61B957B91003E8D78 /* MessageModel.swift */; };
+		8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */; };
+		8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */; };
+		8AC11CDE1B959C38003E8D78 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDD1B959C38003E8D78 /* SearchViewController.swift */; };
+		8AC11CE01B959C57003E8D78 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDF1B959C57003E8D78 /* SearchTableViewCell.swift */; };
+		8AC11CE21B959C67003E8D78 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CE11B959C67003E8D78 /* SearchModel.swift */; };
+		8AC11CE41B95B1D1003E8D78 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CE31B95B1D1003E8D78 /* RegisterViewController.swift */; };
 		8AC46A571B8334E10025D25A /* BleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A521B8334E10025D25A /* BleDevice.m */; };
 		8AC46A581B8334E10025D25A /* MyBleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC46A561B8334E10025D25A /* MyBleService.m */; };
 		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
@@ -86,6 +93,13 @@
 		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
+		8AC11CD61B957B91003E8D78 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
+		8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		8AC11CDD1B959C38003E8D78 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8AC11CDF1B959C57003E8D78 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		8AC11CE11B959C67003E8D78 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		8AC11CE31B95B1D1003E8D78 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8AC46A511B8334E10025D25A /* BleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleDevice.h; sourceTree = "<group>"; };
 		8AC46A521B8334E10025D25A /* BleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleDevice.m; sourceTree = "<group>"; };
 		8AC46A531B8334E10025D25A /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -132,6 +146,7 @@
 			children = (
 				8A1C3C511B946A7900E4B53B /* AccessViewController.swift */,
 				8A1C3C551B9477E900E4B53B /* LoginViewController.swift */,
+				8AC11CE31B95B1D1003E8D78 /* RegisterViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -157,6 +172,8 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8AC11CDC1B959C07003E8D78 /* Search */,
+				8AC11CD51B957B6D003E8D78 /* Message */,
 				8A1C3C501B946A4700E4B53B /* Account */,
 				8A1C3C461B9426EA00E4B53B /* Friends */,
 				8A57C27C1B85963B0003E1C8 /* PNChartConfig */,
@@ -278,6 +295,26 @@
 				8A57C27E1B85965B0003E1C8 /* PNValue.swift */,
 			);
 			path = PNChartConfig;
+			sourceTree = "<group>";
+		};
+		8AC11CD51B957B6D003E8D78 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				8AC11CD61B957B91003E8D78 /* MessageModel.swift */,
+				8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */,
+				8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		8AC11CDC1B959C07003E8D78 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8AC11CDD1B959C38003E8D78 /* SearchViewController.swift */,
+				8AC11CDF1B959C57003E8D78 /* SearchTableViewCell.swift */,
+				8AC11CE11B959C67003E8D78 /* SearchModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		8AC46A501B8334E10025D25A /* BLE */ = {
@@ -402,14 +439,18 @@
 				8AC46A571B8334E10025D25A /* BleDevice.m in Sources */,
 				8A1C3C561B9477E900E4B53B /* LoginViewController.swift in Sources */,
 				8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */,
+				8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
+				8AC11CE01B959C57003E8D78 /* SearchTableViewCell.swift in Sources */,
 				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
+				8AC11CDE1B959C38003E8D78 /* SearchViewController.swift in Sources */,
 				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
 				8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */,
 				8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */,
 				8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */,
+				8AC11CE21B959C67003E8D78 /* SearchModel.swift in Sources */,
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
 				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
@@ -418,10 +459,13 @@
 				8AC46A581B8334E10025D25A /* MyBleService.m in Sources */,
 				8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */,
 				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
+				8AC11CE41B95B1D1003E8D78 /* RegisterViewController.swift in Sources */,
 				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
 				8A57C27F1B85965B0003E1C8 /* PNChartConfig.swift in Sources */,
+				8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */,
 				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
 				8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */,
+				8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */,
 				8A1C3C4F1B944E3500E4B53B /* FriendHeaderButton.swift in Sources */,
 				8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */,
 			);
@@ -505,7 +549,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "83d37f1b-71e5-43db-a19d-93dc3f969215";
+				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -545,7 +589,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "83d37f1b-71e5-43db-a19d-93dc3f969215";
+				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
@@ -562,7 +606,7 @@
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 			};
 			name = Debug;
 		};
@@ -575,7 +619,7 @@
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 			};
 			name = Release;
 		};

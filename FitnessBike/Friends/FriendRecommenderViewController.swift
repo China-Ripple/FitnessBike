@@ -35,19 +35,20 @@ func CGMakeRect(x:CGFloat,y:CGFloat, width:CGFloat, height:CGFloat)->CGRect
 
 class FriendRecommenderViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate{
 
-   
+   var searchBar: UISearchBar!
+    var searchResultTable:UITableView!
     
     var headerTitle:UILabel!
     let TITLE_TAG:Int = 1000
     let BUTTON_TAG:Int = 1001
-
+    var collection:UICollectionView!
     override func viewDidLoad() {
        
         super.viewDidLoad()
        
 
-        var searchbar:UISearchBar = UISearchBar(frame: CGMakeRect(0, 65, 375, 60))
-        self.view.addSubview(searchbar)
+//        var searchbar:UISearchBar = UISearchBar(frame: CGMakeRect(0, 65, 375, 60))
+//        self.view.addSubview(searchbar)
         
         
         
@@ -56,7 +57,7 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         layout.itemSize = CGMakeSize(160, 160);
         layout.sectionInset = UIEdgeInsetsMake(0, 15, 20, 20);
         
-        var collection = UICollectionView(frame: CGMakeRect(0, 120, 375,667), collectionViewLayout: layout)
+         collection = UICollectionView(frame: CGMakeRect(0, 130, 375,720), collectionViewLayout: layout)
         
         collection.dataSource = self;
         collection.delegate = self;
@@ -72,15 +73,24 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         
         collection.bounces = false;
 
+        self.view.backgroundColor = UIColor.whiteColor()
         
-        
+        setupSearchBar()
        
         
     }
     
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         
-        return  4
+        if(section == 0){
+            return 0
+        }
+        else
+        {
+           return 4
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
@@ -156,7 +166,96 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
 
     func onHeaderBtnClicked(send:AnyObject?){
         println("onHeaderBtnClicked")
+        var searchVC = SearchViewController();
+        
+        self.navigationController!.pushViewController(searchVC, animated:true)
     }
    
     
+}
+
+extension FriendRecommenderViewController: UISearchBarDelegate{
+    
+    func setupSearchBar(){
+        
+        searchBar = UISearchBar(frame: CGRectMake(0, 60, self.view.frame.size.width, 50))
+       
+        searchBar.placeholder = "search"
+    
+       // searchBar.prompt = "prompt"
+   
+       // searchBar.text = "text"
+  
+        searchBar.barStyle = UIBarStyle.Default
+  
+        searchBar.searchBarStyle = UISearchBarStyle.Default
+  
+        searchBar.barTintColor = UIColor.orangeColor()
+  
+        searchBar.tintColor = UIColor.redColor()
+ 
+        searchBar.translucent = true
+  
+       // searchBar.showsBookmarkButton = true
+  
+        searchBar.showsCancelButton = true
+  
+        searchBar.showsSearchResultsButton = false
+        searchBar.showsScopeBar = false
+ 
+        searchBar.delegate = self
+
+        self.view.addSubview(searchBar)
+        
+       searchResultTable = UITableView(frame: CGRectMake(0, 130, self.view.frame.size.width,     self.view.frame.size.height))
+        searchResultTable.hidden = true
+        self.view.addSubview(searchResultTable)
+        
+      
+    }
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar){
+         println("点击开始")
+         collection.hidden = true
+        searchResultTable.hidden = false
+    }
+    
+    // 输入框内容改变触发事件
+  
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+   
+            println("过滤：(searchText)")
+     
+    }
+
+    // 书签按钮触发事件
+
+    func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
+      
+            println("搜索历史")
+
+    }
+
+    // 取消按钮触发事件
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+
+            println("取消搜索")
+         collection.hidden = false
+        searchResultTable.hidden = true
+         searchBar.resignFirstResponder()
+        //searchResultTable.removeFromSuperview()
+
+    }
+
+    // 搜索触发事件
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+
+            println("开始搜索")
+        
+        collection.hidden = true
+        searchResultTable.hidden = false
+        
+
+    }
 }

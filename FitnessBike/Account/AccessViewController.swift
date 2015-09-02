@@ -18,11 +18,13 @@ class AccessViewController: UIViewController {
         
         layout()
         
+        self.view.backgroundColor = UIColor.grayColor()
+        
     }
     
     func layout(){
         
-        var proImage = UIImage(named: "profile")
+        var proImage = UIImage(named: "rongtai_logo")
         
         var profileImgView = UIImageView(frame: CGMakeRect(150, 100, 80, 80))
         profileImgView.image = proImage
@@ -32,7 +34,7 @@ class AccessViewController: UIViewController {
         self.view.addSubview(profileImgView)
         
         
-        var btnLogin = UIButton(frame: CGMakeRect(90, 200, 120, 60))
+        var btnLogin = UIButton(frame: CGMakeRect(130, 200, 120, 60))
         btnLogin.setTitle("登陆、注册", forState: UIControlState.Normal)
         btnLogin.addTarget(self, action: "onLoginSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(btnLogin)
@@ -42,11 +44,11 @@ class AccessViewController: UIViewController {
         self.view.addSubview(thirdPartTitle)
         
         
-        var qqLogin = UIButton(frame: CGMakeRect(130, 180, 100, 60))
+        var qqLogin = UIButton(frame: CGMakeRect(90, 400, 100, 100))
         qqLogin.setImage(UIImage(named: "qq"), forState: UIControlState.Normal)
         self.view.addSubview(qqLogin)
 
-        var weixinLogin = UIButton(frame: CGMakeRect(130, 180, 100, 60))
+        var weixinLogin = UIButton(frame: CGMakeRect(200, 400, 100, 100))
         weixinLogin.setImage(UIImage(named: "weixin"), forState: UIControlState.Normal)
         self.view.addSubview(weixinLogin)
         

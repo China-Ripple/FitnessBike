@@ -18,10 +18,13 @@ class FriendRecommenderCollectionCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        pictureView = UIImageView(frame: CGMakeRect(0, 0, 30, 30))
+        pictureView = UIImageView(frame: CGMakeRect(0, 0, 60, 60))
+        pictureView.image = UIImage(named: "nzt")
+        pictureView.layer.cornerRadius = 8
+        pictureView.clipsToBounds = true
         self.addSubview(pictureView)
         
-        nameLabel = UILabel(frame: CGMakeRect(10,40,150,30))
+        nameLabel = UILabel(frame: CGMakeRect(10,70,150,30))
         self.addSubview(nameLabel)
         
     }

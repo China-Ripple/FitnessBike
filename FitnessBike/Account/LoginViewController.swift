@@ -34,23 +34,35 @@ class LoginViewController: UIViewController {
         
         var signupItem = UIButton(frame: CGMakeRect(300, 20, 100, 60))
         signupItem.setTitle("注册", forState: UIControlState.Normal)
+        signupItem.addTarget(self, action: "onRegisterSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
         headerBar.addSubview(signupItem)
         
         headerBar.backgroundColor = UIColor.darkGrayColor()
         
-        
-        var  name = UITextField(frame: CGMakeRect(20, 200, 300, 60))
-        name.text = "输入账户"
+        var name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
+        name.tintColor = UIColor.grayColor()
+        name.placeholder = "请输入账号"
         self.view.addSubview(name)
         
-        var pwd = UITextField(frame: CGMakeRect(20, 300, 300, 60))
-        pwd.text = "输入密码"
-        self.view.addSubview(pwd)
+        var line1 = UIView(frame: CGMakeRect(15, 150,350, 1))
+        line1.backgroundColor = UIColor.grayColor()
+        self.view.addSubview(line1)
+        
+        
+        var psw = UITextField(frame: CGMakeRect(20, 160, 350, 50))
+        psw.tintColor = UIColor.grayColor()
+        psw.placeholder = "请输入密码"
+        self.view.addSubview(psw)
+        
+        var line2 = UIView(frame: CGMakeRect(15, 220,350, 1))
+        line2.backgroundColor = UIColor.grayColor()
+        self.view.addSubview(line2)
         
         
         
-        var loginItem = UIButton(frame: CGMakeRect(180, 400, 60, 30))
-        loginItem.backgroundColor = UIColor.grayColor()
+        
+        var loginItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
+        loginItem.setBackgroundImage(UIImage(named: "login_btn_bg"), forState: UIControlState.Normal)
         loginItem.setTitle("登陆", forState: UIControlState.Normal)
         loginItem.addTarget(self, action: "onLoginSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(loginItem)
@@ -67,6 +79,11 @@ class LoginViewController: UIViewController {
      func onLoginSeleted(sender:AnyObject?){
         
         
+    }
+    
+    func onRegisterSeleted(sender:AnyObject?){
+        var viewCtrl = RegisterViewController()
+        self.presentViewController(viewCtrl, animated: true, completion: nil)
     }
     
     func onBackSeleted(sender:AnyObject?){

@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "462699317.791466"
+            timestampString = "462789193.183791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "addFriends(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,12 +218,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "462709224.308791"
+            timestampString = "462795006.226035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Message/MessageTableViewCell.swift"
+            timestampString = "462787964.692038"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "init(style:reuseIdentifier:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

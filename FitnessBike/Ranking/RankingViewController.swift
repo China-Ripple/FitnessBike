@@ -14,14 +14,18 @@ class RankingViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var segmentedCtrl:UISegmentedControl!
+    var  msgItem:UIButton!
     var memberList:NSMutableArray! = NSMutableArray()
-
+    var addItem:UIBarButtonItem!
+    var newMsg:UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        layoutNavigationBar()
+       
         
 
         for i in 0...100 {
@@ -53,13 +57,29 @@ class RankingViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = shareItem;
         
         
-        let addItem=UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.Bordered, target: self, action: "addFriends:")
+        addItem=UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.Bordered, target: self, action: "addFriends:")
         //  添加到到导航栏上
         self.navigationItem.rightBarButtonItem = addItem;
         
         
         
-        var segmentedCtrl = UISegmentedControl()
+        
+        
+        msgItem=UIButton(frame: CGMakeRect(270, 10, 30, 30))
+        msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
+        msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
+        //  添加到到导航栏上
+         self.navigationController!.navigationBar.addSubview(msgItem)
+        
+         newMsg=UIImageView(frame: CGMakeRect(270, 10, 15, 15))
+        newMsg.image = UIImage(named: "newmsg")
+        //  添加到到导航栏上
+        self.navigationController!.navigationBar.addSubview(newMsg)
+        
+        
+        
+        
+        segmentedCtrl = UISegmentedControl()
         segmentedCtrl.frame = CGRectMake(100, 5, 100, 30)
         
         segmentedCtrl.insertSegmentWithTitle("排行榜", atIndex: 0, animated: false)
@@ -70,6 +90,33 @@ class RankingViewController: UIViewController {
         
         
     
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+         layoutNavigationBar()
+        
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        
+        cleanNavigationBar()
+        
+        super.viewDidDisappear(animated)
+    }
+    
+    func cleanNavigationBar(){
+        segmentedCtrl.removeFromSuperview()
+        msgItem.removeFromSuperview()
+        newMsg.removeFromSuperview()
+    }
+    
+    func checkMessage(sender:AnyObject?){
+        
+        var msgVC = MessageListViewController();
+        
+        self.navigationController!.pushViewController(msgVC, animated:true)
+        
     }
     
     func share(sender:AnyObject?){
