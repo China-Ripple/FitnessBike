@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class RankingViewController: UIViewController {
     
     
@@ -38,16 +38,37 @@ class RankingViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
 
+        
         // Do any additional setup after loading the view.
         
         
       
+        loadData()
    
         
         
+    }
+    
+    func loadData(){
+        
+        Alamofire.request(Router.AllRanking(maxId: 10,count: 1)).responseJSON{
+            (_,_,json,error) in
+        
+            
+            if error != nil {
+                
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            
+            var result = JSON(json!)
+            
+            println("result: \(result)")
+            
+        }
     }
     
     func layoutNavigationBar(){
@@ -202,11 +223,18 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
             cell = RankingTableViewCell(style:UITableViewCellStyle.Default,reuseIdentifier:"cellForCell")
 
         }
+        var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
+        
+        cell!.fillCell(model)
 //
-         var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
+    
+
+
+     
+        
+        
             
 
-        cell!.fillCell(model)
   
         
         
