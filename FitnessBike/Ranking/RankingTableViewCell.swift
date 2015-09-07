@@ -26,18 +26,18 @@ class RankingTableViewCell: MGSwipeTableCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
-        positionLabel = UILabel(frame: CGRectMake(40, 10, 30, 30));
-        self.addSubview(positionLabel);
+        positionLabel = UILabel(frame: CGRectZero);
+         self.contentView.addSubview(positionLabel);
 
-        pictureImageView = UIImageView(frame: CGRectMake(65, 10, 40, 40))
-        self.addSubview(pictureImageView)
+        pictureImageView = UIImageView(frame:CGRectZero)
+         self.contentView.addSubview(pictureImageView)
 //
-        name = UILabel(frame: CGRectMake(65, 60, 100, 30))
-        self.addSubview(name)
+        name = UILabel(frame:CGRectZero)
+        self.contentView.addSubview(name)
 //
-        awardImageView = UIImageView(frame: CGRectMake(20,10,30,50))
-
-        self.addSubview(awardImageView)
+        awardImageView = UIImageView(frame:CGRectZero)
+        self.contentView.addSubview(awardImageView)
+      
         
         
         //silver
@@ -60,7 +60,7 @@ class RankingTableViewCell: MGSwipeTableCell {
         }
         
         if let a = award {
-              self.addSubview(awardImageView)
+              self.contentView.addSubview(awardImageView)
               positionLabel.removeFromSuperview()
               awardImageView.image = a
         }
@@ -97,22 +97,20 @@ class RankingTableViewCell: MGSwipeTableCell {
         // Configure the view for the selected state
     }
     
-     override func drawRect(rect: CGRect) {
-        var ctx:CGContextRef = UIGraphicsGetCurrentContext();
-        CGContextAddEllipseInRect(ctx, rect);
-        CGContextSetFillColor(ctx, CGColorGetComponents(indicatorColor.CGColor));
-        CGContextFillPath(ctx);
-    
-        if (innerColor != nil) {
-            var innerSize:CGFloat = rect.size.width * 0.5;
-            var innerRect:CGRect = CGRectMake(rect.origin.x + rect.size.width * 0.5 - innerSize * 0.5,
-            rect.origin.y + rect.size.height * 0.5 - innerSize * 0.5,
-            innerSize, innerSize);
-            CGContextAddEllipseInRect(ctx, innerRect);
-            CGContextSetFillColor(ctx, CGColorGetComponents(innerColor!.CGColor));
-            CGContextFillPath(ctx);
-        }
-
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        
+        positionLabel.frame = CGRectMake(40, 10, 30, 30)
+       
+        
+        pictureImageView.frame =  CGRectMake(65, 10, 40, 40)
+       
+        
+        name.frame =  CGRectMake(65, 60, 100, 30)
+        
+        
+        awardImageView.frame =  CGRectMake(20,10,30,50)
+        
     }
-
 }
