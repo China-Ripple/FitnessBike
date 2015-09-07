@@ -35,6 +35,8 @@
 		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
 		8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */; };
 		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
+		8A993ACF1B9D3F6D003737C6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A993AC81B9D3F53003737C6 /* Alamofire.framework */; };
+		8A993AD01B9D3F6D003737C6 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A993AC81B9D3F53003737C6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD61B957B91003E8D78 /* MessageModel.swift */; };
 		8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */; };
 		8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */; };
@@ -47,6 +49,12 @@
 		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
 		8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */; };
 		8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */; };
+		8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A70C1B96DB9400561ADB /* MGSwipeButton.m */; };
+		8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A70E1B96DB9400561ADB /* MGSwipeTableCell.m */; };
+		8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7221B96E79A00561ADB /* ServiceApi.swift */; };
+		8AE6A7251B96E7BE00561ADB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7241B96E7BE00561ADB /* Router.swift */; };
+		8AE6A7281B96EF7600561ADB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */; };
+		8AE6A73B1B9C11D500561ADB /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A73A1B9C11D500561ADB /* TestData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +65,56 @@
 			remoteGlobalIDString = 8A2149AA1B7DB3D8002BADDA;
 			remoteInfo = FitnessBike;
 		};
+		8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		8A993AC91B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		8A993ACB1B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		8A993ACD1B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		8A993AD11B9D3F6D003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8A993AD31B9D3F6D003737C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A993AD01B9D3F6D003737C6 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +150,7 @@
 		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
+		8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master-2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		8AC11CD61B957B91003E8D78 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,10 +164,20 @@
 		8AC46A541B8334E10025D25A /* MC10_GATT_DEFINE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MC10_GATT_DEFINE.H; sourceTree = "<group>"; };
 		8AC46A551B8334E10025D25A /* MyBleService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBleService.h; sourceTree = "<group>"; };
 		8AC46A561B8334E10025D25A /* MyBleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBleService.m; sourceTree = "<group>"; };
-		8AC46A591B83387C0025D25A /* SwiftWithOC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftWithOC-Bridging-Header.h"; sourceTree = "<group>"; };
 		8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefTableViewCell.swift; sourceTree = "<group>"; };
 		8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefModel.swift; sourceTree = "<group>"; };
+		8AE6A70B1B96DB9400561ADB /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		8AE6A70C1B96DB9400561ADB /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		8AE6A70D1B96DB9400561ADB /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		8AE6A70E1B96DB9400561ADB /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		8AE6A7221B96E79A00561ADB /* ServiceApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceApi.swift; sourceTree = "<group>"; };
+		8AE6A7241B96E7BE00561ADB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8AE6A7261B96EF7600561ADB /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
+		8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8AE6A7351B9BF42A00561ADB /* SwiftWithOC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftWithOC-Bridging-Header.h"; sourceTree = "<group>"; };
+		8AE6A7391B9C11D500561ADB /* TestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
+		8AE6A73A1B9C11D500561ADB /* TestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A993ACF1B9D3F6D003737C6 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +223,7 @@
 		8A2149A21B7DB3D8002BADDA = {
 			isa = PBXGroup;
 			children = (
+				8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */,
 				8A2149AD1B7DB3D8002BADDA /* FitnessBike */,
 				8A2149C61B7DB3D9002BADDA /* FitnessBikeTests */,
 				8A2149AC1B7DB3D8002BADDA /* Products */,
@@ -172,6 +242,9 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8AE6A7341B9BF41B00561ADB /* App */,
+				8AE6A7211B96E77400561ADB /* Service */,
+				8AE6A70A1B96DB6400561ADB /* MGSwipeTableCell */,
 				8AC11CDC1B959C07003E8D78 /* Search */,
 				8AC11CD51B957B6D003E8D78 /* Message */,
 				8A1C3C501B946A4700E4B53B /* Account */,
@@ -179,7 +252,6 @@
 				8A57C27C1B85963B0003E1C8 /* PNChartConfig */,
 				8A57C2701B8595FA0003E1C8 /* PNBarChart */,
 				8A57C2731B8595FA0003E1C8 /* PNLineChart */,
-				8AC46A591B83387C0025D25A /* SwiftWithOC-Bridging-Header.h */,
 				8AC46A501B8334E10025D25A /* BLE */,
 				8A2149D91B7DCA14002BADDA /* Utils */,
 				8A2149D61B7DC00D002BADDA /* Activity */,
@@ -241,6 +313,8 @@
 		8A2149D51B7DC000002BADDA /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				8AE6A7391B9C11D500561ADB /* TestData.h */,
+				8AE6A73A1B9C11D500561ADB /* TestData.m */,
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
 				8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */,
@@ -262,6 +336,8 @@
 		8A2149D91B7DCA14002BADDA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8AE6A7261B96EF7600561ADB /* SwiftyJSON.h */,
+				8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */,
 				8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */,
 			);
 			path = Utils;
@@ -297,6 +373,17 @@
 			path = PNChartConfig;
 			sourceTree = "<group>";
 		};
+		8A993AC11B9D3F53003737C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A993AC81B9D3F53003737C6 /* Alamofire.framework */,
+				8A993ACA1B9D3F53003737C6 /* Alamofire.framework */,
+				8A993ACC1B9D3F53003737C6 /* Alamofire iOS Tests.xctest */,
+				8A993ACE1B9D3F53003737C6 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8AC11CD51B957B6D003E8D78 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +417,34 @@
 			path = BLE;
 			sourceTree = "<group>";
 		};
+		8AE6A70A1B96DB6400561ADB /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				8AE6A70B1B96DB9400561ADB /* MGSwipeButton.h */,
+				8AE6A70C1B96DB9400561ADB /* MGSwipeButton.m */,
+				8AE6A70D1B96DB9400561ADB /* MGSwipeTableCell.h */,
+				8AE6A70E1B96DB9400561ADB /* MGSwipeTableCell.m */,
+			);
+			path = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		8AE6A7211B96E77400561ADB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8AE6A7221B96E79A00561ADB /* ServiceApi.swift */,
+				8AE6A7241B96E7BE00561ADB /* Router.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8AE6A7341B9BF41B00561ADB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8AE6A7351B9BF42A00561ADB /* SwiftWithOC-Bridging-Header.h */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,10 +455,12 @@
 				8A2149A71B7DB3D8002BADDA /* Sources */,
 				8A2149A81B7DB3D8002BADDA /* Frameworks */,
 				8A2149A91B7DB3D8002BADDA /* Resources */,
+				8A993AD31B9D3F6D003737C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8A993AD21B9D3F6D003737C6 /* PBXTargetDependency */,
 			);
 			name = FitnessBike;
 			productName = FitnessBike;
@@ -399,6 +516,12 @@
 			mainGroup = 8A2149A21B7DB3D8002BADDA;
 			productRefGroup = 8A2149AC1B7DB3D8002BADDA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8A993AC11B9D3F53003737C6 /* Products */;
+					ProjectRef = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A2149AA1B7DB3D8002BADDA /* FitnessBike */,
@@ -406,6 +529,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8A993AC81B9D3F53003737C6 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACA1B9D3F53003737C6 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8A993AC91B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACC1B9D3F53003737C6 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 8A993ACB1B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACE1B9D3F53003737C6 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 8A993ACD1B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A2149A91B7DB3D8002BADDA /* Resources */ = {
@@ -436,12 +590,16 @@
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
+				8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */,
+				8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */,
 				8AC46A571B8334E10025D25A /* BleDevice.m in Sources */,
 				8A1C3C561B9477E900E4B53B /* LoginViewController.swift in Sources */,
 				8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */,
 				8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */,
+				8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
+				8AE6A73B1B9C11D500561ADB /* TestData.m in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
 				8AC11CE01B959C57003E8D78 /* SearchTableViewCell.swift in Sources */,
 				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
@@ -450,6 +608,7 @@
 				8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */,
 				8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */,
 				8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */,
+				8AE6A7281B96EF7600561ADB /* SwiftyJSON.swift in Sources */,
 				8AC11CE21B959C67003E8D78 /* SearchModel.swift in Sources */,
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
 				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
@@ -461,6 +620,7 @@
 				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
 				8AC11CE41B95B1D1003E8D78 /* RegisterViewController.swift in Sources */,
 				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
+				8AE6A7251B96E7BE00561ADB /* Router.swift in Sources */,
 				8A57C27F1B85965B0003E1C8 /* PNChartConfig.swift in Sources */,
 				8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */,
 				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
@@ -486,6 +646,11 @@
 			isa = PBXTargetDependency;
 			target = 8A2149AA1B7DB3D8002BADDA /* FitnessBike */;
 			targetProxy = 8A2149C41B7DB3D9002BADDA /* PBXContainerItemProxy */;
+		};
+		8A993AD21B9D3F6D003737C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 8A993AD11B9D3F6D003737C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -603,6 +768,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: qi lin (N57A2UML24)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
+				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -616,6 +786,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
+				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -21,7 +21,7 @@ class CtrlViewController: UIViewController {
         super.viewDidLoad()
 
         
-        var bleService = MyBleService.getInstance()
+      //  var bleService = MyBleService.getInstance()
         
         shareButton = UIButton(frame: CGRectMake(15, 30, 18, 18))
         shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
@@ -31,9 +31,8 @@ class CtrlViewController: UIViewController {
         layoutScrollPage()
         layoutDataView()
         
-//        var leftButtonImage = UIImage(named: "share")
-//        
-//        self.navigationController!.navigationItem.leftBarButtonItem?.image = leftButtonImage
+        
+       var ble =  MyBleService()
         
     }
     
