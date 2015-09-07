@@ -183,33 +183,33 @@ class RankingViewController: UIViewController {
 
 extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
 //    
-//    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
-//    {
-//        return "  PK  "
-//    }
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-//    
-//    {
-//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-////            memberList.removeObjectAtIndex(indexPath.row)
-////            // Delete the row from the data source.
-//            
-//            
-////            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
-//            
-//            var competitionVC = CompetitionViewController();
-//            
-//            self.navigationController!.pushViewController(competitionVC, animated:true)
-//            
-//        }
-//        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
-//    }
-//    
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
-//        return  true
-//    }
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
+    {
+        return "  PK  "
+    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    
+    {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            memberList.removeObjectAtIndex(indexPath.row)
+//            // Delete the row from the data source.
+            
+            
+//            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
+            
+            var competitionVC = CompetitionViewController();
+            
+            self.navigationController!.pushViewController(competitionVC, animated:true)
+            
+        }
+        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
+        return  true
+    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         
@@ -250,8 +250,8 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
         }
         
 //        cell!.accessoryType = accessory;
-        cell!.delegate = self;
-        cell!.allowsMultipleSwipe = false;
+       // cell!.delegate = self;
+      //  cell!.allowsMultipleSwipe = false;
         var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
         cell!.fillCell(model)
         
