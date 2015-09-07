@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class ActivityViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +33,22 @@ class ActivityViewController: UIViewController {
         }
         
         
+        self.tableView.addHeaderWithCallback{
+            
+            self.loadData(0,maxId:0, isPullRefresh: true)
+        }
+        
+        self.tableView.addFooterWithCallback{
+            
+//            if(self.data.count>0) {
+//                var  maxId = self.data.last!.valueForKey("bookId") as! Int
+//                self.loadData(self.GetBookType(),maxId:maxId, isPullRefresh: false)
+//            }
+            
+             self.loadData(0,maxId:0, isPullRefresh: true)
+        }
+        
+        self.tableView.headerBeginRefreshing()
 
         // Do any additional setup after loading the view.
         
@@ -42,7 +58,52 @@ class ActivityViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-    
+    func loadData(type:Int,maxId:Int,isPullRefresh:Bool){
+//        
+//        Alamofire.request(Router.BookList(type: type, maxId: maxId, count: 16)).responseJSON{
+        
+        
+        
+         Alamofire.request(Router.AllRanking(maxId: maxId, count: 10)).responseJSON{
+            (_,_,json,error) in
+            
+            
+            if(isPullRefresh){
+                self.tableView.headerEndRefreshing()
+            }
+            else{
+                self.tableView.footerEndRefreshing()
+            }
+            if error != nil {
+                return
+            }
+            
+            
+            
+            var result = JSON(json!)
+            
+            if result["isSuc"].boolValue {
+                
+                var items = result["result"].object as! [AnyObject]
+                
+                if(items.count==0){
+                    return
+                }
+                
+                
+                
+              // self.setBookData(items,type:type,isPullRefresh:isPullRefresh)
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+                
+                
+                
+            }
+        }
+    }
+
 
     /*
     // MARK: - Navigation
