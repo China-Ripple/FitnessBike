@@ -57,7 +57,7 @@ class RankingViewController: UIViewController {
       
       //  loadData()
    
-        tests = TestData.data()
+     
         
         
     }
@@ -183,33 +183,33 @@ class RankingViewController: UIViewController {
 
 extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
 //    
-    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
-    {
-        return "  PK  "
-    }
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    
-    {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//            memberList.removeObjectAtIndex(indexPath.row)
-//            // Delete the row from the data source.
-            
-            
-//            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
-            
-            var competitionVC = CompetitionViewController();
-            
-            self.navigationController!.pushViewController(competitionVC, animated:true)
-            
-        }
-        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
-        return  true
-    }
+//    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
+//    {
+//        return "  PK  "
+//    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+//    
+//    {
+//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+////            memberList.removeObjectAtIndex(indexPath.row)
+////            // Delete the row from the data source.
+//            
+//            
+////            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
+//            
+//            var competitionVC = CompetitionViewController();
+//            
+//            self.navigationController!.pushViewController(competitionVC, animated:true)
+//            
+//        }
+//        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//        }
+//    }
+//    
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
+//        return  true
+//    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         
@@ -228,18 +228,6 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
        
         
-//        
-//        var cell:RankingTableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellForCell") as? RankingTableViewCell
-//
-//        if(cell == nil){
-//            cell = RankingTableViewCell(style:UITableViewCellStyle.Default,reuseIdentifier:"cellForCell")
-//
-//        }
-//        var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
-//        
-//        cell!.fillCell(model)
-////
-        
         
         var cell:RankingTableViewCell?
         
@@ -250,10 +238,12 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
         }
         
 //        cell!.accessoryType = accessory;
-       // cell!.delegate = self;
+        cell!.delegate = self;
       //  cell!.allowsMultipleSwipe = false;
         var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
         cell!.fillCell(model)
+        
+        
         
         return cell!
     }
@@ -272,18 +262,30 @@ extension RankingViewController:MGSwipeTableCellDelegate{
 //    
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]!
     {
-        var data:TestData = tests.objectAtIndex(tableView.indexPathForCell(cell)!.row) as! TestData;
         swipeSettings.transition = MGSwipeTransition.Border;
         swipeSettings.onlySwipeButtons = false
         swipeSettings.keepButtonsSwiped = true
-          expansionSettings.buttonIndex = 0
+        
          expansionSettings.fillOnTrigger = false;
         if (direction == MGSwipeDirection.LeftToRight) {
-            return createLeftButtons(Int(data.leftButtonsCount)) as [AnyObject];
+            expansionSettings.buttonIndex = 1
+            return createLeftButtons(1) as [AnyObject];
         }
         else {
-            return createRightButtons(Int(data.rightButtonsCount)) as [AnyObject];
+            expansionSettings.buttonIndex = 1
+            return createRightButtons(1) as [AnyObject];
         }
+    }
+    
+    func pk(){
+        var competitionVC = CompetitionViewController();
+        self.navigationController!.pushViewController(competitionVC, animated:true)
+    }
+    
+    func deleteFriend(indexPath:NSIndexPath){
+         memberList.removeObjectAtIndex(indexPath.row)
+        //tableView.deleteRowsAtIndexPaths( withRowAnimation:UITableViewRowAnimationLeft];
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
     }
     
     
@@ -306,7 +308,16 @@ extension RankingViewController:MGSwipeTableCellDelegate{
         for  i in 0...number-1
         {
             
-           var button:MGSwipeButton = MGSwipeButton(title: "", icon: icons[i], backgroundColor: colors[i]);
+            var button:MGSwipeButton = MGSwipeButton(title: " Delete ",backgroundColor: UIColor.redColor(), padding: 0, callback: { (sender) -> Bool in
+                
+                var indexPath:NSIndexPath = self.tableView.indexPathForCell(sender)!
+                self.deleteFriend(indexPath)
+                return true
+                
+            });
+            
+            
+            
             
             result.append(button)
 
@@ -318,17 +329,25 @@ extension RankingViewController:MGSwipeTableCellDelegate{
     func createRightButtons( number:Int)->[AnyObject]
     {
           var result:[AnyObject] = [AnyObject]();
-            var titles:[String] = ["Delete", "more"];
+            var titles:[String] = ["PK", "more"];
             var colors:[UIColor] = [UIColor.redColor(),UIColor.lightGrayColor()];
           for  i in 0...number-1
         {
-            var button:MGSwipeButton = MGSwipeButton(title: titles[i] as String, backgroundColor: colors[i], padding: 0)
-
+       
+            
+            var pkButtton:MGSwipeButton = MGSwipeButton(title: "   PK   ", backgroundColor: UIColor.greenColor(), padding: 10, callback: { (sender) -> Bool in
+            
+                self.pk()
+                return true
+                
+            })
+            
+           
 //            NSLog(@"Convenience callback received (right).");
 //            BOOL autoHide = i != 0;
 //            return autoHide; //Don't autohide in delete button to improve delete expansion animation
 //            }];
-            result.append(button)
+            result.append(pkButtton)
         }
         return result;
     }

@@ -64,7 +64,6 @@
 		8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7221B96E79A00561ADB /* ServiceApi.swift */; };
 		8AE6A7251B96E7BE00561ADB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7241B96E7BE00561ADB /* Router.swift */; };
 		8AE6A7281B96EF7600561ADB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */; };
-		8AE6A73B1B9C11D500561ADB /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A73A1B9C11D500561ADB /* TestData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,8 +195,6 @@
 		8AE6A7261B96EF7600561ADB /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		8AE6A7351B9BF42A00561ADB /* SwiftWithOC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftWithOC-Bridging-Header.h"; sourceTree = "<group>"; };
-		8AE6A7391B9C11D500561ADB /* TestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
-		8AE6A73A1B9C11D500561ADB /* TestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,8 +331,6 @@
 		8A2149D51B7DC000002BADDA /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				8AE6A7391B9C11D500561ADB /* TestData.h */,
-				8AE6A73A1B9C11D500561ADB /* TestData.m */,
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
 				8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */,
@@ -653,7 +648,6 @@
 				8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
-				8AE6A73B1B9C11D500561ADB /* TestData.m in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
 				8AC11CE01B959C57003E8D78 /* SearchTableViewCell.swift in Sources */,
 				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
