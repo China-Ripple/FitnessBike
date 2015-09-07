@@ -136,13 +136,21 @@ typedef NS_ENUM(NSInteger, MGSwipeEasingFunction) {
  */
 @protocol MGSwipeTableCellDelegate <NSObject>
 
+
+
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction DEPRECATED_ATTRIBUTE; //backwards compatibility
+
 @optional
+
+-(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings;
+
 /**
  * Delegate method to enable/disable swipe gestures
  * @return YES if swipe is allowed
  **/
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction fromPoint:(CGPoint) point;
--(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction DEPRECATED_ATTRIBUTE; //backwards compatibility
+
 
 /**
  * Delegate method invoked when the current swipe state changes
@@ -166,8 +174,7 @@ typedef NS_ENUM(NSInteger, MGSwipeEasingFunction) {
  * @param expansionSettings instance to configure button expansions (optional)
  * @return Buttons array
  **/
--(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
-             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings;
+
 
 /**
  * Called when the user taps on a swiped cell

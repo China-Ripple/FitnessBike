@@ -17,7 +17,7 @@
 #define BLUETOOTH_STATE_CONNECTING              1
 #define BLUETOOTH_STATE_CONNECTED               2
 
-
+#define TEST_USE_MG_DELEGATE 1
 
 
 #endif

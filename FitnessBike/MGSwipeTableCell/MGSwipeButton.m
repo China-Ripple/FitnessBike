@@ -78,6 +78,10 @@
     return button;
 }
 
++(void) test{
+    
+}
+
 -(BOOL) callMGSwipeConvenienceCallback: (MGSwipeTableCell *) sender
 {
     if (_callback) {
