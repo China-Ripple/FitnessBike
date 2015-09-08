@@ -10,14 +10,34 @@ import UIKit
 
 class ServiceApi: NSObject {
     
-    static var host:String = "http://121.41.121.9:8888"
-    //"http://demo.swiftmi.com"
+   //static var host:String = "http://wx.rongtai-china.com/fitnessbike"
+    
+     static var host:String = "http://oraykof.xicp.net/fitnessbike"
+    
+    internal class func getNotFoundUrl()->String{
+        return "\(host)/notfound"
+    }
     
     internal class func getAllRankingUrl(maxId:Int,count:Int) -> String {
         
         //return "\(host)/api/allraking/\(maxId)/\(count)"
         
         return  "\(host)"
+    }
+    internal class func getSignUpUrl()->String{
+      //  return "http://wx.rongtai-china.com/game/timeshift/res/man.png"
+        //
+        return "\(host)/signup"
+        
+       
+    }
+    
+    internal class func getSigninUrl(account:String,password:String)->String{
+        
+        
+        
+        return "\(host)/signin?account=\(account)&password=\(password)"
+        //return "http://121.41.121.9:80/fitnessbike/signup"
     }
     
 //    

@@ -16,12 +16,17 @@ enum Router: URLRequestConvertible{
     static var token: String?
 
     case AllRanking(maxId:Int,count:Int)
-
+    case SignIn(account:String,password:String)
+    case SignUp(parameters:[String: AnyObject])
     
     var method: Alamofire.Method {
         switch self {
         case .AllRanking:
             return .GET
+        case .SignIn(let account, let password):
+            return .GET
+        case .SignUp:
+            return .POST
         default:
             return .GET
         }
@@ -33,7 +38,14 @@ enum Router: URLRequestConvertible{
         switch self {
         case .AllRanking(let maxId,let count):
             return ServiceApi.getAllRankingUrl(maxId,count:count)
+        case .SignIn(let account, let password):
+            return  ServiceApi.getSigninUrl(account, password:password)
+        case .SignUp:
+            return ServiceApi.getSignUpUrl()
+        default:
+            return ServiceApi.getNotFoundUrl()
         }
+        
     }
     
     
@@ -48,11 +60,16 @@ enum Router: URLRequestConvertible{
         
         mutableURLRequest.setValue("com.chinarongtai.fitnessbike", forHTTPHeaderField: "clientid")
         mutableURLRequest.setValue("1.0", forHTTPHeaderField: "appversion")
+        
+        
+     
+        
         switch self {
-//            case .AllRanking(let maxId,let count):
-//                let params = ["maxId":maxId,"maxId":maxId]
-//                return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
-            default:
+             case .SignUp(let params):
+                   println("params: \( Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0)")
+                return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
+             default:
+            
             return mutableURLRequest
         }
     }

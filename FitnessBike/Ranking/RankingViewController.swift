@@ -15,13 +15,7 @@ class RankingViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
-  
 
-    var tests:NSMutableArray!
-    var prevButton:UIBarButtonItem!
-    var accessory:UITableViewCellAccessoryType!
-    var background:UIImageView! //used for transparency test
-    var allowMultipleSwipe:Bool!
     
     
     var segmentedCtrl:UISegmentedControl!
@@ -37,8 +31,9 @@ class RankingViewController: UIViewController {
        
         
 
-        for i in 0...100 {
+        for i in 0...20 {
             var model = RankingModel()
+            model.id = Int64(i)
             model.position = Int64(i+1)
             model.name = "宁泽涛 \(i)"
             memberList.addObject(model)
@@ -49,7 +44,22 @@ class RankingViewController: UIViewController {
         tableView.delegate = self
 
         
+        self.tableView.addHeaderWithCallback{
+            
+            self.loadData(0, isPullRefresh: true)
+        }
         
+        self.tableView.addFooterWithCallback{
+           if(self.memberList.count>0) {
+                var  model = self.memberList.lastObject as! RankingModel
+                var maxId = model.id
+
+                self.loadData(Int(maxId), isPullRefresh: false)
+           }
+        }
+        
+        self.tableView.headerBeginRefreshing()
+
         
         // Do any additional setup after loading the view.
         
@@ -62,24 +72,58 @@ class RankingViewController: UIViewController {
         
     }
     
-    func loadData(){
+    func productModels(){
         
-        Alamofire.request(Router.AllRanking(maxId: 10,count: 1)).responseJSON{
+
+    }
+    
+    func loadData(maxId:Int,isPullRefresh:Bool){
+        
+        Alamofire.request(Router.AllRanking(maxId: maxId, count: 10)).responseJSON{
             (_,_,json,error) in
-        
             
+            
+            if(isPullRefresh){
+                self.tableView.headerEndRefreshing()
+            }
+            else{
+                self.tableView.footerEndRefreshing()
+            }
             if error != nil {
-                
                 var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
                 alert.show()
                 return
             }
-            
-            
+
             var result = JSON(json!)
             
-            println("result: \(result)")
-            
+            if(result["response"].stringValue == "error") {
+                
+                
+            }
+            else{
+                
+                var items = result["people"].object as! [AnyObject]
+                
+                if(items.count==0){
+                    return
+                }
+                
+                
+                if(isPullRefresh){
+
+                    self.memberList.removeAllObjects()
+                }
+                
+                for  it in items {
+                    
+                    self.memberList.addObject(it)
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
     

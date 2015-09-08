@@ -7,8 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
 class LoginViewController: UIViewController {
+    
+    var name:UITextField!
+    var psw:UITextField!
+    var loginItem:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +43,7 @@ class LoginViewController: UIViewController {
         
         headerBar.backgroundColor = UIColor.darkGrayColor()
         
-        var name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
+        name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
         name.placeholder = "请输入账号"
         self.view.addSubview(name)
@@ -49,7 +53,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(line1)
         
         
-        var psw = UITextField(frame: CGMakeRect(20, 160, 350, 50))
+        psw = UITextField(frame: CGMakeRect(20, 160, 350, 50))
         psw.tintColor = UIColor.grayColor()
         psw.placeholder = "请输入密码"
         self.view.addSubview(psw)
@@ -61,7 +65,7 @@ class LoginViewController: UIViewController {
         
         
         
-        var loginItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
+        loginItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
         loginItem.setBackgroundImage(UIImage(named: "login_btn_bg"), forState: UIControlState.Normal)
         loginItem.setTitle("登陆", forState: UIControlState.Normal)
         loginItem.addTarget(self, action: "onLoginSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -75,8 +79,69 @@ class LoginViewController: UIViewController {
         
         self.view.addSubview(headerBar)
         
+     
+        
+        
+        
     }
      func onLoginSeleted(sender:AnyObject?){
+        
+//        
+        if(name.text.isEmpty){
+            Utility.showMsg("账号不能为空")
+            return
+        }
+        if(psw.text.isEmpty){
+            Utility.showMsg("密码不能为空")
+            return
+        }
+
+        var loginname = name.text
+        var loginpass = name.text
+        
+        pleaseWait()
+        
+        name.enabled  = false
+        psw.enabled = false
+        loginItem.enabled = false
+        loginItem.setTitle("登录ing...", forState: UIControlState.allZeros)
+        
+        
+        Alamofire.request(Router.SignIn(account: loginname, password: loginpass)).responseJSON{
+            (_,_,json,error) in
+            
+            self.clearAllNotice()
+            
+            self.loginItem.enabled  = true
+            self.loginItem.setTitle("登录", forState: UIControlState.allZeros)
+            if error != nil {
+                
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+             var result = JSON(json!)
+            
+            println("result: \(result)")
+            
+            if(result["response"].stringValue != "error"){
+                
+                var token = result["token"].stringValue
+                KeychainWrapper.setString(token, forKey: "token")
+                Router.token  = token
+                Utility.enterMainScreen(self)
+                
+            }
+            else{
+                var errMsg = result["error"]
+                var errTxt = errMsg["text"].stringValue
+                var alert = UIAlertView(title: "登录失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+            }
+        }
+
+
         
         
     }

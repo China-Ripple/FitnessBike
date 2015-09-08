@@ -7,9 +7,14 @@
 //
 
 import UIKit
-
+import Alamofire
 class RegisterViewController: UIViewController {
 
+    var name:UITextField!
+    var checkNum :UITextField!
+    var psw :UITextField!
+    var registerItem:UIButton!
+    var psw2:UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +36,7 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(headerBar)
         
         
-        var name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
+        name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
         name.placeholder = "请输入账号"
         self.view.addSubview(name)
@@ -41,14 +46,14 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(line1)
         
         
-        var checkNum = UITextField(frame: CGMakeRect(20, 160, 200, 50))
+        checkNum = UITextField(frame: CGMakeRect(20, 160, 200, 50))
         checkNum.tintColor = UIColor.grayColor()
         checkNum.placeholder = "验证码"
         self.view.addSubview(checkNum)
         
         var getNum = UIButton(frame:CGMakeRect(210, 160, 100, 50))
         getNum.setBackgroundImage(UIImage(named: "checknum_bg"), forState: UIControlState.Normal)
-        getNum.setTitle("发送", forState: UIControlState.Normal)
+        getNum.setTitle("获取", forState: UIControlState.Normal)
         getNum.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
         self.view.addSubview(getNum)
         
@@ -57,7 +62,7 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(line2)
         
         
-        var psw = UITextField(frame: CGMakeRect(20, 230, 350, 50))
+        psw = UITextField(frame: CGMakeRect(20, 230, 350, 50))
         psw.tintColor = UIColor.grayColor()
         psw.placeholder = "输入密码"
         self.view.addSubview(psw)
@@ -67,7 +72,7 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(line3)
         
         
-        var psw2 = UITextField(frame: CGMakeRect(20, 300, 350, 50))
+        psw2 = UITextField(frame: CGMakeRect(20, 300, 350, 50))
         psw2.tintColor = UIColor.grayColor()
         psw2.placeholder = "再次输入密码"
         self.view.addSubview(psw2)
@@ -78,7 +83,7 @@ class RegisterViewController: UIViewController {
         
 
         
-        var registerItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
+        registerItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
         registerItem.setBackgroundImage(UIImage(named: "login_btn_bg"), forState: UIControlState.Normal)
         registerItem.setTitle("确认", forState: UIControlState.Normal)
         registerItem.addTarget(self, action: "onRegisterSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -86,16 +91,82 @@ class RegisterViewController: UIViewController {
 
         
         
-       
+       onRegisterSeleted(nil)
         
         
     }
     func onRegisterSeleted(sender:AnyObject?){
         
-        var storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var viewCtrl:UITabBarController = storyboard.instantiateViewControllerWithIdentifier("mainCtrl") as! UITabBarController
-        var mainVC=UINavigationController(rootViewController: UITableViewController())
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+//        
+//        if(name.text.isEmpty){
+//            Utility.showMsg("账号不能为空")
+//            return
+//        }
+//        if(psw.text.isEmpty){
+//            Utility.showMsg("密码不能为空")
+//            return
+//        }
+//        if(psw2.text.isEmpty){
+//            Utility.showMsg("请再次输入密码")
+//            return
+//        }
+//        if(checkNum.text.isEmpty){
+//            Utility.showMsg("验证码不能为空")
+//            return
+//        }
+        
+        
+//        var loginname = name.text
+//        var loginpass = psw.text
+//        var number = checkNum.text
+//        
+//        pleaseWait()
+//        
+//        name.enabled  = false
+//        psw.enabled = false
+//        registerItem.enabled = false
+//        registerItem.setTitle("注册ing...", forState: UIControlState.allZeros)
+        
+      //  let params: = ["account":"abc","password":"abc","checknum":"abc"]
+        
+         let params:[String:AnyObject] = ["account":111,"content":"aaaa","checknum":"abc"]
+        
+        
+        Alamofire.request(Router.SignUp(parameters: params)).responseJSON{
+            (_,_,json,error) in
+            
+            self.clearAllNotice()
+            
+            self.registerItem.enabled  = true
+            self.registerItem.setTitle("注册", forState: UIControlState.allZeros)
+            if error != nil {
+                
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            var result = JSON(json!)
+            
+            if(result["response"].stringValue != "error"){
+                
+                var token = result["token"].stringValue
+                KeychainWrapper.setString(token, forKey: "token")
+                Router.token  = token
+                
+                Utility.enterMainScreen(self)
+            }
+            else{
+                var errMsg = result["error"]
+                
+                var errTxt = errMsg["text"].stringValue
+                
+                
+                var alert = UIAlertView(title: "注册失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                
+                alert.show()
+            }
+        }
         
     }
     
