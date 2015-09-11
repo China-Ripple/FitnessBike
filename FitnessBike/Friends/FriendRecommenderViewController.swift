@@ -154,6 +154,12 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
                 btn!.index = indexPath.section
                 btn!.setTitle("XXXX", forState: UIControlState.Normal)
                 btn!.setImage(UIImage(named: "jiantou.png"), forState: UIControlState.Normal)
+                if(indexPath.section == 0){
+                    btn!.index = 0
+                }
+                else{
+                    btn!.index = 1
+                }
                 btn!.addTarget(self,action:"onHeaderBtnClicked:", forControlEvents:UIControlEvents.TouchUpInside)
               
             }
@@ -164,9 +170,18 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         return reusableview
     }
 
-    func onHeaderBtnClicked(send:AnyObject?){
+    func onHeaderBtnClicked(sender:AnyObject?){
         println("onHeaderBtnClicked")
+        var btn = sender as! FriendHeaderButton
         var searchVC = SearchViewController();
+        if(btn.index == 0){
+            searchVC.searchType = .NearbyPeople
+        }
+        else{
+            searchVC.searchType = .Talent
+        }
+        
+        println("searchVC.searchType: \(btn.index)")
         
         self.navigationController!.pushViewController(searchVC, animated:true)
     }

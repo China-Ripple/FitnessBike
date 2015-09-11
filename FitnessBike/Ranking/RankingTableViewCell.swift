@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class RankingTableViewCell: MGSwipeTableCell {
     
     
@@ -30,7 +30,9 @@ class RankingTableViewCell: MGSwipeTableCell {
          self.contentView.addSubview(positionLabel);
 
         pictureImageView = UIImageView(frame:CGRectZero)
-         self.contentView.addSubview(pictureImageView)
+        pictureImageView.layer.cornerRadius = pictureImageView.frame.size.width/2
+        pictureImageView.clipsToBounds = true
+        self.contentView.addSubview(pictureImageView)
 //
         name = UILabel(frame:CGRectZero)
         self.contentView.addSubview(name)
@@ -60,6 +62,8 @@ class RankingTableViewCell: MGSwipeTableCell {
         }
         
         if let a = award {
+          
+
               self.contentView.addSubview(awardImageView)
               positionLabel.removeFromSuperview()
               awardImageView.image = a
@@ -69,12 +73,23 @@ class RankingTableViewCell: MGSwipeTableCell {
             positionLabel.text = "\(model.position)"
         }
         
-      
         
-        var profile = UIImage(named: "nzt")
-        pictureImageView.layer.cornerRadius = pictureImageView.frame.size.width/2
-        pictureImageView.clipsToBounds = true
-        pictureImageView.image = profile
+        let imageURL = "http://wx.qlogo.cn/mmopen/NtThuQzv5NKgyM1tSJG3JxjgYejtB3QBOxJhudndRaA3WdowvezqFsszBu2ibP0FgBsaV0icKpwBFGicevuuv08vMq2zadqhr7ic/0"
+        
+        //model.imageUrl
+        
+        Alamofire.request(.GET, imageURL).response() {
+            (_, _, data, _) in
+            
+            let image = UIImage(data: data! as! NSData)
+            
+            
+            
+            self.pictureImageView.image = image
+        }
+
+      
+
         
         self.name.text = model.name
     }
@@ -101,7 +116,7 @@ class RankingTableViewCell: MGSwipeTableCell {
         
         super.layoutSubviews()
         
-        positionLabel.frame = CGRectMake(40, 10, 30, 30)
+        positionLabel.frame = CGRectMake(40, 30, 30, 30)
        
         
         pictureImageView.frame =  CGRectMake(65, 10, 40, 40)
@@ -110,7 +125,7 @@ class RankingTableViewCell: MGSwipeTableCell {
         name.frame =  CGRectMake(65, 60, 100, 30)
         
         
-        awardImageView.frame =  CGRectMake(20,10,30,50)
+        awardImageView.frame =  CGRectMake(20,30,30,50)
         
     }
 }

@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
         }
 
         var loginname = name.text
-        var loginpass = name.text
+        var loginpass = psw.text
         
         pleaseWait()
         
@@ -106,6 +106,8 @@ class LoginViewController: UIViewController {
         loginItem.enabled = false
         loginItem.setTitle("登录ing...", forState: UIControlState.allZeros)
         
+        
+        println("account=\(loginname) psw=\(loginpass)")
         
         Alamofire.request(Router.SignIn(account: loginname, password: loginpass)).responseJSON{
             (_,_,json,error) in

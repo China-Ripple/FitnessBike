@@ -32,7 +32,7 @@ class CtrlViewController: UIViewController {
         layoutDataView()
         
         
-       var ble =  MyBleService()
+       var ble =  MyBleService.getInstance()
         
     }
     

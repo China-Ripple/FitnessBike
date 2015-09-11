@@ -91,49 +91,74 @@ class RegisterViewController: UIViewController {
 
         
         
-       onRegisterSeleted(nil)
+      requesRegister()
         
         
+    }
+    
+    func requesRegister(){
+//         let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
+//         Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: parameters, encoding: .JSON)
+//            .responseJSON { (request, response, data, error) in
+//                
+//                println("data: \(data)")
+//                
+//                var result = JSON(data!)
+//                Utility.showNetMsg(result)
+//         }
     }
     func onRegisterSeleted(sender:AnyObject?){
         
 //        
-//        if(name.text.isEmpty){
-//            Utility.showMsg("账号不能为空")
-//            return
-//        }
-//        if(psw.text.isEmpty){
-//            Utility.showMsg("密码不能为空")
-//            return
-//        }
-//        if(psw2.text.isEmpty){
-//            Utility.showMsg("请再次输入密码")
-//            return
-//        }
-//        if(checkNum.text.isEmpty){
-//            Utility.showMsg("验证码不能为空")
-//            return
-//        }
+        if(name.text.isEmpty){
+            Utility.showMsg("账号不能为空")
+            return
+        }
+        if(psw.text.isEmpty){
+            Utility.showMsg("密码不能为空")
+            return
+        }
+        if(psw2.text.isEmpty){
+            Utility.showMsg("请再次输入密码")
+            return
+        }
+        if(psw2.text != psw.text){
+            Utility.showMsg("两次输入密码不一样")
+            return
+        }
+        if(checkNum.text.isEmpty){
+            Utility.showMsg("验证码不能为空")
+            return
+        }
         
         
-//        var loginname = name.text
-//        var loginpass = psw.text
-//        var number = checkNum.text
-//        
-//        pleaseWait()
-//        
-//        name.enabled  = false
-//        psw.enabled = false
-//        registerItem.enabled = false
-//        registerItem.setTitle("注册ing...", forState: UIControlState.allZeros)
+        var loginname = name.text
+        var loginpass = psw.text
+        var number = checkNum.text
         
-      //  let params: = ["account":"abc","password":"abc","checknum":"abc"]
+        pleaseWait()
         
-         let params:[String:AnyObject] = ["account":111,"content":"aaaa","checknum":"abc"]
+        name.enabled  = false
+        psw.enabled = false
+        registerItem.enabled = false
+        registerItem.setTitle("注册ing...", forState: UIControlState.allZeros)
         
+
         
-        Alamofire.request(Router.SignUp(parameters: params)).responseJSON{
-            (_,_,json,error) in
+//         let params:[String:AnyObject] = ["account":name.text,"password":psw.text,"checknum":checkNum.text]
+//
+      
+
+        let params = ["account":"zzzz","password":"cccc","checknum":"11111"]
+        
+//        Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: params, encoding: .JSON)
+        
+        let req =  "http://wx.rongtai-china.com/fitnessbike/signup?account=\(loginname)&password=\(loginpass)&&checknum=\(number)"
+            
+               Alamofire.request(.GET, req)
+            .responseJSON { (request, response, json, error) in
+
+                    
             
             self.clearAllNotice()
             

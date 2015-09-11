@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
 class MessageListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var tableView:UITableView!
     var messageData = NSMutableArray()
-    
+    internal var data:[AnyObject] = [AnyObject]()
     var msgItem:UIButton!
     
     override func viewDidLoad() {
@@ -27,6 +27,24 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
         
         setupData()
         
+        self.tableView.addHeaderWithCallback{
+            
+            self.loadData(0, isPullRefresh: true)
+        }
+        
+        self.tableView.addFooterWithCallback{
+            
+            if(self.data.count>0) {
+                var  maxId = self.data.last!.valueForKey("id") as! Int
+
+                
+                self.loadData(Int(maxId), isPullRefresh: false)
+            }
+            else{
+                self.loadData(0, isPullRefresh: false)
+            }
+        }
+        self.tableView.headerBeginRefreshing()
         
     }
     
@@ -65,7 +83,14 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
             
             messageData.addObject(model)
         }
+        
+        
     }
+    
+    
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return messageData.count
     }
@@ -94,6 +119,58 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
         
         return cell!
     }
+    
+    
+    func loadData(maxId:Int,isPullRefresh:Bool){
+        
+        Alamofire.request(Router.CompMsg(maxId: maxId,num: 20)).responseJSON{
+            (_,_,json,error) in
+            
+            
+            if(isPullRefresh){
+                self.tableView.headerEndRefreshing()
+            }
+            else{
+                self.tableView.footerEndRefreshing()
+            }
+            if error != nil {
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            var result = JSON(json!)
+            
+            if(result["response"].stringValue == "error") {
+                
+                
+            }
+            else{
+                
+                var items = result["people"].object as! [AnyObject]
+                
+                if(items.count==0){
+                    return
+                }
+                
+                
+                if(isPullRefresh){
+                    
+                    self.data.removeAll(keepCapacity: false)
+                }
+                
+                for  it in items {
+                    
+                    self.data.append(it)
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
     
     func setupNavigationBar(){
         

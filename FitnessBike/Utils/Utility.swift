@@ -23,4 +23,12 @@ class Utility: NSObject {
         var mainVC=UINavigationController(rootViewController: UITableViewController())
         selfCtrler.presentViewController(viewCtrl, animated: true, completion: nil)
     }
+    
+    class func showNetMsg(result:JSON){
+        
+        var errMsg = result["error"]
+        var errTxt = errMsg["text"].stringValue
+        var alert = UIAlertView(title: "登录失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+        alert.show()
+    }
 }

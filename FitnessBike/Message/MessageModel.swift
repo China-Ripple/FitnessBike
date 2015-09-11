@@ -10,6 +10,7 @@ import UIKit
 
 class MessageModel: NSObject {
 
+    var id:Int64!
     var defierId:Int!
     var defierName:String!
     var matchId:Int!

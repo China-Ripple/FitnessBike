@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class AccessViewController: UIViewController {
 
     
@@ -76,6 +76,54 @@ class AccessViewController: UIViewController {
         var viewCtrl:UITabBarController = storyboard.instantiateViewControllerWithIdentifier("mainCtrl") as! UITabBarController
         var mainVC=UINavigationController(rootViewController: UITableViewController())
         self.presentViewController(viewCtrl, animated: true, completion: nil)
+    }
+    
+    func sendRequest(){
+        
+        Alamofire.request(Router.CompMsg(maxId: 0, num: 20)).responseJSON{
+            (_,_,json,error) in
+            
+            if error != nil {
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            var result = JSON(json!)
+            
+            println("result: \(result)")
+            
+            if(result["response"].stringValue == "success"){
+                
+              
+                if(AppStates.compMsg == nil){
+                    
+                    AppStates.compMsg = [AnyObject]()
+                }
+                if(AppStates.compMsg!.count>0){
+                    AppStates.compMsg!.removeAll(keepCapacity: false)
+                }
+                var items = result["people"].object as! [AnyObject]
+                
+                if(items.count==0){
+                    return
+                }
+            
+                for  it in items {
+                    
+                    AppStates.compMsg!.append(it)
+                }
+
+                
+                
+            }
+            else{
+                var errMsg = result["error"]
+                var errTxt = errMsg["text"].stringValue
+                var alert = UIAlertView(title: "请求站内信失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+            }
+        }
     }
     
     

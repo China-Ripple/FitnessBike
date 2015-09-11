@@ -16,11 +16,11 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
 
-    
+    var loading:Bool = false
     
     var segmentedCtrl:UISegmentedControl!
     var  msgItem:UIButton!
-    var memberList:NSMutableArray! = NSMutableArray()
+    var memberList:[AnyObject] = [AnyObject]()
     var addItem:UIBarButtonItem!
     var newMsg:UIImageView!
     override func viewDidLoad() {
@@ -28,17 +28,7 @@ class RankingViewController: UIViewController {
         
         
         
-       
-        
 
-        for i in 0...20 {
-            var model = RankingModel()
-            model.id = Int64(i)
-            model.position = Int64(i+1)
-            model.name = "宁泽涛 \(i)"
-            memberList.addObject(model)
-            
-        }
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,10 +41,10 @@ class RankingViewController: UIViewController {
         
         self.tableView.addFooterWithCallback{
            if(self.memberList.count>0) {
-                var  model = self.memberList.lastObject as! RankingModel
-                var maxId = model.id
+                var  maxId = (self.memberList.last!.valueForKey("id") as! String).toInt()
 
-                self.loadData(Int(maxId), isPullRefresh: false)
+
+                self.loadData(maxId!, isPullRefresh: false)
            }
         }
         
@@ -78,10 +68,15 @@ class RankingViewController: UIViewController {
     }
     
     func loadData(maxId:Int,isPullRefresh:Bool){
+        if self.loading {
+            return
+        }
+        self.loading = true
         
-        Alamofire.request(Router.AllRanking(maxId: maxId, count: 10)).responseJSON{
+        Alamofire.request(Router.AllRanking(maxId: maxId, num: 10)).responseJSON{
             (_,_,json,error) in
             
+            self.loading = false
             
             if(isPullRefresh){
                 self.tableView.headerEndRefreshing()
@@ -97,8 +92,11 @@ class RankingViewController: UIViewController {
 
             var result = JSON(json!)
             
+            println("result: \(result)")
+            
             if(result["response"].stringValue == "error") {
                 
+                Utility.showNetMsg(result)
                 
             }
             else{
@@ -112,12 +110,12 @@ class RankingViewController: UIViewController {
                 
                 if(isPullRefresh){
 
-                    self.memberList.removeAllObjects()
+                    self.memberList.removeAll(keepCapacity: false)
                 }
                 
                 for  it in items {
                     
-                    self.memberList.addObject(it)
+                    self.memberList.append(it)
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
@@ -284,7 +282,15 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
 //        cell!.accessoryType = accessory;
         cell!.delegate = self;
       //  cell!.allowsMultipleSwipe = false;
-        var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
+        var obj = memberList[indexPath.row]
+            
+        var model = RankingModel()
+        model.id = (obj.valueForKey("id") as! String).toInt()
+        model.name = obj.valueForKey("name") as! String
+        model.imageUrl = obj.valueForKey("imageUrl") as! String
+        model.position = obj.valueForKey("position") as! Int
+        model.kilometre =  obj.valueForKey("kilometre") as! Int
+      
         cell!.fillCell(model)
         
         
@@ -327,7 +333,7 @@ extension RankingViewController:MGSwipeTableCellDelegate{
     }
     
     func deleteFriend(indexPath:NSIndexPath){
-         memberList.removeObjectAtIndex(indexPath.row)
+         memberList.removeAtIndex(indexPath.row)
         //tableView.deleteRowsAtIndexPaths( withRowAnimation:UITableViewRowAnimationLeft];
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
     }

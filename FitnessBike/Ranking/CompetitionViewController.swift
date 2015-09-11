@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class CompetitionViewController: UIViewController {
 
     
@@ -64,30 +64,56 @@ class CompetitionViewController: UIViewController {
         
     }
     
+    func sendRequest(defenderid:String,type:Int,time:String){
+        
+        Alamofire.request(Router.Competition(defenderid: defenderid, type: type, time: time)).responseJSON{
+            (_,_,json,error) in
+
+            if error != nil {
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            var result = JSON(json!)
+            
+            println("result: \(result)")
+            
+            if(result["response"].stringValue == "success"){
+                
+                let alert = UIAlertView()
+                alert.title = "成功"
+                alert.message = "请求成功,请做好竞赛准备"
+                alert.addButtonWithTitle("好的")
+                alert.show()
+
+                
+            }
+            else{
+                var errMsg = result["error"]
+                var errTxt = errMsg["text"].stringValue
+                var alert = UIAlertView(title: "请求失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+            }
+        }
+
+    }
+    
     func onSpeedCompetitionSelected(send:AnyObject?)
     {
-        println("onSpeedCompetitionSelected")
-        
-        let alert = UIAlertView()
-        alert.title = "成功"
-        alert.message = "请求对方速度竞赛成功"
-        alert.addButtonWithTitle("好的")
-        alert.show()
+
+       sendRequest("11111",type: 1,time: "2015-10-15")
+
     }
     func onStaminaCompetitionSelected(send:AnyObject?){
-        println("onStaminaCompetitionSelected")
-        let alert = UIAlertView()
-        alert.title = "成功"
-        alert.message = "请求对方耐力竞赛成功"
-        alert.addButtonWithTitle("好的")
-        alert.show()
+        
+       sendRequest("22222",type: 1,time: "2015-10-15")
     }
     
     
     func loadCompetition(){
         var competitionView = UIView(frame: CGRectMake(0, 200, UIScreen.mainScreen().bounds.size.width, 60));
-        
-        
+
         var speedView = UIButton(frame: CGRectMake(40, 10, 100, 100))
         var speed = UIImage(named: "speed_competition")
         speedView.setBackgroundImage(speed, forState: UIControlState.Normal)

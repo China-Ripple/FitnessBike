@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import Alamofire
 class SearchTableViewCell: UITableViewCell {
 
     var picture:UIImageView!
     var name:UILabel!
     var add2Contact:UIButton!
+    var userId:Int!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -37,19 +38,57 @@ class SearchTableViewCell: UITableViewCell {
     
     
     func sendRequest(sender:AnyObject?){
-        let alert = UIAlertView()
-        alert.title = "成功"
-        alert.message = "已经将您的请求发送到对方，耐心等待回复"
-        alert.addButtonWithTitle("好的")
-        alert.show()
+        
+        request()
+       
+    }
+    
+    
+    func request(){
+        
+        Alamofire.request(Router.Makefriends(account: "\(userId)")).responseJSON{
+            (_,_,json,error) in
+            
+            if error != nil {
+                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+                return
+            }
+            
+            var result = JSON(json!)
+            
+            println("result: \(result)")
+            
+            if(result["response"].stringValue == "success"){
+                
+                
+                
+                let alert = UIAlertView()
+                alert.title = "成功"
+                alert.message = "用户id: \(self.userId)"
+                alert.addButtonWithTitle("好的")
+                alert.show()
+                
+            }
+            else{
+                var errMsg = result["error"]
+                var errTxt = errMsg["text"].stringValue
+                var alert = UIAlertView(title: "添加好友失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                alert.show()
+            }
+        }
     }
     
     func makeCell(model:SearchModel){
         name.text = model.userName
         
+        userId = model.userId
+        
     }
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
 }

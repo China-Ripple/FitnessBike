@@ -23,30 +23,40 @@ class MessageTableViewCell: UITableViewCell {
         refuseBtn.setTitle("拒绝", forState: UIControlState.Normal)
         refuseBtn.addTarget(self, action: "refuse:", forControlEvents: UIControlEvents.TouchUpInside)
         refuseBtn.backgroundColor = UIColor.darkGrayColor()
-        self.addSubview(refuseBtn)
+       
         
         acceptBtn = UIButton(frame: CGMakeRect(300, 10, 80, 60))
         acceptBtn.setTitle("接受", forState: UIControlState.Normal)
         acceptBtn.addTarget(self, action: "accept:", forControlEvents: UIControlEvents.TouchUpInside)
         acceptBtn.backgroundColor = UIColor.darkGrayColor()
-        self.addSubview(acceptBtn)
+        
         
         titleLabel = UILabel(frame: CGMakeRect(120, 5, 200, 40))
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.font = UIFont(name: "Arial", size: 15)
-        self.addSubview(titleLabel)
+       
         
         matchImage = UIImageView(frame: CGMakeRect(129, 50, 40, 40))
-        self.addSubview(matchImage)
+        
         
         matchName = UILabel(frame: CGMakeRect(140, 50, 100, 40))
         matchName.textColor = UIColor.whiteColor()
-        self.addSubview(matchName)
+      
         
         self.backgroundColor = UIColor.grayColor()
         
     }
-    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        
+        self.addSubview(refuseBtn)
+        self.addSubview(acceptBtn)
+        self.addSubview(matchName)
+        self.addSubview(matchImage)
+        self.addSubview(titleLabel)
+        
+    }
     func accept(sender:AnyObject?){
         let alert = UIAlertView()
         alert.title = "恭喜你"
@@ -62,6 +72,8 @@ class MessageTableViewCell: UITableViewCell {
         alert.addButtonWithTitle("好的")
         alert.show()
     }
+    
+  
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

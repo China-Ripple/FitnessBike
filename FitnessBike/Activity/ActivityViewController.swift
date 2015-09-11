@@ -64,7 +64,7 @@ class ActivityViewController: UIViewController {
         
         
         
-         Alamofire.request(Router.AllRanking(maxId: maxId, count: 10)).responseJSON{
+        Alamofire.request(Router.AllRanking(maxId: maxId, num:10)).responseJSON{
             (_,_,json,error) in
             
             
