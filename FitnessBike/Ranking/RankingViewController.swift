@@ -15,18 +15,12 @@ class RankingViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
-  
 
-    var tests:NSMutableArray!
-    var prevButton:UIBarButtonItem!
-    var accessory:UITableViewCellAccessoryType!
-    var background:UIImageView! //used for transparency test
-    var allowMultipleSwipe:Bool!
-    
+    var loading:Bool = false
     
     var segmentedCtrl:UISegmentedControl!
     var  msgItem:UIButton!
-    var memberList:NSMutableArray! = NSMutableArray()
+    var memberList:[AnyObject] = [AnyObject]()
     var addItem:UIBarButtonItem!
     var newMsg:UIImageView!
     override func viewDidLoad() {
@@ -34,22 +28,28 @@ class RankingViewController: UIViewController {
         
         
         
-       
-        
 
-        for i in 0...100 {
-            var model = RankingModel()
-            model.position = Int64(i+1)
-            model.name = "宁泽涛 \(i)"
-            memberList.addObject(model)
-            
-        }
         
         tableView.dataSource = self
         tableView.delegate = self
 
         
+        self.tableView.addHeaderWithCallback{
+            
+            self.loadData(0, isPullRefresh: true)
+        }
         
+        self.tableView.addFooterWithCallback{
+           if(self.memberList.count>0) {
+                var  maxId = (self.memberList.last!.valueForKey("id") as! String).toInt()
+
+
+                self.loadData(maxId!, isPullRefresh: false)
+           }
+        }
+        
+        self.tableView.headerBeginRefreshing()
+
         
         // Do any additional setup after loading the view.
         
@@ -62,24 +62,66 @@ class RankingViewController: UIViewController {
         
     }
     
-    func loadData(){
+    func productModels(){
         
-        Alamofire.request(Router.AllRanking(maxId: 10,count: 1)).responseJSON{
+
+    }
+    
+    func loadData(maxId:Int,isPullRefresh:Bool){
+        if self.loading {
+            return
+        }
+        self.loading = true
+        
+        Alamofire.request(Router.AllRanking(maxId: maxId, num: 10)).responseJSON{
             (_,_,json,error) in
-        
             
+            self.loading = false
+            
+            if(isPullRefresh){
+                self.tableView.headerEndRefreshing()
+            }
+            else{
+                self.tableView.footerEndRefreshing()
+            }
             if error != nil {
-                
                 var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
                 alert.show()
                 return
             }
-            
-            
+
             var result = JSON(json!)
             
             println("result: \(result)")
             
+            if(result["response"].stringValue == "error") {
+                
+                Utility.showNetMsg(result)
+                
+            }
+            else{
+                
+                var items = result["people"].object as! [AnyObject]
+                
+                if(items.count==0){
+                    return
+                }
+                
+                
+                if(isPullRefresh){
+
+                    self.memberList.removeAll(keepCapacity: false)
+                }
+                
+                for  it in items {
+                    
+                    self.memberList.append(it)
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
     
@@ -240,7 +282,15 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
 //        cell!.accessoryType = accessory;
         cell!.delegate = self;
       //  cell!.allowsMultipleSwipe = false;
-        var model = memberList.objectAtIndex(indexPath.row) as! RankingModel
+        var obj = memberList[indexPath.row]
+            
+        var model = RankingModel()
+        model.id = (obj.valueForKey("id") as! String).toInt()
+        model.name = obj.valueForKey("name") as! String
+        model.imageUrl = obj.valueForKey("imageUrl") as! String
+        model.position = obj.valueForKey("position") as! Int
+        model.kilometre =  obj.valueForKey("kilometre") as! Int
+      
         cell!.fillCell(model)
         
         
@@ -283,7 +333,7 @@ extension RankingViewController:MGSwipeTableCellDelegate{
     }
     
     func deleteFriend(indexPath:NSIndexPath){
-         memberList.removeObjectAtIndex(indexPath.row)
+         memberList.removeAtIndex(indexPath.row)
         //tableView.deleteRowsAtIndexPaths( withRowAnimation:UITableViewRowAnimationLeft];
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
     }

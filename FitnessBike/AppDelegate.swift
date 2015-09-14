@@ -62,6 +62,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
+        if IJReachability.isConnectedToNetwork() {
+            println("Network Connection: Available")
+            
+        } else {
+            println( "Network Connection: Unavailable")
+            let alert = UIAlertView()
+            alert.title = "很遗憾，找不到网络"
+            alert.message = "请确认wifi可用或者移动网络可用"
+            alert.addButtonWithTitle("确认")
+            alert.show()
+            
+            return
+        }
+        
+        let statusType = IJReachability.isConnectedToNetworkOfType()
+        switch statusType {
+        case .WWAN:
+            println("Connection Type: Mobile")
+        case .WiFi:
+            println("Connection Type: WiFi")
+        case .NotConnected:
+            println("Connection Type: Not connected to the Internet")
+        }
+
     }
 
     func applicationWillTerminate(application: UIApplication) {

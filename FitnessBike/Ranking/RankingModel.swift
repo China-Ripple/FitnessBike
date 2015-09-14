@@ -10,10 +10,11 @@ import UIKit
 
 class RankingModel: NSObject {
    
-    var id:Int64!
-    var position:Int64!
-    var picture:String!
+    var id:Int!
+    var position:Int!
+    var imageUrl:String!
     var name:String!
-    var like:Int64!
+    var like:Int!
+    var kilometre:Int!
     
 }

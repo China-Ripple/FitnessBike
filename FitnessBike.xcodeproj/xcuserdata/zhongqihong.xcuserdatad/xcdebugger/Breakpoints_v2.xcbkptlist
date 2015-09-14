@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463226653.006276"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "checkMessage(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463309478.400441"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "RankingViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463308142.409712"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "swipeTableCell(_:swipeButtonsForDirection:swipeSettings:expansionSettings:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463308142.409712"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "swipeTableCell(_:swipeButtonsForDirection:swipeSettings:expansionSettings:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463309478.400441"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "createLeftButtons(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,13 +330,170 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ranking/RankingViewController.swift"
-            timestampString = "463308142.409712"
+            timestampString = "463572157.430607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
             landmarkName = "swipeTableCell(_:canSwipe:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Ranking/RankingViewController.swift"
+            timestampString = "463572157.430607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Account/LoginViewController.swift"
+            timestampString = "463567621.912245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "onLoginSeleted(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alamofire-master-2/Source/ParameterEncoding.swift"
+            timestampString = "463550729.854783"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "encode(_:parameters:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alamofire-master-2/Source/ParameterEncoding.swift"
+            timestampString = "463551040.507464"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "encode(_:parameters:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Service/Router.swift"
+            timestampString = "463665570.421963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Ranking/RankingViewController.swift"
+            timestampString = "463572157.430607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "loadData(_:isPullRefresh:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Search/SearchTableViewCell.swift"
+            timestampString = "463665570.421963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "makeCell(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitnessBike.SearchTableViewCell.__allocating_init (FitnessBike.SearchTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.SearchTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/iOS/RT_FitnessBike/FitnessBike/FitnessBike/Search/SearchTableViewCell.swift"
+                  timestampString = "463660909.055937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "101">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitnessBike.SearchTableViewCell.init (FitnessBike.SearchTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.SearchTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/iOS/RT_FitnessBike/FitnessBike/FitnessBike/Search/SearchTableViewCell.swift"
+                  timestampString = "463660909.056234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc FitnessBike.SearchTableViewCell.init (FitnessBike.SearchTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.SearchTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/iOS/RT_FitnessBike/FitnessBike/FitnessBike/Search/SearchTableViewCell.swift"
+                  timestampString = "463660909.056345"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,15 +10,86 @@ import UIKit
 
 class ServiceApi: NSObject {
     
-    static var host:String = "http://121.41.121.9:8888"
-    //"http://demo.swiftmi.com"
+   static var host:String = "http://wx.rongtai-china.com/fitnessbike"
     
-    internal class func getAllRankingUrl(maxId:Int,count:Int) -> String {
-        
-        //return "\(host)/api/allraking/\(maxId)/\(count)"
-        
-        return  "\(host)"
+   //   static var host:String = "http://oraykof.xicp.net/fitnessbike"
+    
+    internal class func getNotFoundUrl()->String{
+        return "\(host)/notfound"
     }
+    
+    internal class func getAllRankingUrl(maxId:Int,num:Int) -> String {
+        
+        
+        
+        return "\(host)/friendsranking?maxId=\(maxId)&num=\(num)"
+        
+     
+    }
+    internal class func getSignUpUrl()->String{
+
+        return "\(host)/signup"
+        
+       //return "http://192.168.0.105:8080/iBreast/servlet/Schedule?account=aaaaaa"
+    }
+    
+    internal class func getExercise(uid:String)->String{
+        return "\(host)/exercise?uid=\(uid)"
+    }
+    
+    internal class func getSigninUrl(account:String,password:String)->String{
+        
+        return "\(host)/signin?account=\(account)&password=\(password)"
+    }
+    internal class func getWeeklyMiles(account:String)->String{
+        
+        return "\(host)/weeklymile?account=\(account)"
+    }
+    
+    internal class func getWeeklyCalories(account:String)->String{
+        
+        return "\(host)/weeklycalorie?account=\(account)"
+    }
+   
+    internal class func getCompMsgUrl(maxId:Int,num:Int)->String{
+        
+        return "\(host)/compmsg?maxId=\(maxId)/num=\(num)"
+        
+        
+    }
+    internal class func getNearbyPeopleUrl(maxId:Int,num:Int)->String{
+        
+        return "\(host)/nearbypeople?maxId=\(maxId)/num=\(num)"
+        
+        
+    }
+    internal class func getTalentUrl(maxId:Int,num:Int)->String{
+        
+        return "\(host)/talent?maxId=\(maxId)/num=\(num)"
+        
+        
+    }
+    internal class func getRegulationUrl(account:String,name:String)->String{
+        
+        return "\(host)/regulation?id=\(account)/name=\(name)"
+        
+        
+    }
+    internal class func getMakeFriendsUrl(account:String)->String{
+        
+        return "\(host)/makefriends?id=\(account))"
+        
+        
+    }
+    internal class func getMsgResponseUrl()->String{
+        
+        return "\(host)/msgresponse"
+    }
+    
+    internal class func getCompetitionUrl(defenderid:String,type:Int,time:String)->String{
+       return "\(host)/msgcompitition?defenderid=\(defenderid)&type=\(type)&tiem=\(time)"
+    }
+
     
 //    
 //    class func getLoginUrl()->String {
