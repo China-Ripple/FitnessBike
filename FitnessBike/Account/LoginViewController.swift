@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     var name:UITextField!
     var psw:UITextField!
@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor()
         
     }
+    
     
     func layout(){
         
@@ -46,6 +47,7 @@ class LoginViewController: UIViewController {
         name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
         name.placeholder = "请输入账号"
+        name.delegate = self
         self.view.addSubview(name)
         
         var line1 = UIView(frame: CGMakeRect(15, 150,350, 1))
@@ -83,6 +85,11 @@ class LoginViewController: UIViewController {
         
         
         
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {// called when 'return' key
+        textField.resignFirstResponder()
+        return true
     }
      func onLoginSeleted(sender:AnyObject?){
         
@@ -161,4 +168,6 @@ class LoginViewController: UIViewController {
         self.presentViewController(viewCtrl, animated: true, completion: nil)
 
     }
+    
+    
 }

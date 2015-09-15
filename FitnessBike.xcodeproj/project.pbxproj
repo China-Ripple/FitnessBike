@@ -24,6 +24,8 @@
 		8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */; };
 		8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */; };
 		8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */; };
+		8A3B7CDF1BA802F90057A864 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; };
+		8A3B7CE01BA802F90057A864 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2711B8595FA0003E1C8 /* PNBar.swift */; };
 		8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */; };
 		8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */; };
@@ -80,6 +82,48 @@
 			remoteGlobalIDString = 8A2149AA1B7DB3D8002BADDA;
 			remoteInfo = FitnessBike;
 		};
+		8A3B7CD51BA802DA0057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D0B1AD2CFA600CFC3EB;
+			remoteInfo = "Kingfisher-Demo";
+		};
+		8A3B7CD71BA802DA0057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D351AD2D09F00CFC3EB;
+			remoteInfo = Kingfisher;
+		};
+		8A3B7CD91BA802DA0057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D3F1AD2D09F00CFC3EB;
+			remoteInfo = KingfisherTests;
+		};
+		8A3B7CDB1BA802DA0057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4BD352D21AF3681800B18A40;
+			remoteInfo = "Kingfisher-Demo WatchKit Extension";
+		};
+		8A3B7CDD1BA802DA0057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4BD352DC1AF3681800B18A40;
+			remoteInfo = "Kingfisher-Demo WatchKit App";
+		};
+		8A3B7CE11BA802F90057A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D1ED2D341AD2D09F00CFC3EB;
+			remoteInfo = Kingfisher;
+		};
 		8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
@@ -117,6 +161,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8A3B7CE01BA802F90057A864 /* Kingfisher.framework in Embed Frameworks */,
 				8A71F1261B9EDFFC00E57AE9 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -146,6 +191,7 @@
 		8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
+		8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
 		8A57C2711B8595FA0003E1C8 /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
 		8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartLabel.swift; sourceTree = "<group>"; };
@@ -208,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3B7CDF1BA802F90057A864 /* Kingfisher.framework in Frameworks */,
 				8A71F1251B9EDFFC00E57AE9 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +293,7 @@
 		8A2149A21B7DB3D8002BADDA = {
 			isa = PBXGroup;
 			children = (
+				8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */,
 				8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */,
 				8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */,
 				8A2149AD1B7DB3D8002BADDA /* FitnessBike */,
@@ -369,6 +417,18 @@
 				8AF982861BA2CF0200522555 /* AppStates.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A3B7CCE1BA802DA0057A864 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A3B7CD61BA802DA0057A864 /* Kingfisher-Demo.app */,
+				8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */,
+				8A3B7CDA1BA802DA0057A864 /* KingfisherTests.xctest */,
+				8A3B7CDC1BA802DA0057A864 /* Kingfisher-Demo WatchKit Extension.appex */,
+				8A3B7CDE1BA802DA0057A864 /* Kingfisher-Demo WatchKit App.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8A57C2701B8595FA0003E1C8 /* PNBarChart */ = {
@@ -514,6 +574,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8A3B7CE21BA802F90057A864 /* PBXTargetDependency */,
 			);
 			name = FitnessBike;
 			productName = FitnessBike;
@@ -574,6 +635,10 @@
 					ProductGroup = 8A993AC11B9D3F53003737C6 /* Products */;
 					ProjectRef = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = 8A3B7CCE1BA802DA0057A864 /* Products */;
+					ProjectRef = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -584,6 +649,41 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8A3B7CD61BA802DA0057A864 /* Kingfisher-Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-Demo.app";
+			remoteRef = 8A3B7CD51BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 8A3B7CD71BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A3B7CDA1BA802DA0057A864 /* KingfisherTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KingfisherTests.xctest;
+			remoteRef = 8A3B7CD91BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A3B7CDC1BA802DA0057A864 /* Kingfisher-Demo WatchKit Extension.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = "Kingfisher-Demo WatchKit Extension.appex";
+			remoteRef = 8A3B7CDB1BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A3B7CDE1BA802DA0057A864 /* Kingfisher-Demo WatchKit App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-Demo WatchKit App.app";
+			remoteRef = 8A3B7CDD1BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8A993AC81B9D3F53003737C6 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -715,6 +815,11 @@
 			target = 8A2149AA1B7DB3D8002BADDA /* FitnessBike */;
 			targetProxy = 8A2149C41B7DB3D9002BADDA /* PBXContainerItemProxy */;
 		};
+		8A3B7CE21BA802F90057A864 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			targetProxy = 8A3B7CE11BA802F90057A864 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -835,6 +940,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/FitnessBike",
 				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -853,6 +959,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/FitnessBike",
 				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

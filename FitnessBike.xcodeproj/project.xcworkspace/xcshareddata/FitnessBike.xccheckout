@@ -10,6 +10,8 @@
 	<string>FitnessBike</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</key>
+		<string>https://github.com/onevcat/Kingfisher.git</string>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>
 		<string>https://github.com/China-Ripple/FitnessBike.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>FitnessBike.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</key>
+		<string>../../Kingfisher/</string>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>FitnessBike</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Kingfisher</string>
 		</dict>
 	</array>
 </dict>

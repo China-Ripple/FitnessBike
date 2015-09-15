@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 class RankingTableViewCell: MGSwipeTableCell {
     
     
@@ -78,17 +79,18 @@ class RankingTableViewCell: MGSwipeTableCell {
         
         //model.imageUrl
         
-        Alamofire.request(.GET, imageURL).response() {
-            (_, _, data, _) in
-            
-            let image = UIImage(data: data! as! NSData)
-            
-            
-            
-            self.pictureImageView.image = image
-        }
-
-      
+//        Alamofire.request(.GET, imageURL).response() {
+//            (_, _, data, _) in
+//            
+//            let image = UIImage(data: data! as! NSData)
+//            
+//            
+//            
+//            self.pictureImageView.image = image
+//        }
+//
+        
+        pictureImageView.kf_setImageWithURL(NSURL(string: imageURL)!, placeholderImage: nil)
 
         
         self.name.text = model.name
