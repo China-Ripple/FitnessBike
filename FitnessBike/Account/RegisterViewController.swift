@@ -91,25 +91,21 @@ class RegisterViewController: UIViewController {
 
         
         
-      //requesRegister()
+      requesRegister()
         
         
     }
     
     func requesRegister(){
-         let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
+//         let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
 //         Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: parameters, encoding: .JSON)
 //            .responseJSON { (request, response, data, error) in
-        
-        Alamofire.request(Router.SignUp(parameters: parameters)).responseJSON{
-            (_,_,json,error) in
-        
-            
-                
-                var result = JSON(json!)
-             println("data: \(result)")
-            
-         }
+//                
+//                println("data: \(data)")
+//                
+//                var result = JSON(data!)
+//                Utility.showNetMsg(result)
+//         }
     }
     func onRegisterSeleted(sender:AnyObject?){
         
@@ -126,10 +122,10 @@ class RegisterViewController: UIViewController {
             Utility.showMsg("请再次输入密码")
             return
         }
-//        if(psw2.text != psw.text){
-//            Utility.showMsg("两次输入密码不一样")
-//            return
-//        }
+        if(psw2.text != psw.text){
+            Utility.showMsg("两次输入密码不一样")
+            return
+        }
         if(checkNum.text.isEmpty){
             Utility.showMsg("验证码不能为空")
             return
@@ -153,17 +149,14 @@ class RegisterViewController: UIViewController {
 //
       
 
-        let params = ["account":"zzzzd","password":"cccc","checknum":"11111"]
+        let params = ["account":"zzzz","password":"cccc","checknum":"11111"]
         
 //        Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: params, encoding: .JSON)
         
         let req =  "http://wx.rongtai-china.com/fitnessbike/signup?account=\(loginname)&password=\(loginpass)&&checknum=\(number)"
             
-        Alamofire.request(Router.SignUp(parameters: params)).responseJSON{
-            (_,_,json,error) in
-            
-        
-
+               Alamofire.request(.GET, req)
+            .responseJSON { (request, response, json, error) in
 
                     
             
@@ -179,8 +172,6 @@ class RegisterViewController: UIViewController {
             }
             
             var result = JSON(json!)
-            
-            println("result :\(result)")
             
             if(result["response"].stringValue != "error"){
                 

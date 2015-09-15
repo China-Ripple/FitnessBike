@@ -30,7 +30,7 @@ class ServiceApi: NSObject {
 
         return "\(host)/signup"
         
-       //return "http://192.168.0.105:8080/iBreast/servlet/Schedule?account=aaaaaa"
+       
     }
     
     internal class func getExercise(uid:String)->String{

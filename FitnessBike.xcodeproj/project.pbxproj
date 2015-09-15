@@ -34,13 +34,12 @@
 		8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */; };
 		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
 		8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */; };
-		8A60C0DB1BA66F46006A6615 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A60C0DA1BA66F46006A6615 /* Alamofire.framework */; };
-		8A60C0DC1BA66F4E006A6615 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A60C0DA1BA66F46006A6615 /* Alamofire.framework */; };
-		8A60C0DD1BA66F4E006A6615 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A60C0DA1BA66F46006A6615 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A71F1191B9EB6AE00E57AE9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F1181B9EB6AE00E57AE9 /* Utility.swift */; };
 		8A71F11E1B9EB7F100E57AE9 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F11D1B9EB7F100E57AE9 /* SwiftNotice.swift */; };
 		8A71F1201B9EBB0B00E57AE9 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */; };
 		8A71F1231B9EDF5500E57AE9 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F1221B9EDF5500E57AE9 /* IJReachability.swift */; };
+		8A71F1251B9EDFFC00E57AE9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */; };
+		8A71F1261B9EDFFC00E57AE9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
@@ -81,16 +80,44 @@
 			remoteGlobalIDString = 8A2149AA1B7DB3D8002BADDA;
 			remoteInfo = FitnessBike;
 		};
+		8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		8A993AC91B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		8A993ACB1B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		8A993ACD1B9D3F53003737C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A60C0D91BA66F1C006A6615 /* Embed Frameworks */ = {
+		8A71F1271B9EDFFC00E57AE9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A60C0DD1BA66F4E006A6615 /* Alamofire.framework in Embed Frameworks */,
+				8A71F1261B9EDFFC00E57AE9 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,13 +157,13 @@
 		8A57C2821B8596C10003E1C8 /* PNChartSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartSwift.h; sourceTree = "<group>"; };
 		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
-		8A60C0DA1BA66F46006A6615 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		8A71F1181B9EB6AE00E57AE9 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		8A71F11D1B9EB7F100E57AE9 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		8A71F1221B9EDF5500E57AE9 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
 		8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
+		8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master-2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
 		8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
 		8A993AD71B9D6F22003737C6 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
@@ -181,8 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A60C0DB1BA66F46006A6615 /* Alamofire.framework in Frameworks */,
-				8A60C0DC1BA66F4E006A6615 /* Alamofire.framework in Frameworks */,
+				8A71F1251B9EDFFC00E57AE9 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */,
+				8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */,
 				8A2149AD1B7DB3D8002BADDA /* FitnessBike */,
 				8A2149C61B7DB3D9002BADDA /* FitnessBikeTests */,
 				8A2149AC1B7DB3D8002BADDA /* Products */,
@@ -270,7 +297,6 @@
 		8A2149AE1B7DB3D8002BADDA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A60C0DA1BA66F46006A6615 /* Alamofire.framework */,
 				8A2149AF1B7DB3D8002BADDA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -375,6 +401,17 @@
 			path = PNChartConfig;
 			sourceTree = "<group>";
 		};
+		8A993AC11B9D3F53003737C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A993AC81B9D3F53003737C6 /* Alamofire.framework */,
+				8A993ACA1B9D3F53003737C6 /* Alamofire.framework */,
+				8A993ACC1B9D3F53003737C6 /* Alamofire iOS Tests.xctest */,
+				8A993ACE1B9D3F53003737C6 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8A993AD41B9D6EDF003737C6 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +509,7 @@
 				8A2149A71B7DB3D8002BADDA /* Sources */,
 				8A2149A81B7DB3D8002BADDA /* Frameworks */,
 				8A2149A91B7DB3D8002BADDA /* Resources */,
-				8A60C0D91BA66F1C006A6615 /* Embed Frameworks */,
+				8A71F1271B9EDFFC00E57AE9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -532,6 +569,12 @@
 			mainGroup = 8A2149A21B7DB3D8002BADDA;
 			productRefGroup = 8A2149AC1B7DB3D8002BADDA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8A993AC11B9D3F53003737C6 /* Products */;
+					ProjectRef = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A2149AA1B7DB3D8002BADDA /* FitnessBike */,
@@ -539,6 +582,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8A993AC81B9D3F53003737C6 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACA1B9D3F53003737C6 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8A993AC91B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACC1B9D3F53003737C6 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 8A993ACB1B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A993ACE1B9D3F53003737C6 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 8A993ACD1B9D3F53003737C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A2149A91B7DB3D8002BADDA /* Resources */ = {
@@ -757,13 +831,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: qi lin (N57A2UML24)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
-					"/Users/zhongqihong/Desktop/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/FitnessBike",
 				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -778,13 +849,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/zhongqihong/Desktop/Build/Products/Release-iphonesimulator",
-					"/Users/zhongqihong/Desktop/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/FitnessBike",
 				);
 				INFOPLIST_FILE = FitnessBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
