@@ -72,10 +72,12 @@ class AccessViewController: UIViewController {
         
         println("onSkipSelected")
         
-        var storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var viewCtrl:UITabBarController = storyboard.instantiateViewControllerWithIdentifier("mainCtrl") as! UITabBarController
-        var mainVC=UINavigationController(rootViewController: UITableViewController())
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+//        var storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        var viewCtrl:UITabBarController = storyboard.instantiateViewControllerWithIdentifier("mainCtrl") as! UITabBarController
+//        var mainVC=UINavigationController(rootViewController: UITableViewController())
+//        self.presentViewController(viewCtrl, animated: true, completion: nil)
+        
+        Utility.enterMainScreen(self)
     }
     
     func sendRequest(){

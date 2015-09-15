@@ -90,7 +90,7 @@ class RankingTableViewCell: MGSwipeTableCell {
 //        }
 //
         
-        pictureImageView.kf_setImageWithURL(NSURL(string: imageURL)!, placeholderImage: nil)
+        self.pictureImageView.kf_setImageWithURL(NSURL(string:imageURL )!, placeholderImage: nil)
 
         
         self.name.text = model.name

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 class ActivityViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
     var activities:NSMutableArray! = NSMutableArray()
     
     let cellTag = "ActivityBriefTableViewCell"
@@ -18,6 +18,10 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
+        
+        tableView = UITableView(frame: CGRectMake(0, paddingTop, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
+        self.view.addSubview(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self

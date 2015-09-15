@@ -26,6 +26,7 @@
 		8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */; };
 		8A3B7CDF1BA802F90057A864 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; };
 		8A3B7CE01BA802F90057A864 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A3B7CEE1BA81DAC0057A864 /* UITabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */; };
 		8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2711B8595FA0003E1C8 /* PNBar.swift */; };
 		8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */; };
 		8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */; };
@@ -192,6 +193,7 @@
 		8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
 		8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
+		8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarControllerViewController.swift; sourceTree = "<group>"; };
 		8A57C2711B8595FA0003E1C8 /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
 		8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartLabel.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8A3B7CEC1BA81D630057A864 /* Tabbar */,
 				8A993AD41B9D6EDF003737C6 /* Refresh */,
 				8AE6A7341B9BF41B00561ADB /* App */,
 				8AE6A7211B96E77400561ADB /* Service */,
@@ -429,6 +432,14 @@
 				8A3B7CDE1BA802DA0057A864 /* Kingfisher-Demo WatchKit App.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8A3B7CEC1BA81D630057A864 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		8A57C2701B8595FA0003E1C8 /* PNBarChart */ = {
@@ -775,6 +786,7 @@
 				8AC11CE21B959C67003E8D78 /* SearchModel.swift in Sources */,
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
 				8A71F1201B9EBB0B00E57AE9 /* KeychainWrapper.swift in Sources */,
+				8A3B7CEE1BA81DAC0057A864 /* UITabBarControllerViewController.swift in Sources */,
 				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
 				8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */,

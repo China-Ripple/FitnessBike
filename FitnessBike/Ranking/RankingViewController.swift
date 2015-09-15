@@ -13,7 +13,7 @@ class RankingViewController: UIViewController {
     
     
    
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
     
 
     var loading:Bool = false
@@ -26,12 +26,17 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = ""
         
+        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
         
 
+        tableView = UITableView(frame: CGRectMake(0, paddingTop, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        self.view.addSubview(tableView)
 
         
         self.tableView.addHeaderWithCallback{
@@ -60,6 +65,11 @@ class RankingViewController: UIViewController {
      
         
         
+    }
+    
+    override func  viewWillAppear(animated: Bool) {
+        self.navigationController!.title = ""
+        super.viewWillAppear(animated)
     }
     
     func productModels(){

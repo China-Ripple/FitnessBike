@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-       // self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
         
         var size = UIScreen.mainScreen().bounds.size
         
@@ -31,20 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.baseY = size.height / 667
         
-        
+        Router.token = KeychainWrapper.stringForKey("token")
+//
        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         var viewCtrl:UIViewController!
         
         viewCtrl = AccessViewController()
-        
-        
-        
+
         self.window!.rootViewController = viewCtrl
         
         
         return true
-    }
+        
+ }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

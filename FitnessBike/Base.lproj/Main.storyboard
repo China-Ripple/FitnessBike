@@ -91,9 +91,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="oIX-72-jof"/>
-                    <connections>
-                        <outlet property="tableView" destination="wdy-8L-sZQ" id="GXY-Td-9A6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0V-IR-Hp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,9 +113,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="活动" id="iNr-To-iiM"/>
-                    <connections>
-                        <outlet property="tableView" destination="eVu-2c-sOd" id="Nh1-1x-ayI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYW-7z-Fv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
