@@ -53,6 +53,8 @@
 		8A7739831BA9145600E020EC /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77397F1BA9145600E020EC /* Base32.swift */; };
 		8A7739841BA9145600E020EC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A7739801BA9145600E020EC /* Info.plist */; };
 		8A7739851BA9145600E020EC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739811BA9145600E020EC /* StringExtension.swift */; };
+		8A7739C81BA945C800E020EC /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739C11BA9458D00E020EC /* SnapKit.framework */; };
+		8A7739C91BA945C800E020EC /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739C11BA9458D00E020EC /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
@@ -135,6 +137,41 @@
 			remoteGlobalIDString = D1ED2D341AD2D09F00CFC3EB;
 			remoteInfo = Kingfisher;
 		};
+		8A7739C01BA9458D00E020EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = "SnapKit iOS";
+		};
+		8A7739C21BA9458D00E020EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB37A1AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX";
+		};
+		8A7739C41BA9458D00E020EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit iOS Tests";
+		};
+		8A7739C61BA9458D00E020EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB3841AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX Tests";
+		};
+		8A7739CA1BA945C800E020EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
+			remoteInfo = "SnapKit iOS";
+		};
 		8A993AC71B9D3F53003737C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */;
@@ -172,6 +209,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8A7739C91BA945C800E020EC /* SnapKit.framework in Embed Frameworks */,
 				8A3B7CE01BA802F90057A864 /* Kingfisher.framework in Embed Frameworks */,
 				8A71F1261B9EDFFC00E57AE9 /* Alamofire.framework in Embed Frameworks */,
 			);
@@ -231,6 +269,7 @@
 		8A77397F1BA9145600E020EC /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
 		8A7739801BA9145600E020EC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A7739811BA9145600E020EC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master-2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
@@ -277,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7739C81BA945C800E020EC /* SnapKit.framework in Frameworks */,
 				8A3B7CDF1BA802F90057A864 /* Kingfisher.framework in Frameworks */,
 				8A71F1251B9EDFFC00E57AE9 /* Alamofire.framework in Frameworks */,
 			);
@@ -316,6 +356,7 @@
 		8A2149A21B7DB3D8002BADDA = {
 			isa = PBXGroup;
 			children = (
+				8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */,
 				8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */,
 				8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */,
 				8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */,
@@ -520,6 +561,17 @@
 			path = Base32;
 			sourceTree = "<group>";
 		};
+		8A7739BA1BA9458D00E020EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A7739C11BA9458D00E020EC /* SnapKit.framework */,
+				8A7739C31BA9458D00E020EC /* SnapKit.framework */,
+				8A7739C51BA9458D00E020EC /* SnapKit iOS Tests.xctest */,
+				8A7739C71BA9458D00E020EC /* SnapKit OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8A993AC11B9D3F53003737C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +686,7 @@
 			);
 			dependencies = (
 				8A3B7CE21BA802F90057A864 /* PBXTargetDependency */,
+				8A7739CB1BA945C800E020EC /* PBXTargetDependency */,
 			);
 			name = FitnessBike;
 			productName = FitnessBike;
@@ -698,6 +751,10 @@
 					ProductGroup = 8A3B7CCE1BA802DA0057A864 /* Products */;
 					ProjectRef = 8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */;
 				},
+				{
+					ProductGroup = 8A7739BA1BA9458D00E020EC /* Products */;
+					ProjectRef = 8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -741,6 +798,34 @@
 			fileType = wrapper.application;
 			path = "Kingfisher-Demo WatchKit App.app";
 			remoteRef = 8A3B7CDD1BA802DA0057A864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A7739C11BA9458D00E020EC /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 8A7739C01BA9458D00E020EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A7739C31BA9458D00E020EC /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 8A7739C21BA9458D00E020EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A7739C51BA9458D00E020EC /* SnapKit iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit iOS Tests.xctest";
+			remoteRef = 8A7739C41BA9458D00E020EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A7739C71BA9458D00E020EC /* SnapKit OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit OSX Tests.xctest";
+			remoteRef = 8A7739C61BA9458D00E020EC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8A993AC81B9D3F53003737C6 /* Alamofire.framework */ = {
@@ -889,6 +974,11 @@
 			isa = PBXTargetDependency;
 			name = Kingfisher;
 			targetProxy = 8A3B7CE11BA802F90057A864 /* PBXContainerItemProxy */;
+		};
+		8A7739CB1BA945C800E020EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SnapKit iOS";
+			targetProxy = 8A7739CA1BA945C800E020EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

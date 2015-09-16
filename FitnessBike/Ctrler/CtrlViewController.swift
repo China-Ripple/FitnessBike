@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CtrlViewController: UIViewController {
 
     let imageSize:CGFloat = 200
@@ -68,7 +69,9 @@ class CtrlViewController: UIViewController {
         
         
         
+    
         
+    
         
         
         self.view.addSubview(scrollView)
@@ -87,6 +90,7 @@ class CtrlViewController: UIViewController {
         
         
     
+        
     }
     
     func pageTurn(sender:AnyObject?){
@@ -133,6 +137,9 @@ class CtrlViewController: UIViewController {
         timeValue.textColor = UIColor.lightGrayColor()
         timeValue.frame = CGRectMake(0, 25, 200, 25)
         timeView.addSubview(timeValue)
+        
+        
+        
         
         self.view.addSubview(timeView)
 

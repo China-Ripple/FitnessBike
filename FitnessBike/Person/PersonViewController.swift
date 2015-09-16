@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 class PersonViewController: UIViewController,PNChartDelegate{
 
     override func viewDidLoad() {
@@ -27,11 +27,15 @@ class PersonViewController: UIViewController,PNChartDelegate{
         
         var proImage = UIImage(named: "profile")
         
+        
+        
         var profileImgView = UIImageView(frame: CGRectMake(110, 70, 100, 100))
         profileImgView.image = proImage
         profileImgView.layer.cornerRadius = profileImgView.frame.size.width/2
         
         profileImgView.clipsToBounds = true
+        
+        
         
         
         
@@ -82,6 +86,8 @@ class PersonViewController: UIViewController,PNChartDelegate{
         maxBurnValueLabel.font = UIFont.boldSystemFontOfSize(10)
         dataView.addSubview(maxBurnValueLabel)
         
+        
+     
         
         self.view.addSubview(dataView)
         

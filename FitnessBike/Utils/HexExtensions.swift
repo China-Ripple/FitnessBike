@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 钟其鸿. All rights reserved.
 //
 
-import Base32
+
 import Foundation
 
 extension String {
