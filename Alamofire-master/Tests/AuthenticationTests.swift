@@ -25,12 +25,16 @@ import Foundation
 import XCTest
 
 class AuthenticationTestCase: BaseTestCase {
+    // MARK: Properties
+
     let user = "user"
     let password = "password"
     var URLString = ""
 
-    override func setUp() {
-        super.setUp()
+    // MARK: Setup and Teardown
+
+    override func tearDown() {
+        super.tearDown()
 
         let credentialStorage = NSURLCredentialStorage.sharedCredentialStorage()
         let allCredentials = credentialStorage.allCredentials as! [NSURLProtectionSpace: AnyObject]
@@ -48,10 +52,14 @@ class AuthenticationTestCase: BaseTestCase {
 // MARK: -
 
 class BasicAuthenticationTestCase: AuthenticationTestCase {
+    // MARK: Setup and Teardown
+
     override func setUp() {
         super.setUp()
-        self.URLString = "http://httpbin.org/basic-auth/\(self.user)/\(self.password)"
+        self.URLString = "http://httpbin.org/basic-auth/\(user)/\(password)"
     }
+
+    // MARK: Tests
 
     func testHTTPBasicAuthenticationWithInvalidCredentials() {
         // Given
@@ -72,7 +80,7 @@ class BasicAuthenticationTestCase: AuthenticationTestCase {
                 error = responseError
 
                 expectation.fulfill()
-            }
+        }
 
         waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
 
@@ -103,7 +111,7 @@ class BasicAuthenticationTestCase: AuthenticationTestCase {
                 error = responseError
 
                 expectation.fulfill()
-            }
+        }
 
         waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
 
@@ -119,12 +127,18 @@ class BasicAuthenticationTestCase: AuthenticationTestCase {
 // MARK: -
 
 class HTTPDigestAuthenticationTestCase: AuthenticationTestCase {
+    // MARK: Properties
+
     let qop = "auth"
+
+    // MARK: Setup and Teardown
 
     override func setUp() {
         super.setUp()
-        self.URLString = "http://httpbin.org/digest-auth/\(self.qop)/\(self.user)/\(self.password)"
+        self.URLString = "http://httpbin.org/digest-auth/\(qop)/\(user)/\(password)"
     }
+
+    // MARK: Tests
 
     func testHTTPDigestAuthenticationWithInvalidCredentials() {
         // Given
@@ -145,7 +159,7 @@ class HTTPDigestAuthenticationTestCase: AuthenticationTestCase {
                 error = responseError
 
                 expectation.fulfill()
-            }
+        }
 
         waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
 
@@ -176,7 +190,7 @@ class HTTPDigestAuthenticationTestCase: AuthenticationTestCase {
                 error = responseError
 
                 expectation.fulfill()
-            }
+        }
 
         waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
 

@@ -35,32 +35,29 @@ extension Manager {
 
         switch uploadable {
         case .Data(let request, let data):
-            dispatch_sync(self.queue) {
+            dispatch_sync(queue) {
                 uploadTask = self.session.uploadTaskWithRequest(request, fromData: data)
             }
         case .File(let request, let fileURL):
-            dispatch_sync(self.queue) {
+            dispatch_sync(queue) {
                 uploadTask = self.session.uploadTaskWithRequest(request, fromFile: fileURL)
             }
         case .Stream(let request, var stream):
-            dispatch_sync(self.queue) {
+            dispatch_sync(queue) {
                 uploadTask = self.session.uploadTaskWithStreamedRequest(request)
             }
-
             HTTPBodyStream = stream
         }
 
-        let request = Request(session: self.session, task: uploadTask)
-
+        let request = Request(session: session, task: uploadTask)
         if HTTPBodyStream != nil {
             request.delegate.taskNeedNewBodyStream = { _, _ in
                 return HTTPBodyStream
             }
         }
+        delegate[request.delegate.task] = request.delegate
 
-        self.delegate[request.delegate.task] = request.delegate
-
-        if self.startRequestsImmediately {
+        if startRequestsImmediately {
             request.resume()
         }
 
@@ -90,14 +87,12 @@ extension Manager {
 
         :param: method The HTTP method.
         :param: URLString The URL string.
-        :param: headers The HTTP headers. `nil` by default.
-        :param: file The file to upload.
+        :param: file The file to upload
 
         :returns: The created upload request.
     */
-    public func upload(method: Method, _ URLString: URLStringConvertible, headers: [String: String]? = nil, file: NSURL) -> Request {
-        let mutableURLRequest = URLRequest(method, URLString, headers: headers)
-        return upload(mutableURLRequest, file: file)
+    public func upload(method: Method, _ URLString: URLStringConvertible, file: NSURL) -> Request {
+        return upload(URLRequest(method, URLString), file: file)
     }
 
     // MARK: Data
@@ -107,8 +102,8 @@ extension Manager {
 
         If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
 
-        :param: URLRequest The URL request.
-        :param: data The data to upload.
+        :param: URLRequest The URL request
+        :param: data The data to upload
 
         :returns: The created upload request.
     */
@@ -123,15 +118,12 @@ extension Manager {
 
         :param: method The HTTP method.
         :param: URLString The URL string.
-        :param: headers The HTTP headers. `nil` by default.
-        :param: data The data to upload.
+        :param: data The data to upload
 
         :returns: The created upload request.
     */
-    public func upload(method: Method, _ URLString: URLStringConvertible, headers: [String: String]? = nil, data: NSData) -> Request {
-        let mutableURLRequest = URLRequest(method, URLString, headers: headers)
-
-        return upload(mutableURLRequest, data: data)
+    public func upload(method: Method, _ URLString: URLStringConvertible, data: NSData) -> Request {
+        return upload(URLRequest(method, URLString), data: data)
     }
 
     // MARK: Stream
@@ -141,8 +133,8 @@ extension Manager {
 
         If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
 
-        :param: URLRequest The URL request.
-        :param: stream The stream to upload.
+        :param: URLRequest The URL request
+        :param: stream The stream to upload
 
         :returns: The created upload request.
     */
@@ -157,15 +149,12 @@ extension Manager {
 
         :param: method The HTTP method.
         :param: URLString The URL string.
-        :param: headers The HTTP headers. `nil` by default.
         :param: stream The stream to upload.
 
         :returns: The created upload request.
     */
-    public func upload(method: Method, _ URLString: URLStringConvertible, headers: [String: String]? = nil, stream: NSInputStream) -> Request {
-        let mutableURLRequest = URLRequest(method, URLString, headers: headers)
-
-        return upload(mutableURLRequest, stream: stream)
+    public func upload(method: Method, _ URLString: URLStringConvertible, stream: NSInputStream) -> Request {
+        return upload(URLRequest(method, URLString), stream: stream)
     }
 
     // MARK: MultipartFormData
@@ -207,7 +196,6 @@ extension Manager {
 
         :param: method                  The HTTP method.
         :param: URLString               The URL string.
-        :param: headers                 The HTTP headers. `nil` by default.
         :param: multipartFormData       The closure used to append body parts to the `MultipartFormData`.
         :param: encodingMemoryThreshold The encoding memory threshold in bytes. `MultipartFormDataEncodingMemoryThreshold`
                                         by default.
@@ -216,15 +204,14 @@ extension Manager {
     public func upload(
         method: Method,
         _ URLString: URLStringConvertible,
-        headers: [String: String]? = nil,
         multipartFormData: MultipartFormData -> Void,
         encodingMemoryThreshold: UInt64 = Manager.MultipartFormDataEncodingMemoryThreshold,
         encodingCompletion: (MultipartFormDataEncodingResult -> Void)?)
     {
-        let mutableURLRequest = URLRequest(method, URLString, headers: headers)
+        let urlRequest = URLRequest(method, URLString)
 
         return upload(
-            mutableURLRequest,
+            urlRequest,
             multipartFormData: multipartFormData,
             encodingMemoryThreshold: encodingMemoryThreshold,
             encodingCompletion: encodingCompletion
@@ -325,7 +312,7 @@ extension Request {
     // MARK: - UploadTaskDelegate
 
     class UploadTaskDelegate: DataTaskDelegate {
-        var uploadTask: NSURLSessionUploadTask? { return self.task as? NSURLSessionUploadTask }
+        var uploadTask: NSURLSessionUploadTask? { return task as? NSURLSessionUploadTask }
         var uploadProgress: ((Int64, Int64, Int64) -> Void)!
 
         // MARK: - NSURLSessionTaskDelegate
@@ -340,10 +327,10 @@ extension Request {
             if let taskDidSendBodyData = self.taskDidSendBodyData {
                 taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesExpectedToSend)
             } else {
-                self.progress.totalUnitCount = totalBytesExpectedToSend
-                self.progress.completedUnitCount = totalBytesSent
+                progress.totalUnitCount = totalBytesExpectedToSend
+                progress.completedUnitCount = totalBytesSent
 
-                self.uploadProgress?(bytesSent, totalBytesSent, totalBytesExpectedToSend)
+                uploadProgress?(bytesSent, totalBytesSent, totalBytesExpectedToSend)
             }
         }
     }

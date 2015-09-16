@@ -17,7 +17,7 @@ class CtrlViewController: UIViewController {
     var scrollView:UIScrollView!
     var pageCtrl:UIPageControl!
     var shareButton:UIButton!
-    
+    var calorieValue:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +41,7 @@ class CtrlViewController: UIViewController {
         layoutScrollPage()
         layoutDataView()
         
-        
+        testNSThread()
        var ble =  MyBleService.getInstance(BlueToothBiz())
         
     }
@@ -148,7 +148,7 @@ class CtrlViewController: UIViewController {
         
         
         
-        var calorieValue = UILabel()
+        calorieValue = UILabel()
         calorieValue.text = "100 cal"
         calorieValue.textColor = UIColor.lightGrayColor()
 //        calorieValue.frame = CGRectMake(0, 25, 200, 25)
@@ -231,4 +231,59 @@ extension CtrlViewController: UIScrollViewDelegate{
         
         pageCtrl.currentPage = index
     }
+}
+
+extension CtrlViewController{
+    
+    func testGCDThread()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            
+            //这里写需要大量时间的代码
+            
+            for var i = 0; i < 100000; i++
+            {
+                println("GCD thread running.")
+            }
+            
+            sleep(5);
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                //这里返回主线程，写需要主线程执行的代码
+                println("这里返回主线程，写需要主线程执行的代码")
+            })
+        })
+    }
+    func testNSThread()
+    {
+        //方式一
+        //NSThread.detachNewThreadSelector("threadInMainMethod:",toTarget:self,withObject:nil)
+        
+        //方式二
+        var myThread = NSThread(target:self,selector:"threadInMainMethod:",object:nil)
+        myThread.start()
+        
+    }
+    
+    func threadInMainMethod(sender : AnyObject)
+    {
+        var state:Bool = true
+        var time = 0
+        while(state){
+            
+            time++;
+            
+            if(time == 100){
+                state = false
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.calorieValue.text = "\(time) cal"
+            })
+            sleep(1);
+            println("NSThread running....")
+        }
+        println("NSThread over.")
+    }
+    
 }

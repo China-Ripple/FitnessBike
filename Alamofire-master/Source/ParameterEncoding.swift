@@ -77,14 +77,10 @@ public enum ParameterEncoding {
         var mutableURLRequest: NSMutableURLRequest = URLRequest.URLRequest.mutableCopy() as! NSMutableURLRequest
 
         if parameters == nil {
-            
-             println("parameters = nil")
             return (mutableURLRequest, nil)
         }
 
         var error: NSError? = nil
-        
-       
 
         switch self {
         case .URL:
@@ -92,10 +88,10 @@ public enum ParameterEncoding {
                 var components: [(String, String)] = []
                 for key in sorted(Array(parameters.keys), <) {
                     let value: AnyObject! = parameters[key]
-                    components += queryComponents(key, value)
+                    components += self.queryComponents(key, value)
                 }
 
-                return join("&", components.map { "\($0)=\($1)" } as [String])
+                return join("&", components.map{ "\($0)=\($1)" } as [String])
             }
 
             func encodesParametersInURL(method: Method) -> Bool {
@@ -107,7 +103,8 @@ public enum ParameterEncoding {
                 }
             }
 
-            if let method = Method(rawValue: mutableURLRequest.HTTPMethod) where encodesParametersInURL(method) {
+            let method = Method(rawValue: mutableURLRequest.HTTPMethod)
+            if let method = method where encodesParametersInURL(method) {
                 if let URLComponents = NSURLComponents(URL: mutableURLRequest.URL!, resolvingAgainstBaseURL: false) {
                     URLComponents.percentEncodedQuery = (URLComponents.percentEncodedQuery.map { $0 + "&" } ?? "") + query(parameters!)
                     mutableURLRequest.URL = URLComponents.URL
@@ -121,12 +118,9 @@ public enum ParameterEncoding {
             }
         case .JSON:
             let options = NSJSONWritingOptions.allZeros
-            println("parameters = \(parameters)")
             if let data = NSJSONSerialization.dataWithJSONObject(parameters!, options: options, error: &error) {
                 mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 mutableURLRequest.HTTPBody = data
-                
-                  println("HTTPBody = \(mutableURLRequest.HTTPBody)")
             }
         case .PropertyList(let (format, options)):
             if let data = NSPropertyListSerialization.dataWithPropertyList(parameters!, format: format, options: options, error: &error) {
@@ -151,7 +145,7 @@ public enum ParameterEncoding {
                 components += queryComponents("\(key)[]", value)
             }
         } else {
-            components.append((escape(key), escape("\(value)")))
+            components.extend([(escape(key), escape("\(value)"))])
         }
 
         return components
