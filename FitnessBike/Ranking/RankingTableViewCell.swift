@@ -27,20 +27,46 @@ class RankingTableViewCell: MGSwipeTableCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
-        positionLabel = UILabel(frame: CGRectZero);
-         self.contentView.addSubview(positionLabel);
-
-        pictureImageView = UIImageView(frame:CGRectZero)
+//        positionLabel = UILabel(frame: CGRectZero);
+        positionLabel = UILabel()
+        self.contentView.addSubview(positionLabel);
+        
+//        pictureImageView = UIImageView(frame:CGRectZero)
+        pictureImageView = UIImageView()
         pictureImageView.layer.cornerRadius = pictureImageView.frame.size.width/2
         pictureImageView.clipsToBounds = true
         self.contentView.addSubview(pictureImageView)
-//
-        name = UILabel(frame:CGRectZero)
+        pictureImageView.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(self.contentView.snp_left).offset(80)
+            make.width.equalTo(60)
+            make.height.equalTo(60)
+            make.centerYWithinMargins.equalTo(self.contentView)
+        }
+        
+        
+        //
+//        name = UILabel(frame:CGRectZero)
+        name = UILabel()
         self.contentView.addSubview(name)
-//
-        awardImageView = UIImageView(frame:CGRectZero)
+        name.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.pictureImageView.snp_top)
+            make.left.equalTo(self.pictureImageView.snp_right).offset(20)
+//            make.width.equalTo(100)
+//            make.height.equalTo(50)
+        }
+        //
+//        awardImageView = UIImageView(frame:CGRectZero)
+         awardImageView = UIImageView()
         self.contentView.addSubview(awardImageView)
-      
+        awardImageView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.contentView.snp_top).offset(20)
+            make.left.equalTo(self.contentView.snp_left).offset(35.5)
+            
+            make.centerYWithinMargins.equalTo(awardImageView)
+            make.top.equalTo(self.contentView.snp_bottom).offset(20)
+            
+        }
+        
         
         
         //silver
@@ -53,7 +79,7 @@ class RankingTableViewCell: MGSwipeTableCell {
         var award:UIImage!
         
         if(model.position == 1){
-             award = UIImage(named: "champion")
+            award = UIImage(named: "champion")
         }
         else if(model.position == 2){
             award = UIImage(named: "silver")
@@ -63,11 +89,21 @@ class RankingTableViewCell: MGSwipeTableCell {
         }
         
         if let a = award {
-          
-
-              self.contentView.addSubview(awardImageView)
-              positionLabel.removeFromSuperview()
-              awardImageView.image = a
+            
+            
+            self.contentView.addSubview(awardImageView)
+            positionLabel.removeFromSuperview()
+            awardImageView.image = a
+            awardImageView.snp_makeConstraints { (make) -> Void in
+                make.top.equalTo(self.contentView.snp_top).offset(20)
+                make.left.equalTo(self.contentView.snp_left).offset(35.5)
+                
+                make.centerYWithinMargins.equalTo(awardImageView)
+                make.top.equalTo(self.contentView.snp_bottom).offset(20)
+                
+            }
+            
+            
         }
         else{
             awardImageView.removeFromSuperview()
@@ -79,19 +115,19 @@ class RankingTableViewCell: MGSwipeTableCell {
         
         //model.imageUrl
         
-//        Alamofire.request(.GET, imageURL).response() {
-//            (_, _, data, _) in
-//            
-//            let image = UIImage(data: data! as! NSData)
-//            
-//            
-//            
-//            self.pictureImageView.image = image
-//        }
-//
+        //        Alamofire.request(.GET, imageURL).response() {
+        //            (_, _, data, _) in
+        //
+        //            let image = UIImage(data: data! as! NSData)
+        //
+        //
+        //
+        //            self.pictureImageView.image = image
+        //        }
+        //
         
         self.pictureImageView.kf_setImageWithURL(NSURL(string:imageURL )!, placeholderImage: nil)
-
+        
         
         self.name.text = model.name
     }
@@ -99,8 +135,8 @@ class RankingTableViewCell: MGSwipeTableCell {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -110,7 +146,7 @@ class RankingTableViewCell: MGSwipeTableCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -118,16 +154,16 @@ class RankingTableViewCell: MGSwipeTableCell {
         
         super.layoutSubviews()
         
-        positionLabel.frame = CGRectMake(40, 30, 30, 30)
-       
-        
-        pictureImageView.frame =  CGRectMake(65, 10, 40, 40)
-       
-        
-        name.frame =  CGRectMake(65, 60, 100, 30)
+        //        positionLabel.frame = CGRectMake(40, 30, 30, 30)
         
         
-        awardImageView.frame =  CGRectMake(20,30,30,50)
+        //        pictureImageView.frame =  CGRectMake(65, 10, 40, 40)
+        
+        
+        //        name.frame =  CGRectMake(65, 60, 100, 30)
+        //        
+        //        
+        //        awardImageView.frame =  CGRectMake(20,30,30,50)
         
     }
 }
