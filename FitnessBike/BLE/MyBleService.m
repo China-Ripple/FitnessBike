@@ -15,6 +15,7 @@
 //@synthesize connectedDeviceName;
 @synthesize state;
 @synthesize mc10;
+@synthesize bleDataResloverDele;
 #define SOI 0xf0
 #define EOI 0xf1
 bool isThreadStarted;
@@ -24,25 +25,26 @@ bool isSessionOpened;
 uint8_t readData_index = 0;
 uint8_t readData_temp_buffer[EAD_INPUT_BUFFER_SIZE];
 
-+ (MyBleService *) getInstance
++ (MyBleService *) getInstance:(id<BleDataReslover>) bleDataReslover
 {
     static MyBleService	*this = nil;
     
 	if (!this){
 		this = [[MyBleService alloc] init];
-        [this initData];
+        [this initData:bleDataReslover];
     }
     
     return this;
     
 }
 
--(void)initData{
+-(void)initData:(id<BleDataReslover>) bleDataReslover{
     NSLog(@"MyBleService initData");
 
     if (mc10 == nil) {
         mc10 = [[BleDevice alloc] init];
     }
+    self.bleDataResloverDele = bleDataReslover;
     mc10.delegate = self;
     mc10.BLE_state = BLUETOOTH_STATE_DISCONNECT;
     mc10.bFlagConnected = FALSE;
@@ -128,6 +130,7 @@ uint8_t readData_temp_buffer[EAD_INPUT_BUFFER_SIZE];
 -(void)processSaveData
 {
     NSLog(@"processSaveData");
+    [bleDataResloverDele reslove:readData_temp_buffer];
    // XBody *xbody = [XBody getInstance];
     
 //    //01显示，02控制

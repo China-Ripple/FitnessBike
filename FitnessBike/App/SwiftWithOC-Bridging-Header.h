@@ -7,6 +7,7 @@
 #import "MGSwipeTableCell.h"
 #import "MGSwipeButton.h"
 #import "MyBleService.h"
+#import "BleDevice.h"
 #import "Const.h"
 
 #endif

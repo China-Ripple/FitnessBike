@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var bleService = MyBleService.getInstance()
+      
         // Do any additional setup after loading the view, typically from a nib.
     }
 

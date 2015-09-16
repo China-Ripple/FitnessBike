@@ -30,10 +30,11 @@
 //@property NSString *connectedDeviceName;
 @property int state;
 @property BleDevice* mc10;
+@property id<BleDataReslover> bleDataResloverDele;
 
-+ (MyBleService *) getInstance;
++ (MyBleService *) getInstance:(id<BleDataReslover>) bleDataReslover;
 
--(void)initData;
+-(void)initData:(id<BleDataReslover>) bleDataReslover;
 -(NSArray *)getDeviceList;
 -(NSString *)getConnectedDeviceName;
 -(int)getState;
