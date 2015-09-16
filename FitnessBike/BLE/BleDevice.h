@@ -28,6 +28,12 @@
 -(void)dataRecieved:(NSData *)data;
 @end
 
+@protocol BleDataReslover
+
+@optional
+-(void) reslove:(uint8_t[])buffer;
+@end
+
 @interface BleDevice : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {
 }
 

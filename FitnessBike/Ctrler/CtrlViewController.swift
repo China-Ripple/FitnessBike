@@ -33,7 +33,7 @@ class CtrlViewController: UIViewController {
         layoutDataView()
         
         
-       var ble =  MyBleService.getInstance()
+       var ble =  MyBleService.getInstance(BlueToothBiz())
         
     }
     
