@@ -20,6 +20,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         layout()
         
         self.view.backgroundColor = UIColor.whiteColor()
+
         
     }
     
@@ -91,9 +92,24 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+    
+    private lazy var loginsKey: String? = {
+        let key = "sqlcipher.key.logins.db"
+        if KeychainWrapper.hasValueForKey(key) {
+            return KeychainWrapper.stringForKey(key)
+        }
+        
+        let Length: UInt = 256
+        let secret = Bytes.generateRandomBytes(Length).base64EncodedString
+        KeychainWrapper.setString(secret, forKey: key)
+        return secret
+     }()
+    
+
+
      func onLoginSeleted(sender:AnyObject?){
         
-//        
+//
         if(name.text.isEmpty){
             Utility.showMsg("账号不能为空")
             return
@@ -139,7 +155,21 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
                 var token = result["token"].stringValue
                 KeychainWrapper.setString(token, forKey: "token")
                 Router.token  = token
+                var prefs = NSUserDefaultsPrefs(prefix: "PrefsUserInfo")
+                prefs.clearAll()
+                prefs.setString(loginname, forKey: "user_account")
+                prefs.setString(loginpass, forKey: "user_password")
+                
+                
+                if let account = prefs.stringForKey("user_account"){
+                    
+                    println("saved key account : \(account)")
+                }
+                
+                
                 Utility.enterMainScreen(self)
+                
+              
                 
             }
             else{

@@ -27,6 +27,12 @@
 		8A3B7CDF1BA802F90057A864 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; };
 		8A3B7CE01BA802F90057A864 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B7CD81BA802DA0057A864 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3B7CEE1BA81DAC0057A864 /* UITabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */; };
+		8A3B7D061BA831E20057A864 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D051BA831E20057A864 /* Prefs.swift */; };
+		8A3B7D081BA832280057A864 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D071BA832280057A864 /* NSUserDefaultsPrefs.swift */; };
+		8A3B7D0B1BA834430057A864 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D0A1BA834430057A864 /* StringExtensions.swift */; };
+		8A3B7D0D1BA834C10057A864 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D0C1BA834C10057A864 /* AppInfo.swift */; };
+		8A3B7D0F1BA839FE0057A864 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D0E1BA839FE0057A864 /* Bytes.swift */; };
+		8A3B7D111BA83AEE0057A864 /* HexExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B7D101BA83AEE0057A864 /* HexExtensions.swift */; };
 		8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2711B8595FA0003E1C8 /* PNBar.swift */; };
 		8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */; };
 		8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */; };
@@ -43,6 +49,10 @@
 		8A71F1231B9EDF5500E57AE9 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F1221B9EDF5500E57AE9 /* IJReachability.swift */; };
 		8A71F1251B9EDFFC00E57AE9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */; };
 		8A71F1261B9EDFFC00E57AE9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A7739821BA9145600E020EC /* Base16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77397D1BA9145600E020EC /* Base16.swift */; };
+		8A7739831BA9145600E020EC /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77397F1BA9145600E020EC /* Base32.swift */; };
+		8A7739841BA9145600E020EC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A7739801BA9145600E020EC /* Info.plist */; };
+		8A7739851BA9145600E020EC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739811BA9145600E020EC /* StringExtension.swift */; };
 		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
@@ -194,6 +204,12 @@
 		8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
 		8A3B7CCD1BA802DA0057A864 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
 		8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarControllerViewController.swift; sourceTree = "<group>"; };
+		8A3B7D051BA831E20057A864 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		8A3B7D071BA832280057A864 /* NSUserDefaultsPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultsPrefs.swift; sourceTree = "<group>"; };
+		8A3B7D0A1BA834430057A864 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		8A3B7D0C1BA834C10057A864 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		8A3B7D0E1BA839FE0057A864 /* Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
+		8A3B7D101BA83AEE0057A864 /* HexExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexExtensions.swift; sourceTree = "<group>"; };
 		8A57C2711B8595FA0003E1C8 /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
 		8A57C2721B8595FA0003E1C8 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		8A57C2741B8595FB0003E1C8 /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartLabel.swift; sourceTree = "<group>"; };
@@ -210,6 +226,11 @@
 		8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		8A71F1221B9EDF5500E57AE9 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
 		8A71F1241B9EDFFC00E57AE9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		8A77397D1BA9145600E020EC /* Base16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base16.swift; sourceTree = "<group>"; };
+		8A77397E1BA9145600E020EC /* Base32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base32.h; sourceTree = "<group>"; };
+		8A77397F1BA9145600E020EC /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
+		8A7739801BA9145600E020EC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A7739811BA9145600E020EC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		8A993AC01B9D3F53003737C6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master-2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
@@ -316,6 +337,8 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8A77397C1BA9142500E020EC /* Base32 */,
+				8A3B7D091BA8341A0057A864 /* Extensions */,
 				8A3B7CEC1BA81D630057A864 /* Tabbar */,
 				8A993AD41B9D6EDF003737C6 /* Refresh */,
 				8AE6A7341B9BF41B00561ADB /* App */,
@@ -418,6 +441,11 @@
 				8A2149DA1B7DCA2E002BADDA /* ImageUtil.swift */,
 				8A71F1181B9EB6AE00E57AE9 /* Utility.swift */,
 				8AF982861BA2CF0200522555 /* AppStates.swift */,
+				8A3B7D051BA831E20057A864 /* Prefs.swift */,
+				8A3B7D071BA832280057A864 /* NSUserDefaultsPrefs.swift */,
+				8A3B7D0C1BA834C10057A864 /* AppInfo.swift */,
+				8A3B7D0E1BA839FE0057A864 /* Bytes.swift */,
+				8A3B7D101BA83AEE0057A864 /* HexExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -440,6 +468,14 @@
 				8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		8A3B7D091BA8341A0057A864 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A3B7D0A1BA834430057A864 /* StringExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8A57C2701B8595FA0003E1C8 /* PNBarChart */ = {
@@ -470,6 +506,18 @@
 				8A57C27E1B85965B0003E1C8 /* PNValue.swift */,
 			);
 			path = PNChartConfig;
+			sourceTree = "<group>";
+		};
+		8A77397C1BA9142500E020EC /* Base32 */ = {
+			isa = PBXGroup;
+			children = (
+				8A77397D1BA9145600E020EC /* Base16.swift */,
+				8A77397E1BA9145600E020EC /* Base32.h */,
+				8A77397F1BA9145600E020EC /* Base32.swift */,
+				8A7739801BA9145600E020EC /* Info.plist */,
+				8A7739811BA9145600E020EC /* StringExtension.swift */,
+			);
+			path = Base32;
 			sourceTree = "<group>";
 		};
 		8A993AC11B9D3F53003737C6 /* Products */ = {
@@ -730,6 +778,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7739841BA9145600E020EC /* Info.plist in Resources */,
 				8A993AE91B9D7426003737C6 /* shadow_up@2x.png in Resources */,
 				8A2149B91B7DB3D8002BADDA /* Main.storyboard in Resources */,
 				8A2149BE1B7DB3D8002BADDA /* LaunchScreen.xib in Resources */,
@@ -759,6 +808,7 @@
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
+				8A7739831BA9145600E020EC /* Base32.swift in Sources */,
 				8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */,
 				8A71F11E1B9EB7F100E57AE9 /* SwiftNotice.swift in Sources */,
 				8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */,
@@ -766,16 +816,21 @@
 				8A993AE01B9D6F22003737C6 /* UIScrollView+Refresh.swift in Sources */,
 				8A993ADE1B9D6F22003737C6 /* RefreshFooterView.swift in Sources */,
 				8A993ADF1B9D6F22003737C6 /* RefreshHeaderView.swift in Sources */,
+				8A3B7D081BA832280057A864 /* NSUserDefaultsPrefs.swift in Sources */,
 				8A993ADD1B9D6F22003737C6 /* RefreshConst.swift in Sources */,
 				8A1C3C561B9477E900E4B53B /* LoginViewController.swift in Sources */,
 				8A57C27A1B8595FB0003E1C8 /* PNLineChart.swift in Sources */,
 				8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */,
 				8A71F1231B9EDF5500E57AE9 /* IJReachability.swift in Sources */,
+				8A3B7D0B1BA834430057A864 /* StringExtensions.swift in Sources */,
+				8A7739821BA9145600E020EC /* Base16.swift in Sources */,
+				8A3B7D111BA83AEE0057A864 /* HexExtensions.swift in Sources */,
 				8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,
 				8AC11CE01B959C57003E8D78 /* SearchTableViewCell.swift in Sources */,
+				8A3B7D061BA831E20057A864 /* Prefs.swift in Sources */,
 				8A57C2771B8595FB0003E1C8 /* PNBar.swift in Sources */,
 				8AC11CDE1B959C38003E8D78 /* SearchViewController.swift in Sources */,
 				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
@@ -789,13 +844,16 @@
 				8A3B7CEE1BA81DAC0057A864 /* UITabBarControllerViewController.swift in Sources */,
 				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
+				8A3B7D0F1BA839FE0057A864 /* Bytes.swift in Sources */,
 				8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */,
 				8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */,
 				8A1C3C521B946A7900E4B53B /* AccessViewController.swift in Sources */,
 				8AC46A581B8334E10025D25A /* MyBleService.m in Sources */,
 				8A2149D81B7DC037002BADDA /* CtrlViewController.swift in Sources */,
+				8A3B7D0D1BA834C10057A864 /* AppInfo.swift in Sources */,
 				8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */,
 				8AF982871BA2CF0200522555 /* AppStates.swift in Sources */,
+				8A7739851BA9145600E020EC /* StringExtension.swift in Sources */,
 				8AC11CE41B95B1D1003E8D78 /* RegisterViewController.swift in Sources */,
 				8A2149DB1B7DCA2E002BADDA /* ImageUtil.swift in Sources */,
 				8AE6A7251B96E7BE00561ADB /* Router.swift in Sources */,

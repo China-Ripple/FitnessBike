@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Account/LoginViewController.swift"
-            timestampString = "463994833.607138"
+            timestampString = "464069536.38994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "onLoginSeleted(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -509,6 +509,22 @@
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "fillCell(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Utils/NSUserDefaultsPrefs.swift"
+            timestampString = "464009071.240773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "stringArrayForKey(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

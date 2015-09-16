@@ -12,17 +12,29 @@
 	<dict>
 		<key>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</key>
 		<string>https://github.com/onevcat/Kingfisher.git</string>
+		<key>7C922E6AF074E8F10ED7485A9EEA80ACEF122127</key>
+		<string>https://github.com/norio-nomura/Base32.git</string>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>
 		<string>https://github.com/China-Ripple/FitnessBike.git</string>
+		<key>CF6BF2FC448652B64B9DB6A7895D0EEC3442F5C0</key>
+		<string>https://github.com/mattrubin/Bases.git</string>
+		<key>E084C86B03F81D63323C9E7510697EA528A758C7</key>
+		<string>https://github.com/jspahrsummers/xcconfigs.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>FitnessBike.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</key>
-		<string>../../Kingfisher/</string>
+		<string>../../Kingfisher</string>
+		<key>7C922E6AF074E8F10ED7485A9EEA80ACEF122127</key>
+		<string>../../Base32</string>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>
 		<string>../..</string>
+		<key>CF6BF2FC448652B64B9DB6A7895D0EEC3442F5C0</key>
+		<string>../../../apple/Bases</string>
+		<key>E084C86B03F81D63323C9E7510697EA528A758C7</key>
+		<string>../../Base32/Carthage/Checkouts/xcconfigs</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/China-Ripple/FitnessBike.git</string>
@@ -32,6 +44,22 @@
 	<string>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7C922E6AF074E8F10ED7485A9EEA80ACEF122127</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Base32</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CF6BF2FC448652B64B9DB6A7895D0EEC3442F5C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bases</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -47,6 +75,14 @@
 			<string>17FB51EC7B87DC25DD21E28FDFD877B479CFFAC1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Kingfisher</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E084C86B03F81D63323C9E7510697EA528A758C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>xcconfigs</string>
 		</dict>
 	</array>
 </dict>
