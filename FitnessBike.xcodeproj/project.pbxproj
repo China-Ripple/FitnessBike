@@ -42,7 +42,6 @@
 		8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C27E1B85965B0003E1C8 /* PNValue.swift */; };
 		8A57C2831B8596C10003E1C8 /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */; };
 		8A57C2851B8596FE0003E1C8 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */; };
-		8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */; };
 		8A71F1191B9EB6AE00E57AE9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F1181B9EB6AE00E57AE9 /* Utility.swift */; };
 		8A71F11E1B9EB7F100E57AE9 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F11D1B9EB7F100E57AE9 /* SwiftNotice.swift */; };
 		8A71F1201B9EBB0B00E57AE9 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */; };
@@ -85,6 +84,7 @@
 		8AE6A7281B96EF7600561ADB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7271B96EF7600561ADB /* SwiftyJSON.swift */; };
 		8AE787C11BA16D6A00BBC663 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE787C01BA16D6A00BBC663 /* User.swift */; };
 		8AF982871BA2CF0200522555 /* AppStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF982861BA2CF0200522555 /* AppStates.swift */; };
+		ED1B6A941BA986C10048084D /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B6A931BA986C10048084D /* RankingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,7 +258,6 @@
 		8A57C2811B8596C10003E1C8 /* PNChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartDelegate.swift; sourceTree = "<group>"; };
 		8A57C2821B8596C10003E1C8 /* PNChartSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartSwift.h; sourceTree = "<group>"; };
 		8A57C2841B8596FE0003E1C8 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
-		8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		8A71F1181B9EB6AE00E57AE9 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		8A71F11D1B9EB7F100E57AE9 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -309,6 +308,7 @@
 		8AE6A7351B9BF42A00561ADB /* SwiftWithOC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftWithOC-Bridging-Header.h"; sourceTree = "<group>"; };
 		8AE787C01BA16D6A00BBC663 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AF982861BA2CF0200522555 /* AppStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStates.swift; sourceTree = "<group>"; };
+		ED1B6A931BA986C10048084D /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,9 +454,9 @@
 		8A2149D51B7DC000002BADDA /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				ED1B6A931BA986C10048084D /* RankingTableViewCell.swift */,
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
-				8A57C2A11B86DAE00003E1C8 /* RankingTableViewCell.swift */,
 				8A8694191B8F422500C2350E /* CompetitionViewController.swift */,
 			);
 			path = Ranking;
@@ -890,6 +890,7 @@
 			files = (
 				8AE787C11BA16D6A00BBC663 /* User.swift in Sources */,
 				8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */,
+				ED1B6A941BA986C10048084D /* RankingTableViewCell.swift in Sources */,
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
@@ -946,7 +947,6 @@
 				8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */,
 				8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */,
 				8A2149DD1B7DDF4D002BADDA /* RankingViewController.swift in Sources */,
-				8A57C2A21B86DAE00003E1C8 /* RankingTableViewCell.swift in Sources */,
 				8A71F1191B9EB6AE00E57AE9 /* Utility.swift in Sources */,
 				8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */,
 				8A1C3C4F1B944E3500E4B53B /* FriendHeaderButton.swift in Sources */,
@@ -1044,7 +1044,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/App/SwiftWithOC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1084,7 +1084,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "8a20eb83-df20-425c-b99e-eeaebfcf15b7";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/SwiftWithOC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessBike/App/SwiftWithOC-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
