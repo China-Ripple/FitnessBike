@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03F24F791BAA62D50017A6F3 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */; };
+		03F24F911BAA6A1C0017A6F3 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F24F901BAA6A1C0017A6F3 /* CompetitionViewController.swift */; };
 		8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */; };
 		8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */; };
 		8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C4B1B94388400E4B53B /* FriendModel.swift */; };
@@ -227,7 +227,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompetitionViewController.swift; path = ../../../CompetitionViewController.swift; sourceTree = "<group>"; };
+		03F24F901BAA6A1C0017A6F3 /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderViewController.swift; sourceTree = "<group>"; };
 		8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderCollectionCell.swift; sourceTree = "<group>"; };
 		8A1C3C4B1B94388400E4B53B /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
@@ -462,7 +462,7 @@
 		8A2149D51B7DC000002BADDA /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */,
+				03F24F901BAA6A1C0017A6F3 /* CompetitionViewController.swift */,
 				ED1B6A931BA986C10048084D /* RankingTableViewCell.swift */,
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
@@ -901,7 +901,7 @@
 				8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */,
 				ED1B6A941BA986C10048084D /* RankingTableViewCell.swift in Sources */,
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
-				03F24F791BAA62D50017A6F3 /* CompetitionViewController.swift in Sources */,
+				03F24F911BAA6A1C0017A6F3 /* CompetitionViewController.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8A7739831BA9145600E020EC /* Base32.swift in Sources */,
