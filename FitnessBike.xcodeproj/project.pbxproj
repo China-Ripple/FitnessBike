@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03F24F791BAA62D50017A6F3 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */; };
 		8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */; };
 		8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */; };
 		8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C3C4B1B94388400E4B53B /* FriendModel.swift */; };
@@ -55,7 +56,6 @@
 		8A7739CD1BA95A4F00E020EC /* BlueToothBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739CC1BA95A4F00E020EC /* BlueToothBiz.swift */; };
 		8A7739EC1BA967A200E020EC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; };
 		8A7739ED1BA967A200E020EC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8694191B8F422500C2350E /* CompetitionViewController.swift */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
 		8A993ADD1B9D6F22003737C6 /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD71B9D6F22003737C6 /* RefreshConst.swift */; };
@@ -227,6 +227,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompetitionViewController.swift; path = ../../../CompetitionViewController.swift; sourceTree = "<group>"; };
 		8A1C3C471B94277500E4B53B /* FriendRecommenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderViewController.swift; sourceTree = "<group>"; };
 		8A1C3C491B94367300E4B53B /* FriendRecommenderCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRecommenderCollectionCell.swift; sourceTree = "<group>"; };
 		8A1C3C4B1B94388400E4B53B /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
@@ -278,7 +279,6 @@
 		8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		8A7739CC1BA95A4F00E020EC /* BlueToothBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueToothBiz.swift; sourceTree = "<group>"; };
 		8A7739DD1BA9679600E020EC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
-		8A8694191B8F422500C2350E /* CompetitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
 		8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
 		8A993AD71B9D6F22003737C6 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
@@ -462,10 +462,10 @@
 		8A2149D51B7DC000002BADDA /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				03F24F781BAA62D50017A6F3 /* CompetitionViewController.swift */,
 				ED1B6A931BA986C10048084D /* RankingTableViewCell.swift */,
 				8A2149DC1B7DDF4D002BADDA /* RankingViewController.swift */,
 				8A2149DE1B7DE7A8002BADDA /* RankingModel.swift */,
-				8A8694191B8F422500C2350E /* CompetitionViewController.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -901,6 +901,7 @@
 				8A1C3C481B94277500E4B53B /* FriendRecommenderViewController.swift in Sources */,
 				ED1B6A941BA986C10048084D /* RankingTableViewCell.swift in Sources */,
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
+				03F24F791BAA62D50017A6F3 /* CompetitionViewController.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8A7739831BA9145600E020EC /* Base32.swift in Sources */,
@@ -937,7 +938,6 @@
 				8A2149B41B7DB3D8002BADDA /* FitnessBike.xcdatamodeld in Sources */,
 				8A71F1201B9EBB0B00E57AE9 /* KeychainWrapper.swift in Sources */,
 				8A3B7CEE1BA81DAC0057A864 /* UITabBarControllerViewController.swift in Sources */,
-				8A86941A1B8F422500C2350E /* CompetitionViewController.swift in Sources */,
 				8A7739CD1BA95A4F00E020EC /* BlueToothBiz.swift in Sources */,
 				8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */,
 				8A3B7D0F1BA839FE0057A864 /* Bytes.swift in Sources */,
