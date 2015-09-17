@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 class ActivityViewController: UIViewController {
     
+    var paddingTop:CGFloat!;
     var tableView: UITableView!
     var activities:NSMutableArray! = NSMutableArray()
     
@@ -26,7 +27,7 @@ class ActivityViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        for  i in 0...30 {
+        for  i in 0...2 {
             
             var model = ActivityBriefModel()
             model.title = "Title:\(i)"
@@ -126,8 +127,9 @@ extension ActivityViewController:UITableViewDataSource,UITableViewDelegate{
     
     
      func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        
-        return 100
+
+        return UIScreen.mainScreen().bounds.height / 5 * 4
+//        return 100
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -146,11 +148,9 @@ extension ActivityViewController:UITableViewDataSource,UITableViewDelegate{
             
             cell = ActivityBriefTableViewCell(style:UITableViewCellStyle.Default,reuseIdentifier: cellTag)
         
-            cell!.titleLabel.font = UIFont.systemFontOfSize(14)
-            cell!.selectionStyle = .Gray
-            cell!.accessoryType = .DisclosureIndicator;
-            
-        
+//            cell!.titleLabel.font = UIFont.systemFontOfSize(14)
+//            cell!.selectionStyle = .Gray
+//            cell!.accessoryType = .DisclosureIndicator;
         }
         
         
