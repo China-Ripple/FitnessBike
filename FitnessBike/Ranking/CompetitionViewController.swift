@@ -10,34 +10,24 @@ import UIKit
 import Alamofire
 class CompetitionViewController: UIViewController {
 
-    
-    
+    var peopleView:UIView!;
+    var paddingTop:CGFloat!;
+
     override func viewDidLoad() {
         
-        
-        
-        
-        
-        
         self.view.backgroundColor = UIColor.whiteColor()
-        
-        loadCompetition()
+        paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
         
         loadPeople()
-    
-        
-        
-        
-        
+        loadCompetition()
     }
     
    
     
     func loadPeople(){
         
-        var peopleView = UIView(frame: CGRectMake(0, 100, UIScreen.mainScreen().bounds.size.width, 60));
+        peopleView = UIView(frame: CGRectMake(0, 100, UIScreen.mainScreen().bounds.size.width, 60));
         peopleView.backgroundColor = UIColor.darkGrayColor()
-        
         
         
         var oneView = UIImageView(frame: CGRectMake(100, 10, 40, 40))
@@ -61,6 +51,14 @@ class CompetitionViewController: UIViewController {
         peopleView.addSubview(anotherView)
         
         self.view.addSubview(peopleView)
+        
+        // 为顶部栏两人的头像和中间PK图标的视图容器设置位置
+        
+        peopleView.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(UIScreen.mainScreen().bounds.size.width)
+            make.height.equalTo(60);
+            make.top.equalTo(paddingTop);
+        }
         
     }
     
@@ -114,7 +112,8 @@ class CompetitionViewController: UIViewController {
     func loadCompetition(){
         var competitionView = UIView(frame: CGRectMake(0, 200, UIScreen.mainScreen().bounds.size.width, 60));
 
-        var speedView = UIButton(frame: CGRectMake(40, 10, 100, 100))
+        //
+        var speedView = UIButton()//(frame: CGRectMake(40, 10, 100, 100))
         var speed = UIImage(named: "speed_competition")
         speedView.setBackgroundImage(speed, forState: UIControlState.Normal)
         competitionView.addSubview(speedView)
@@ -122,12 +121,12 @@ class CompetitionViewController: UIViewController {
         speedView.addTarget(self, action: "onSpeedCompetitionSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        var speedTitle = UILabel(frame: CGRectMake(60,  120, 100, 50))
+        var speedTitle = UILabel()//(frame: CGRectMake(60,  120, 100, 50))
         speedTitle.text = "耐力之王"
         speedTitle.textColor = UIColor.lightGrayColor()
         competitionView.addSubview(speedTitle)
         
-        var speedDes = UITextView(frame: CGRectMake(60,  160, 100, 50))
+        var speedDes = UITextView()//(frame: CGRectMake(60,  160, 100, 50))
         speedDes.text = "   PK当日 \n最高里程数"
         speedDes.textColor = UIColor.lightGrayColor()
         competitionView.addSubview(speedDes)
@@ -135,25 +134,81 @@ class CompetitionViewController: UIViewController {
         
         //===============================
         
-        var staminaView = UIButton(frame: CGRectMake(180, 10, 100, 100))
+        var staminaView = UIButton()//(frame: CGRectMake(180, 10, 100, 100))
         var stamina = UIImage(named: "stamina_competition")
         staminaView.setBackgroundImage(stamina, forState: UIControlState.Normal)
         staminaView.addTarget(self, action: "onStaminaCompetitionSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         competitionView.addSubview(staminaView)
         
         
-        var staminaTitle = UILabel(frame: CGRectMake(200,  120, 100, 50))
+        var staminaTitle = UILabel()
         staminaTitle.text = "竞速冠军"
         staminaTitle.textColor = UIColor.lightGrayColor()
         competitionView.addSubview(staminaTitle)
         
-        var staminaDes = UITextView(frame: CGRectMake(200,  160, 100, 50))
+        var staminaDes = UITextView()//(frame: CGRectMake(200,  160, 100, 50))
         staminaDes.text = " PK一分钟内 \n最高燃烧量"
         staminaDes.textColor = UIColor.lightGrayColor()
         competitionView.addSubview(staminaDes)
 
         
         self.view.addSubview(competitionView)
+        
+        // 耐力之王图标
+        speedView.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(120);
+            make.height.equalTo(120);
+            make.top.equalTo(peopleView).offset(peopleView.frame.height * 2);//.frame.height+paddingTop+20);
+            make.left.equalTo(competitionView.snp_left).offset(self.view.frame.width/16);
+        }
+        
+        // 竞速之王图标
+        staminaView.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(120);
+            make.height.equalTo(120);
+            make.top.equalTo(peopleView).offset(peopleView.frame.height * 2);//.frame.height+paddingTop+20);
+            make.right.equalTo(competitionView.snp_right).offset(-self.view.frame.width/16);
+        }
+        
+        //文本居中
+        speedTitle.textAlignment = NSTextAlignment.Center
+        // 耐力之王文本
+        speedTitle.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100);
+            make.height.equalTo(50);
+
+            make.top.equalTo(speedView.snp_bottom).offset(10);
+            make.centerXWithinMargins.equalTo(speedView.snp_centerX);
+        }
+
+        speedDes.textAlignment = NSTextAlignment.Center
+        // 耐力之王描述
+        speedDes.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100);
+            make.height.equalTo(50);
+
+            make.top.equalTo(speedTitle.snp_bottom).offset(10);
+            make.centerXWithinMargins.equalTo(speedView.snp_centerX);
+        }
+
+        staminaTitle.textAlignment = NSTextAlignment.Center
+        // 竞速之王文本
+        staminaTitle.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100);
+            make.height.equalTo(50);
+
+            make.top.equalTo(staminaView.snp_bottom).offset(10);
+            make.centerXWithinMargins.equalTo(staminaView.snp_centerX);
+        }
+        
+        staminaDes.textAlignment = NSTextAlignment.Center
+        // 竞速之王描述
+        staminaDes.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100);
+            make.height.equalTo(50);
+            make.top.equalTo(staminaTitle.snp_bottom).offset(10);
+            make.centerXWithinMargins.equalTo(staminaView.snp_centerX);
+        }
 
     }
 }
