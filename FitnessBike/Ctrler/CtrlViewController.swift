@@ -233,7 +233,16 @@ extension CtrlViewController: UIScrollViewDelegate{
     }
 }
 
-extension CtrlViewController{
+extension CtrlViewController:BTSyncCallBack{
+    
+    
+    
+    func getCurrData(distance:Int64) {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.calorieValue.text = "\(distance) cal"
+        })
+    }
     
     func testGCDThread()
     {
@@ -274,49 +283,48 @@ extension CtrlViewController{
             
             time++;
             
-            if(time == 100){
+            if(time == 36){
                 state = false
             }
             //F0 10 15 35 00 10 F1
             //工作模式
-                        var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(10)
-                        buffer.initialize(1)
-                        buffer[0] = 0xF0
-                        buffer[1] = 0x10
-                        buffer[2] = 0x15
-                        buffer[3] = 0x35
-                        buffer[4] = 0x00
-                        buffer[5] = 0x10
-                        buffer[6] = 0xF1
+//                        var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(10)
+//                        buffer.initialize(1)
+//                        buffer[0] = 0xF0
+//                        buffer[1] = 0x10
+//                        buffer[2] = 0x15
+//                        buffer[3] = 0x35
+//                        buffer[4] = 0x00
+//                        buffer[5] = 0x10
+//                        buffer[6] = 0xF1
             
             //同步模式
             //F0 10 20 23 0E 09 11 07 15 35 01 F1
-//            var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(15)
-//            buffer.initialize(1)
-//            buffer[0] = 0xF0
-//            buffer[1] = 0x10
-//            buffer[2] = 0x20
-//            buffer[3] = 0x23
-//            buffer[4] = 0x0E
-//            buffer[5] = 0x09
-//            buffer[6] = 0x11
-//            buffer[7] = 0x07
-//            buffer[8] = 0x15
-//            buffer[9] = 0x35
-//            buffer[10] = 0x01
-//            buffer[11] = 0xF1
+            var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(15)
+            buffer.initialize(1)
+            buffer[0] = 0xF0
+            buffer[1] = 0x10
+            buffer[2] = 0x20
+            buffer[3] = 0x23
+            buffer[4] = 0x0E
+            buffer[5] = 0x09
+            buffer[6] = 0x11
+            buffer[7] = 0x07
+            buffer[8] = 0x15
+            buffer[9] = 0x35
+            buffer[10] = 0x01
+            buffer[11] = 0xF1
             
             BlueToothBiz().reslove(buffer)
+            SyncProcessor.shared.registerCallBace(self)
             
             buffer.destroy()
             buffer.dealloc(1)
             
             buffer = nil
-            dispatch_async(dispatch_get_main_queue(), {
-                self.calorieValue.text = "\(time) cal"
-            })
+           
             sleep(1);
-            println("NSThread running....")
+           
         }
         println("NSThread over.")
     }

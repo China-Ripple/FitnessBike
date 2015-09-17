@@ -8,7 +8,8 @@
 
 import UIKit
 import SnapKit
-class PersonViewController: UIViewController,PNChartDelegate{
+class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
+    var burnValueLabel:UILabel!
     var profileImgView:UIImageView!
     var dataView:UIView!
     var barChart:PNBarChart!
@@ -20,7 +21,16 @@ class PersonViewController: UIViewController,PNChartDelegate{
         showChart()
         showSegment()
         
+        SyncProcessor.shared.registerCallBace(self)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func getCurrData(data: Int64) {
+       dispatch_async(dispatch_get_main_queue(), {
+              self.burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
+        })
+      
     }
     
     func showImage(){
@@ -82,8 +92,8 @@ class PersonViewController: UIViewController,PNChartDelegate{
             
         }
         //      var burnValueLabel = UILabel(frame: CGRectMake(30, 50, 80, 30))
-        var burnValueLabel = UILabel()
-        burnValueLabel.text = "128cal"
+         burnValueLabel = UILabel()
+        burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
         burnValueLabel.font = UIFont.boldSystemFontOfSize(10)
         dataView.addSubview(burnValueLabel)
         burnValueLabel.snp_makeConstraints { (make) -> Void in
