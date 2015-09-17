@@ -10,7 +10,7 @@ import UIKit
 
 
 class CtrlViewController: UIViewController {
-
+    
     let imageSize:CGFloat = 200
     let imageOffsetX:CGFloat = 60
     let imageOffsetY:CGFloat = 100
@@ -20,11 +20,11 @@ class CtrlViewController: UIViewController {
     var calorieValue:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-      //  var bleService = MyBleService.getInstance()
         
-//        shareButton = UIButton(frame: CGRectMake(15, 30, 18, 18))
+        //  var bleService = MyBleService.getInstance()
+        
+        //        shareButton = UIButton(frame: CGRectMake(15, 30, 18, 18))
         var shareButton = UIButton()
         shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
         self.view.addSubview(shareButton)
@@ -35,20 +35,20 @@ class CtrlViewController: UIViewController {
             make.height.equalTo(20)
             
         }
-
+        
         
         
         layoutScrollPage()
         layoutDataView()
         
         testNSThread()
-       var ble =  MyBleService.getInstance(BlueToothBiz())
+        var ble =  MyBleService.getInstance(BlueToothBiz())
         
     }
     
     func layoutScrollPage(){
         scrollView = UIScrollView(frame:CGRectMake(imageOffsetX,imageOffsetY,imageSize,imageSize))
-         scrollView = UIScrollView()
+        scrollView = UIScrollView()
         //scrollView.backgroundColor = UIColor.grayColor()
         scrollView.pagingEnabled=true
         scrollView.showsHorizontalScrollIndicator=false
@@ -60,7 +60,7 @@ class CtrlViewController: UIViewController {
         
         var bikeImageView = UIImageView(image:bikeImage)
         bikeImageView.frame = CGRectMake(0, 0, imageSize, imageSize)
-         self.view.addSubview(scrollView)
+        self.view.addSubview(scrollView)
         scrollView.addSubview(bikeImageView)
         scrollView.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(200)
@@ -68,7 +68,7 @@ class CtrlViewController: UIViewController {
             make.centerXWithinMargins.equalTo(self.view)
             make.top.equalTo(self.view).offset(80)
         }
-
+        
         
         
         
@@ -86,9 +86,9 @@ class CtrlViewController: UIViewController {
         
         
         
-    
         
-    
+        
+        
         
         
         self.view.addSubview(scrollView)
@@ -103,14 +103,14 @@ class CtrlViewController: UIViewController {
         pageCtrl.currentPage = 0
         pageCtrl.addTarget(self, action: "pageTurn:", forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(pageCtrl)
-
+        
         pageCtrl.snp_updateConstraints { (make) -> Void in
             make.centerWithinMargins.equalTo(self.view)
             make.top.equalTo(self.view.snp_top).offset(320)
         }
-
         
-    
+        
+        
         
     }
     
@@ -126,7 +126,7 @@ class CtrlViewController: UIViewController {
     func layoutDataView(){
         
         var calorieView = UIView()
-//        calorieView.frame = CGRectMake(imageOffsetX, 400, 200, 200)
+        //        calorieView.frame = CGRectMake(imageOffsetX, 400, 200, 200)
         
         var calorieImg = UIImage(named: "calorie")
         var calorieImageView = UIImageView(image: calorieImg)
@@ -144,14 +144,14 @@ class CtrlViewController: UIViewController {
             
         }
         
-
+        
         
         
         
         calorieValue = UILabel()
         calorieValue.text = "100 cal"
         calorieValue.textColor = UIColor.lightGrayColor()
-//        calorieValue.frame = CGRectMake(0, 25, 200, 25)
+        //        calorieValue.frame = CGRectMake(0, 25, 200, 25)
         calorieView.addSubview(calorieValue)
         
         self.view.addSubview(calorieView)
@@ -161,15 +161,15 @@ class CtrlViewController: UIViewController {
             make.bottom.equalTo(self.view.snp_bottom).offset(-70)
             
         }
-
+        
         
         
         var timeView = UIView()
-//        timeView.frame = CGRectMake(200, 400, 200, 200)
+        //        timeView.frame = CGRectMake(200, 400, 200, 200)
         
         var timeImg = UIImage(named: "time_clock")
         var timeImageView = UIImageView(image: timeImg)
-//        timeImageView.frame = CGRectMake(25, 0, 25, 25)
+        //        timeImageView.frame = CGRectMake(25, 0, 25, 25)
         timeView.addSubview(timeImageView)
         self.view.addSubview(timeView)
         timeView.snp_remakeConstraints { (make) -> Void in
@@ -177,13 +177,13 @@ class CtrlViewController: UIViewController {
             make.bottom.equalTo(self.view.snp_bottom).offset(-150)
             
         }
-
+        
         
         
         var timeValue = UILabel()
         timeValue.text = "00:00:00"
         timeValue.textColor = UIColor.lightGrayColor()
-//        timeValue.frame = CGRectMake(0, 25, 200, 25)
+        //        timeValue.frame = CGRectMake(0, 25, 200, 25)
         timeView.addSubview(timeValue)
         
         
@@ -196,30 +196,30 @@ class CtrlViewController: UIViewController {
             make.bottom.equalTo(self.view.snp_bottom).offset(-70)
             
         }
-
+        
         
         
         
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 extension CtrlViewController: UIScrollViewDelegate{
@@ -277,6 +277,41 @@ extension CtrlViewController{
             if(time == 100){
                 state = false
             }
+            //F0 10 15 35 00 10 F1
+            //工作模式
+                        var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(10)
+                        buffer.initialize(1)
+                        buffer[0] = 0xF0
+                        buffer[1] = 0x10
+                        buffer[2] = 0x15
+                        buffer[3] = 0x35
+                        buffer[4] = 0x00
+                        buffer[5] = 0x10
+                        buffer[6] = 0xF1
+            
+            //同步模式
+            //F0 10 20 23 0E 09 11 07 15 35 01 F1
+//            var buffer :UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.alloc(15)
+//            buffer.initialize(1)
+//            buffer[0] = 0xF0
+//            buffer[1] = 0x10
+//            buffer[2] = 0x20
+//            buffer[3] = 0x23
+//            buffer[4] = 0x0E
+//            buffer[5] = 0x09
+//            buffer[6] = 0x11
+//            buffer[7] = 0x07
+//            buffer[8] = 0x15
+//            buffer[9] = 0x35
+//            buffer[10] = 0x01
+//            buffer[11] = 0xF1
+            
+            BlueToothBiz().reslove(buffer)
+            
+            buffer.destroy()
+            buffer.dealloc(1)
+            
+            buffer = nil
             dispatch_async(dispatch_get_main_queue(), {
                 self.calorieValue.text = "\(time) cal"
             })

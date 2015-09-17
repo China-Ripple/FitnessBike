@@ -36,6 +36,8 @@ class RankingViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        self.navigationController!.navigationBar.backgroundColor = UIColor.redColor()
+        
         self.view.addSubview(tableView)
 
         
@@ -165,13 +167,28 @@ class RankingViewController: UIViewController {
         
         
         segmentedCtrl = UISegmentedControl()
-        segmentedCtrl.frame = CGRectMake(100, 5, 100, 30)
+      
         
         segmentedCtrl.insertSegmentWithTitle("排行榜", atIndex: 0, animated: false)
         segmentedCtrl.insertSegmentWithTitle("PK榜", atIndex: 1, animated: false)
        
         segmentedCtrl.selectedSegmentIndex = 0;
         self.navigationController!.navigationBar.addSubview(segmentedCtrl)
+        
+        var naviBarHeight = self.navigationController!.navigationBar.frame.height
+        var statusHeight = Utility.getStatusHeight()
+        segmentedCtrl.frame = CGRectMake(0, 0, 100, 30)
+        segmentedCtrl.snp_makeConstraints { (make) -> Void in
+            
+//          
+//            make.height.equalTo(30)
+//            make.width.equalTo(100)
+            make.centerXWithinMargins.equalTo(self.view.snp_centerX)
+            println("segmentedCtrl.frame.size.height: \(segmentedCtrl.frame.size.height)")
+            make.top.equalTo(self.view.snp_top).offset(statusHeight + (naviBarHeight-segmentedCtrl.frame.size.height)/2 )
+            
+           // make.centerYWithinMargins.equalTo(self.navigationController!.navigationBar.snp_centerY)
+        }
         
         
     
