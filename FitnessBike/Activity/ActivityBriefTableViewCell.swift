@@ -33,6 +33,7 @@ class ActivityBriefTableViewCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         self.backgroundColor = UIColor.blackColor();
         
         initTopViews();
@@ -201,6 +202,8 @@ class ActivityBriefTableViewCell: UITableViewCell {
         activitySignUp = UIButton();
         activitySignUp.setTitle("我要报名", forState: UIControlState.Normal);
         activitySignUp.backgroundColor = UIColor.blueColor();
+        activitySignUp.layer.masksToBounds = true;
+        activitySignUp.layer.cornerRadius = 15;
     }
     
     func addToView()
