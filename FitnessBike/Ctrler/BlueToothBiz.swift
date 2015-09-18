@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 let BLE_DATA_PREFS_NAME = "bleDataPrefs"
 let GEAR_MAX_NUM = 7
 let TOTAL_DISTANCE = "totalDistance"
@@ -97,7 +98,7 @@ class SyncProcessor{
     func push(data:BlueToothSyncModel){
         
         println("count :\(count) , recordCount:\(data.recordCount)")
-       
+        
         if let d = things.objectForKey(name("\(data.gear)")){
             var curr = d as! GearModel
             curr.distance = data.distance +  curr.distance
@@ -113,9 +114,9 @@ class SyncProcessor{
             
             totalDistance = totalDistance +  gear.distance
             println("new data")
-//            if(count >= data.recordCount){
-//
-//            }
+            //            if(count >= data.recordCount){
+            //
+            //            }
         }
         count = count + 1
         
@@ -130,25 +131,25 @@ class SyncProcessor{
         for cb  in callbacks {
             cb.getCurrData(totalDistance)
         }
-
+        
     }
     
     func save(){
         println("starts to save data...")
         
         
-      
+        
         for item in things.objectEnumerator(){
             //如果发现数据存储中还存在以前的数据，需要将数据进行累加
             var gear = item as! GearModel
-           
+            
             if let prefsDis = prefs.longForKey("\(gear.gear)")
             {
                 
-               
+                
                 var distance = (prefsDis as! Int64) + gear.distance
                 prefs.setLong(distance, forKey:"\(gear.gear)")
-                 println("saved gear: \(gear.gear) , distance: \( distance)")
+                println("saved gear: \(gear.gear) , distance: \( distance)")
                 
             }
             else{
@@ -157,13 +158,13 @@ class SyncProcessor{
                 
                 
             }
-           
+            
         }
         things.removeAllObjects()
         
         if let distance = prefs.longForKey(TOTAL_DISTANCE){
-        
-             prefs.setLong(totalDistance + distance, forKey:TOTAL_DISTANCE)
+            
+            prefs.setLong(totalDistance + distance, forKey:TOTAL_DISTANCE)
             println("save with old data...\(totalDistance + distance)")
         }
         else{
@@ -176,6 +177,10 @@ class SyncProcessor{
         onSavedCompleted()
     }
     
+    func saveWithJson(){
+        
+    }
+    
     func onSavedCompleted(){
         newData = true
         totalDistance = 0
@@ -183,27 +188,28 @@ class SyncProcessor{
     //将文件中的内容上传到服务器
     func sync(){
         
-        //        for i in 0...GEAR_MAX_NUM {
-        //            if let prefsDis = prefs.longForKey("\(gear.gear)")
-        //            {
-        //                history.setObject(<#anObject: AnyObject#>, forKey: <#NSCopying#>)
-        //            }
-        //        }
+        let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
+        Alamofire.request(Router.Sync(parameter:json as! [String : AnyObject] )).responseJSON{
+            (_,_,json,error) in
+            
+                println("data: \(json)")
+                
+                var result = JSON(json!)
+                Utility.showNetMsg(result)
+        }
+
+    }
+    
+    var json: AnyObject {
         
-        
-        //        public var json: AnyObject {
-        //            get {
-        //                let json = NSMutableDictionary()
-        //                json["url"] = url
-        //                json["title"] = title
-        //                json["added_by"] = addedBy
-        //                json["unread"] = unread
-        //                json["archived"] = archived
-        //                json["favorite"] = favorite
-        //                return json
-        //            }
-        //        }
-        
+        get {
+            var json: [String: AnyObject] = [:]
+            
+            json["calorie"] = fetch() as! AnyObject
+            json["distance"] = fetch() as! AnyObject
+
+            return json
+        }
     }
     
     func fetch()->Int64{
@@ -220,11 +226,7 @@ class SyncProcessor{
                 return distance + totalDistance
             }
         }
-        
-        
-        
-       
-        
+
         return totalDistance+temDataOnDB
     }
     
@@ -236,7 +238,7 @@ class SyncProcessor{
 class BlueToothBiz:BleDataReslover{
     
     
-   
+    
     
     var  transferBuffer:UnsafeMutablePointer<UInt8>!
     
@@ -309,7 +311,7 @@ class BlueToothBiz:BleDataReslover{
         
         var state = ((readData_temp_buffer[2]>>4) & 0x07) as! UInt8
         
-       // println("state: \(state)")
+        // println("state: \(state)")
         switch(state){
         case 1:
             

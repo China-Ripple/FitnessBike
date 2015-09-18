@@ -85,6 +85,10 @@ class ServiceApi: NSObject {
         
         return "\(host)/msgresponse"
     }
+    internal class func getSyncUrl()->String{
+        
+        return "\(host)/sync"
+    }
     
     internal class func getCompetitionUrl(defenderid:String,type:Int,time:String)->String{
        return "\(host)/msgcompitition?defenderid=\(defenderid)&type=\(type)&tiem=\(time)"

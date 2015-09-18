@@ -11,7 +11,7 @@ import Alamofire
 
 
 enum Router: URLRequestConvertible{
-
+    
     
     static var token: String?
     
@@ -28,6 +28,7 @@ enum Router: URLRequestConvertible{
     case Talent(maxId:Int,num:Int)
     case Regulation(account:String,name:String)
     case Makefriends(account:String)
+    case Sync(parameter:[String:AnyObject])
     
     var method: Alamofire.Method {
         switch self {
@@ -57,6 +58,8 @@ enum Router: URLRequestConvertible{
             return .GET
         case .Makefriends:
             return .GET
+        case .Sync:
+            return .POST
         default:
             return .GET
         }
@@ -74,7 +77,7 @@ enum Router: URLRequestConvertible{
             return ServiceApi.getSignUpUrl()
         case .WeeklyMiles(let account):
             return ServiceApi.getWeeklyMiles(account)
-       case .Exercise(let account):
+        case .Exercise(let account):
             return ServiceApi.getExercise(account)
         case .WeeklyCalories(let account):
             return ServiceApi.getWeeklyCalories(account)
@@ -84,7 +87,7 @@ enum Router: URLRequestConvertible{
             return ServiceApi.getCompMsgUrl(maxId,num:num)
         case .MsgResponse:
             return ServiceApi.getMsgResponseUrl()
-         case .NearbyPeople(let maxId,let num):
+        case .NearbyPeople(let maxId,let num):
             return ServiceApi.getNearbyPeopleUrl(maxId,num:num)
         case Talent(let maxId,let num):
             return ServiceApi.getTalentUrl(maxId,num: num)
@@ -92,6 +95,8 @@ enum Router: URLRequestConvertible{
             return ServiceApi.getRegulationUrl(account, name: name)
         case Makefriends(let account):
             return ServiceApi.getMakeFriendsUrl(account)
+        case Sync:
+            return ServiceApi.getSyncUrl()
         default:
             return ServiceApi.getNotFoundUrl()
         }
@@ -112,14 +117,16 @@ enum Router: URLRequestConvertible{
         mutableURLRequest.setValue("1.0", forHTTPHeaderField: "appversion")
         
         println("mutableURLRequest: = \(mutableURLRequest)")
-     
+        
         
         switch self {
-             case .SignUp(let params):
-                return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
-            case .MsgResponse(let params):
-                return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
-            default:
+        case .SignUp(let params):
+            return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
+        case .MsgResponse(let params):
+            return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
+        case Sync(let params):
+            return  Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
+        default:
             
             return mutableURLRequest
         }
