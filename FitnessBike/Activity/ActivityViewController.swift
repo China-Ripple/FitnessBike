@@ -26,6 +26,7 @@ class ActivityViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
         
         for  i in 0...2 {
             
