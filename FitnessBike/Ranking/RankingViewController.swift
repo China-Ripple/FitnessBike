@@ -12,17 +12,19 @@ import Alamofire
 class RankingViewController: UIViewController {
     
     
-   
+    
     var tableView: UITableView!
     
-
+    
     var loading:Bool = false
     
     var segmentedCtrl:UISegmentedControl!
-    var  msgItem:UIButton!
+    var msgItem:UIButton!
     var memberList:[AnyObject] = [AnyObject]()
-    var addItem:UIBarButtonItem!
-    var newMsg:UIImageView!
+    var addItem:UIButton!
+    var newMsg:NewMsgFlag!
+    //判断views是否已经被创建过了，如果创建过了就不需要重新创建，直接显示即可
+    var viewsHiden = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,16 +32,16 @@ class RankingViewController: UIViewController {
         
         var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
         
-
+        
         tableView = UITableView(frame: CGRectMake(0, paddingTop, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.navigationController!.navigationBar.backgroundColor = UIColor.redColor()
+      
         
         self.view.addSubview(tableView)
-
+        
         
         self.tableView.addHeaderWithCallback{
             
@@ -47,37 +49,28 @@ class RankingViewController: UIViewController {
         }
         
         self.tableView.addFooterWithCallback{
-           if(self.memberList.count>0) {
+            if(self.memberList.count>0) {
                 var  maxId = (self.memberList.last!.valueForKey("id") as! String).toInt()
-
-
+                
+                
                 self.loadData(maxId!, isPullRefresh: false)
-           }
+            }
         }
         
         self.tableView.headerBeginRefreshing()
-
+        
         
         // Do any additional setup after loading the view.
         
         
-      
-      //  loadData()
-   
+        
      
         
+       
+        
         
     }
     
-    override func  viewWillAppear(animated: Bool) {
-        self.navigationController!.title = ""
-        super.viewWillAppear(animated)
-    }
-    
-    func productModels(){
-        
-
-    }
     
     func loadData(maxId:Int,isPullRefresh:Bool){
         if self.loading {
@@ -101,7 +94,7 @@ class RankingViewController: UIViewController {
                 alert.show()
                 return
             }
-
+            
             var result = JSON(json!)
             
             println("result: \(result)")
@@ -121,7 +114,7 @@ class RankingViewController: UIViewController {
                 
                 
                 if(isPullRefresh){
-
+                    
                     self.memberList.removeAll(keepCapacity: false)
                 }
                 
@@ -139,78 +132,82 @@ class RankingViewController: UIViewController {
     
     func layoutNavigationBar(){
         
+        
         let shareItem=UIBarButtonItem(image: UIImage(named: "share"), style: UIBarButtonItemStyle.Bordered, target: self, action: "share:")
         //  添加到到导航栏上
-        self.navigationItem.leftBarButtonItem = shareItem;
+        self.navigationItem.leftBarButtonItems = [shareItem];
         
         
-        addItem=UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.Bordered, target: self, action: "addFriends:")
+//        addItem=UIImageView(image: UIImage(named: "item_ctrl_press"), style: UIBarButtonItemStyle.Bordered, target: self, action: "addFriends:")
         //  添加到到导航栏上
-        self.navigationItem.rightBarButtonItem = addItem;
         
+        addItem = UIButton(frame:CGRect( x: UIScreen.mainScreen().bounds.size.width-30-10,y: 10,width: 30,height: 30))
+        addItem.addTarget(self, action: "addFriends:", forControlEvents: UIControlEvents.TouchUpInside)
+        addItem.setImage(UIImage(named: "add"), forState: UIControlState.allZeros)
         
+        self.navigationController!.navigationBar.addSubview(addItem)
+  
         
+   
         
+        self.navigationItem.hidesBackButton = false
         
+
         msgItem=UIButton(frame: CGMakeRect(270, 10, 30, 30))
         msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
         msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
         //  添加到到导航栏上
-         self.navigationController!.navigationBar.addSubview(msgItem)
+        self.navigationController!.navigationBar.addSubview(msgItem)
         
-         newMsg=UIImageView(frame: CGMakeRect(270, 10, 15, 15))
-        newMsg.image = UIImage(named: "newmsg")
+        newMsg = NewMsgFlag(frame: CGMakeRect(270, 10, 10, 10))
+        newMsg.backgroundColor = UIColor.clearColor()
         //  添加到到导航栏上
         self.navigationController!.navigationBar.addSubview(newMsg)
         
+
         
-        
-        
-        segmentedCtrl = UISegmentedControl()
-      
-        
+        segmentedCtrl = UISegmentedControl(frame: CGMakeRect(0, 0,80, 30))
         segmentedCtrl.insertSegmentWithTitle("排行榜", atIndex: 0, animated: false)
         segmentedCtrl.insertSegmentWithTitle("PK榜", atIndex: 1, animated: false)
-       
         segmentedCtrl.selectedSegmentIndex = 0;
-        self.navigationController!.navigationBar.addSubview(segmentedCtrl)
         
-        var naviBarHeight = self.navigationController!.navigationBar.frame.height
-        var statusHeight = Utility.getStatusHeight()
-        segmentedCtrl.frame = CGRectMake(0, 0, 100, 30)
-        segmentedCtrl.snp_makeConstraints { (make) -> Void in
-            
-//          
-//            make.height.equalTo(30)
-//            make.width.equalTo(100)
-            make.centerXWithinMargins.equalTo(self.view.snp_centerX)
-            println("segmentedCtrl.frame.size.height: \(segmentedCtrl.frame.size.height)")
-            make.top.equalTo(self.view.snp_top).offset(statusHeight + (naviBarHeight-segmentedCtrl.frame.size.height)/2 )
-            
-           // make.centerYWithinMargins.equalTo(self.navigationController!.navigationBar.snp_centerY)
+        self.navigationController!.navigationBar.topItem?.titleView = segmentedCtrl
+        
+
+
+       
+        
+        
+        
+    }
+     override func  viewWillAppear(animated: Bool) {
+        if viewsHiden == false{
+            layoutNavigationBar()
         }
-        
-        
-    
+        else{
+            segmentedCtrl.hidden = false
+            msgItem.hidden = false
+            newMsg.hidden = false
+            addItem.hidden = false
+        }
+        super.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
-         layoutNavigationBar()
-        
-        super.viewDidAppear(animated)
-    }
     
-    override func viewDidDisappear(animated: Bool) {
-        
+    override func viewWillDisappear(animated: Bool) {
         cleanNavigationBar()
         
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
     }
     
     func cleanNavigationBar(){
-        segmentedCtrl.removeFromSuperview()
-        msgItem.removeFromSuperview()
-        newMsg.removeFromSuperview()
+        
+        viewsHiden = true
+        segmentedCtrl.hidden = true
+        msgItem.hidden = true
+        newMsg.hidden = true
+        addItem.hidden = true
+
     }
     
     func checkMessage(sender:AnyObject?){
@@ -231,54 +228,54 @@ class RankingViewController: UIViewController {
         
         self.navigationController!.pushViewController(friendRecommenderVC, animated:true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
-//    
-//    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
-//    {
-//        return "  PK  "
-//    }
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-//    
-//    {
-//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-////            memberList.removeObjectAtIndex(indexPath.row)
-////            // Delete the row from the data source.
-//            
-//            
-////            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
-//            
-//            var competitionVC = CompetitionViewController();
-//            
-//            self.navigationController!.pushViewController(competitionVC, animated:true)
-//            
-//        }
-//        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
-//    }
-//    
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
-//        return  true
-//    }
+    //
+    //    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
+    //    {
+    //        return "  PK  "
+    //    }
+    //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    //
+    //    {
+    //        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+    ////            memberList.removeObjectAtIndex(indexPath.row)
+    ////            // Delete the row from the data source.
+    //
+    //
+    ////            tableView.deleteRowsAtIndexPaths([indexPath],withRowAnimation:UITableViewRowAnimation.Fade)
+    //
+    //            var competitionVC = CompetitionViewController();
+    //
+    //            self.navigationController!.pushViewController(competitionVC, animated:true)
+    //
+    //        }
+    //        else if (editingStyle == UITableViewCellEditingStyle.Insert) {
+    //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    //        }
+    //    }
+    //
+    //    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
+    //        return  true
+    //    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         
@@ -295,7 +292,7 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-       
+        
         
         
         var cell:RankingTableViewCell?
@@ -306,18 +303,18 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
             cell = RankingTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         }
         
-//        cell!.accessoryType = accessory;
+        //        cell!.accessoryType = accessory;
         cell!.delegate = self;
-      //  cell!.allowsMultipleSwipe = false;
+        //  cell!.allowsMultipleSwipe = false;
         var obj = memberList[indexPath.row]
-            
+        
         var model = RankingModel()
         model.id = (obj.valueForKey("id") as! String).toInt()
         model.name = obj.valueForKey("name") as! String
         model.imageUrl = obj.valueForKey("imageUrl") as! String
         model.position = obj.valueForKey("position") as! Int
         model.kilometre =  obj.valueForKey("kilometre") as! Int
-      
+        
         cell!.fillCell(model)
         
         
@@ -330,20 +327,20 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
 //
 extension RankingViewController:MGSwipeTableCellDelegate{
     
-//#if TEST_USE_MG_DELEGATE
+    //#if TEST_USE_MG_DELEGATE
     
     func swipeTableCell(cell: MGSwipeTableCell!, canSwipe direction: MGSwipeDirection) -> Bool {
         return true
     }
     
-//    
+    //
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]!
     {
         swipeSettings.transition = MGSwipeTransition.Border;
         swipeSettings.onlySwipeButtons = false
         swipeSettings.keepButtonsSwiped = true
         
-         expansionSettings.fillOnTrigger = false;
+        expansionSettings.fillOnTrigger = false;
         if (direction == MGSwipeDirection.LeftToRight) {
             expansionSettings.buttonIndex = 1
             return createLeftButtons(1) as [AnyObject];
@@ -360,28 +357,28 @@ extension RankingViewController:MGSwipeTableCellDelegate{
     }
     
     func deleteFriend(indexPath:NSIndexPath){
-         memberList.removeAtIndex(indexPath.row)
+        memberList.removeAtIndex(indexPath.row)
         //tableView.deleteRowsAtIndexPaths( withRowAnimation:UITableViewRowAnimationLeft];
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
     }
     
     
-   
     
     
-
+    
+    
     
     func createLeftButtons(number:Int)->[AnyObject]
-   {
+    {
         var result:[AnyObject] = [AnyObject]();
         var colors:[UIColor] = [UIColor.grayColor(),
             UIColor(red: 0, green: 0x99/255.0, blue: 0xcc/255.0, alpha: 1.0),
             UIColor(red: 0.59, green:0.29, blue:0.08, alpha: 1.0)]
-
- 
+        
+        
         var icons = [ UIImage(named: "check"), UIImage(named:"fav"),UIImage(named:"menu")]
-    
-    
+        
+        
         for  i in 0...number-1
         {
             
@@ -397,7 +394,7 @@ extension RankingViewController:MGSwipeTableCellDelegate{
             
             
             result.append(button)
-
+            
         }
         return result;
     }
@@ -405,29 +402,29 @@ extension RankingViewController:MGSwipeTableCellDelegate{
     
     func createRightButtons( number:Int)->[AnyObject]
     {
-          var result:[AnyObject] = [AnyObject]();
-            var titles:[String] = ["PK", "more"];
-            var colors:[UIColor] = [UIColor.redColor(),UIColor.lightGrayColor()];
-          for  i in 0...number-1
+        var result:[AnyObject] = [AnyObject]();
+        var titles:[String] = ["PK", "more"];
+        var colors:[UIColor] = [UIColor.redColor(),UIColor.lightGrayColor()];
+        for  i in 0...number-1
         {
-       
+            
             
             var pkButtton:MGSwipeButton = MGSwipeButton(title: "   PK   ", backgroundColor: UIColor.greenColor(), padding: 10, callback: { (sender) -> Bool in
-            
+                
                 self.pk()
                 return true
                 
             })
             
-           
-//            NSLog(@"Convenience callback received (right).");
-//            BOOL autoHide = i != 0;
-//            return autoHide; //Don't autohide in delete button to improve delete expansion animation
-//            }];
+            
+            //            NSLog(@"Convenience callback received (right).");
+            //            BOOL autoHide = i != 0;
+            //            return autoHide; //Don't autohide in delete button to improve delete expansion animation
+            //            }];
             result.append(pkButtton)
         }
         return result;
     }
-
-// #endif
+    
+    // #endif
 }

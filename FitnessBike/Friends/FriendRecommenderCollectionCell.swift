@@ -18,7 +18,7 @@ class FriendRecommenderCollectionCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        pictureView = UIImageView(frame: CGMakeRect(0, 0, 60, 60))
+        pictureView = UIImageView(frame: CGMakeRect(0, 0, 160, 160))
         pictureView.image = UIImage(named: "nzt")
         pictureView.layer.cornerRadius = 8
         pictureView.clipsToBounds = true

@@ -13,11 +13,12 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
     var tableView:UITableView!
     var messageData = NSMutableArray()
     internal var data:[AnyObject] = [AnyObject]()
-    var msgItem:UIButton!
-    
+    var msgItem:UIImageView!
+    var viewsHiden = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "消息"
         tableView = UITableView(frame: CGMakeRect(0, 0, 375, 667))
         self.view.addSubview(tableView)
         
@@ -48,30 +49,50 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool){
+//        if viewsHiden == true{
+//            msgItem.hidden = false
+//        }
+//        else
+    
+ //           layoutNavigationBar()
         
-        layoutNavigationBar()
         
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
+        
+        
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        
-        cleanNavigationBar()
-        super.viewDidDisappear(animated)
+    
+    
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+       // cleanNavigationBar()
+        super.viewWillDisappear(animated)
     }
     
     func cleanNavigationBar(){
-        
-        msgItem.removeFromSuperview()
+        viewsHiden = true
+        msgItem.hidden = true
     }
     
     func layoutNavigationBar(){
-        msgItem=UIButton(frame: CGMakeRect(180, 10, 30, 30))
-        msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
+        
+        msgItem = UIImageView(frame: CGMakeRect(300, 0, 30, 30))
+        msgItem.image = UIImage(named: "item_ctrl_press")
+        
+        //msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
         //msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
         //  添加到到导航栏上
-        self.navigationController!.navigationBar.addSubview(msgItem)
+        
+        if let tv = self.navigationController!.navigationBar.topItem!.titleView {
+            
+            tv.removeFromSuperview()
+        }
+        self.navigationController!.navigationBar.topItem!.titleView = msgItem
+        
+      
 
     }
     
@@ -172,7 +193,5 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     
-    func setupNavigationBar(){
-        
-    }
+   
 }

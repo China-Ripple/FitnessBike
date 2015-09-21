@@ -32,6 +32,16 @@ func CGMakeRect(x:CGFloat,y:CGFloat, width:CGFloat, height:CGFloat)->CGRect
     return rect;
 }
 
+func CGMakeFloat(x:CGFloat)->CGFloat
+{
+    //先得到appdelegate
+    var app = UIApplication.sharedApplication().delegate as! AppDelegate
+
+    //如果使用此结构体，那么对传递过来的参数，在内部做了比例系数的改变
+   return x * app.baseX;//原点的X坐标的改变
+
+}
+
 
 class FriendRecommenderViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate{
 
@@ -46,24 +56,28 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
        
         super.viewDidLoad()
        
-
+     
 //        var searchbar:UISearchBar = UISearchBar(frame: CGMakeRect(0, 65, 375, 60))
 //        self.view.addSubview(searchbar)
         
         
         
         var layout = UICollectionViewFlowLayout();
-        layout.headerReferenceSize = CGMakeSize(320, 40);
+       layout.headerReferenceSize = CGMakeSize(0, 30);
         layout.itemSize = CGMakeSize(160, 160);
-        layout.sectionInset = UIEdgeInsetsMake(0, 15, 20, 20);
+        layout.scrollDirection = UICollectionViewScrollDirection.Vertical;
+        layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
         
-         collection = UICollectionView(frame: CGMakeRect(0, 130, 375,720), collectionViewLayout: layout)
+//        var collHeight = UIScreen.mainScreen().bounds.size.height - self.navigationController!.navigationBar.frame.size.height - self.tabBarController!.tabBar.frame.size.height!
+        
+        collection = UICollectionView(frame: CGMakeRect(0, 60, 375,720), collectionViewLayout: layout)
         
         collection.dataSource = self;
         collection.delegate = self;
-        collection.backgroundColor = UIColor.whiteColor()
+        
         
         self.view.addSubview(collection)
+        collection.backgroundColor = UIColor.grayColor()
         
         
         collection.registerClass(FriendRecommenderCollectionCell.self, forCellWithReuseIdentifier: "friendCell")
@@ -75,10 +89,12 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
 
         self.view.backgroundColor = UIColor.whiteColor()
         
-        setupSearchBar()
+         setupSearchBar()
        
         
     }
+    
+    
     
     
     
@@ -97,6 +113,7 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         return 2
     }
     
+    
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
@@ -107,7 +124,7 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
             cell = FriendRecommenderCollectionCell()
 
         }
-        
+        cell!.sizeToFit()
         cell!.nameLabel.text = "宁泽涛"
         
         
@@ -121,12 +138,17 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         var reusableview:UICollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! UICollectionReusableView;
         
         if (kind == UICollectionElementKindSectionHeader){
+            var aView:UIView = UIView(frame: CGMakeRect(10 , 6, 7, 18));
+            
+            aView.backgroundColor = UIColor.greenColor()
+            aView.layer.cornerRadius = 3;
+            reusableview.addSubview(aView)
             
             headerTitle = reusableview.viewWithTag(TITLE_TAG) as? UILabel
             if(headerTitle == nil){
                 
-                headerTitle = UILabel(frame: CGMakeRect(10, 5, 100, 30))
-                
+                headerTitle = UILabel(frame: CGMakeRect(20, 8, 100, 14))
+                headerTitle.font = UIFont(name: "Arial-BoldItalicMT", size: 14)
                 headerTitle.tag = TITLE_TAG
             }
             reusableview.addSubview(headerTitle)
@@ -148,11 +170,11 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
             }
             else{
                 btn = FriendHeaderButton()
-                btn!.frame = CGMakeRect(340, 5, 20, 30)
+                btn!.frame = CGMakeRect(345, 0, 30, 30)
                 btn!.tag = BUTTON_TAG
                 btn!.headerTitle = headerTitle.text
                 btn!.index = indexPath.section
-                btn!.setTitle("XXXX", forState: UIControlState.Normal)
+             
                 btn!.setImage(UIImage(named: "jiantou.png"), forState: UIControlState.Normal)
                 if(indexPath.section == 0){
                     btn!.index = 0
@@ -228,6 +250,8 @@ extension FriendRecommenderViewController: UISearchBarDelegate{
         
       
     }
+    
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar){
          println("点击开始")
          collection.hidden = true

@@ -21,6 +21,7 @@ class RankingTableViewCell: MGSwipeTableCell {
     var  indicatorColor:UIColor = UIColor.whiteColor();
     var innerColor:UIColor?;
     
+   
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         
@@ -166,4 +167,6 @@ class RankingTableViewCell: MGSwipeTableCell {
         //        awardImageView.frame =  CGRectMake(20,30,30,50)
         
     }
+    
+   
 }

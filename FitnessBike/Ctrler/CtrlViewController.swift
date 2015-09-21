@@ -26,17 +26,17 @@ class CtrlViewController: UIViewController {
         //  var bleService = MyBleService.getInstance()
         
         //        shareButton = UIButton(frame: CGRectMake(15, 30, 18, 18))
-        var shareButton = UIButton()
-        shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
-        self.view.addSubview(shareButton)
-        shareButton.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view.snp_top).offset(22)
-            make.left.equalTo(self.view.snp_left).offset(9.5)
-            make.width.equalTo(20)
-            make.height.equalTo(20)
-            
-        }
-        
+//        var shareButton = UIButton()
+//        shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
+//        self.view.addSubview(shareButton)
+//        shareButton.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(self.view.snp_top).offset(22)
+//            make.left.equalTo(self.view.snp_left).offset(9.5)
+//            make.width.equalTo(20)
+//            make.height.equalTo(20)
+//            
+//        }
+//        
         
         
         layoutScrollPage()
@@ -200,7 +200,9 @@ class CtrlViewController: UIViewController {
         
         
         
-        
+        let shareItem=UIBarButtonItem(image: UIImage(named: "share"), style: UIBarButtonItemStyle.Bordered, target: self, action: "share:")
+        //  添加到到导航栏上
+        self.navigationItem.leftBarButtonItems = [shareItem];
         
         
     }
