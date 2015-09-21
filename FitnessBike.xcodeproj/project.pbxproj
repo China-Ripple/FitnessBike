@@ -66,6 +66,9 @@
 		8A993AE71B9D7426003737C6 /* arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A993AE31B9D7426003737C6 /* arrow_up@2x.png */; };
 		8A993AE81B9D7426003737C6 /* shadow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A993AE41B9D7426003737C6 /* shadow_up.png */; };
 		8A993AE91B9D7426003737C6 /* shadow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A993AE51B9D7426003737C6 /* shadow_up@2x.png */; };
+		8A9A034D1BAFBAE700745766 /* TabbarControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A034A1BAFBAE700745766 /* TabbarControllerView.swift */; };
+		8A9A034E1BAFBAE700745766 /* TabBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A034B1BAFBAE700745766 /* TabBounceAnimation.swift */; };
+		8A9A034F1BAFBAE700745766 /* TabItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A034C1BAFBAE700745766 /* TabItemAnimationProtocol.swift */; };
 		8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD61B957B91003E8D78 /* MessageModel.swift */; };
 		8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */; };
 		8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */; };
@@ -289,6 +292,9 @@
 		8A993AE31B9D7426003737C6 /* arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_up@2x.png"; sourceTree = "<group>"; };
 		8A993AE41B9D7426003737C6 /* shadow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_up.png; sourceTree = "<group>"; };
 		8A993AE51B9D7426003737C6 /* shadow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow_up@2x.png"; sourceTree = "<group>"; };
+		8A9A034A1BAFBAE700745766 /* TabbarControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarControllerView.swift; sourceTree = "<group>"; };
+		8A9A034B1BAFBAE700745766 /* TabBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBounceAnimation.swift; sourceTree = "<group>"; };
+		8A9A034C1BAFBAE700745766 /* TabItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8AC11CD61B957B91003E8D78 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -514,6 +520,9 @@
 		8A3B7CEC1BA81D630057A864 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				8A9A034A1BAFBAE700745766 /* TabbarControllerView.swift */,
+				8A9A034B1BAFBAE700745766 /* TabBounceAnimation.swift */,
+				8A9A034C1BAFBAE700745766 /* TabItemAnimationProtocol.swift */,
 				8A3B7CED1BA81DAC0057A864 /* UITabBarControllerViewController.swift */,
 			);
 			path = Tabbar;
@@ -903,8 +912,10 @@
 				8A2149DF1B7DE7A8002BADDA /* RankingModel.swift in Sources */,
 				03F24F911BAA6A1C0017A6F3 /* CompetitionViewController.swift in Sources */,
 				8A2149B61B7DB3D8002BADDA /* ViewController.swift in Sources */,
+				8A9A034E1BAFBAE700745766 /* TabBounceAnimation.swift in Sources */,
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8A7739831BA9145600E020EC /* Base32.swift in Sources */,
+				8A9A034D1BAFBAE700745766 /* TabbarControllerView.swift in Sources */,
 				8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */,
 				8A71F11E1B9EB7F100E57AE9 /* SwiftNotice.swift in Sources */,
 				8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */,
@@ -932,6 +943,7 @@
 				8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */,
 				8A1C3C4A1B94367300E4B53B /* FriendRecommenderCollectionCell.swift in Sources */,
 				8A57C27B1B8595FB0003E1C8 /* PNLineChartData.swift in Sources */,
+				8A9A034F1BAFBAE700745766 /* TabItemAnimationProtocol.swift in Sources */,
 				8A57C2781B8595FB0003E1C8 /* PNBarChart.swift in Sources */,
 				8AE6A7281B96EF7600561ADB /* SwiftyJSON.swift in Sources */,
 				8AC11CE21B959C67003E8D78 /* SearchModel.swift in Sources */,

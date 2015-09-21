@@ -24,10 +24,19 @@ class Utility: NSObject {
 //        selfCtrler.presentViewController(viewCtrl, animated: true, completion: nil)
         
 
-        var mainViewController = UITabBarControllerViewController(nibName:nil,  bundle: nil)
+//        var mainViewController = UITabBarControllerViewController(nibName:nil,  bundle: nil)
+//        var navigationViewController = UINavigationController(rootViewController: mainViewController)
+//
+//        selfCtrler.presentViewController(navigationViewController, animated: true, completion: nil)
+        
+        
+        
+        var mainViewController = RAMAnimatedTabBarController(nibName:nil,  bundle: nil)
         var navigationViewController = UINavigationController(rootViewController: mainViewController)
-
+        
         selfCtrler.presentViewController(navigationViewController, animated: true, completion: nil)
+        
+        
         
       
 
