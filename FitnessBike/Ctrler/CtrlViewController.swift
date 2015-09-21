@@ -18,6 +18,7 @@ class CtrlViewController: UIViewController {
     var pageCtrl:UIPageControl!
     var shareButton:UIButton!
     var calorieValue:UILabel!
+    var timeValue:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -180,7 +181,7 @@ class CtrlViewController: UIViewController {
         
         
         
-        var timeValue = UILabel()
+        timeValue = UILabel()
         timeValue.text = "00:00:00"
         timeValue.textColor = UIColor.lightGrayColor()
         //        timeValue.frame = CGRectMake(0, 25, 200, 25)
@@ -237,10 +238,11 @@ extension CtrlViewController:BTSyncCallBack{
     
     
     
-    func getCurrData(distance:Int64) {
+    func getCurrData(distance:Int64,duration:Int64) {
         
         dispatch_async(dispatch_get_main_queue(), {
             self.calorieValue.text = "\(distance) cal"
+            self.timeValue.text = "\(duration)"
         })
     }
     

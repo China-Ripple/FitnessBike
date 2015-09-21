@@ -11,10 +11,11 @@ import Alamofire
 let BLE_DATA_PREFS_NAME = "bleDataPrefs"
 let GEAR_MAX_NUM = 7
 let TOTAL_DISTANCE = "totalDistance"
+let RUNNING_DURATION = "runningDuration"
 
 
 protocol BTSyncCallBack {
-    func getCurrData(data:Int64);
+    func getCurrData(data:Int64,duration:Int64);
 }
 enum WorkState :Int{
     
@@ -72,6 +73,10 @@ class SyncProcessor{
     var newData:Bool! = true
     //临时保存数据库当前峰值
     var temDataOnDB:Int64! = 0
+    //运行时间
+    var duration:Int64! = 0
+    
+    
     var count:Int! = 0
     var prefs = NSUserDefaultsPrefs(prefix: BLE_DATA_PREFS_NAME)
     internal var things: NSMutableDictionary = NSMutableDictionary()
@@ -119,6 +124,7 @@ class SyncProcessor{
             //            }
         }
         count = count + 1
+        duration = duration + Int64(data.timeInterval)
         
         if(count > data.recordCount ){
             block = true
@@ -129,7 +135,7 @@ class SyncProcessor{
         
         
         for cb  in callbacks {
-            cb.getCurrData(totalDistance)
+            cb.getCurrData(totalDistance,duration: duration)
         }
         
     }
@@ -230,6 +236,16 @@ class SyncProcessor{
         return totalDistance+temDataOnDB
     }
     
+    
+    func getDuration()->Int64
+    {
+        return duration
+    }
+    
+    func getCalorie(distance:Int64,duration:Timestamp,gear:Int){
+        
+        
+    }
     
 }
 

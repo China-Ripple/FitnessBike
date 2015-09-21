@@ -26,7 +26,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         // Do any additional setup after loading the view.
     }
     
-    func getCurrData(data: Int64) {
+    func getCurrData(data: Int64,duration:Int64) {
        dispatch_async(dispatch_get_main_queue(), {
               self.burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
         })

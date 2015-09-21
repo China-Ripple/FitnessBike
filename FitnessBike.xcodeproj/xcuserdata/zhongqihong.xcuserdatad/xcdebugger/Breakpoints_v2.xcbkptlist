@@ -535,11 +535,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -551,11 +551,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464512482.397132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
             landmarkName = "reslove(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -567,11 +567,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -583,11 +583,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -599,11 +599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -615,11 +615,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -631,11 +631,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511385.956705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "push(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -647,11 +647,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
@@ -663,12 +663,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/CtrlViewController.swift"
-            timestampString = "464187419.083558"
+            timestampString = "464511748.39993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "getCurrData(_:)"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "getCurrData(_:duration:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -679,11 +679,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -695,11 +695,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "push(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -711,11 +711,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "push(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -727,11 +727,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "save()"
             landmarkType = "5">
          </BreakpointContent>
@@ -743,11 +743,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
@@ -759,11 +759,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
@@ -775,11 +775,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Ctrler/BlueToothBiz.swift"
-            timestampString = "464243220.759327"
+            timestampString = "464511539.92102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
