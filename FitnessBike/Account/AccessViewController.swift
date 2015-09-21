@@ -15,7 +15,7 @@ class AccessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         layout()
         
         self.view.backgroundColor = UIColor.grayColor()
@@ -64,7 +64,8 @@ class AccessViewController: UIViewController {
         println("onLoginSelected")
         
         var viewCtrl = LoginViewController()
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+        self.navigationController?.pushViewController(viewCtrl, animated: true)
+        //self.presentViewController(viewCtrl, animated: true, completion: nil)
         
     }
     
@@ -127,6 +128,12 @@ class AccessViewController: UIViewController {
             }
         }
     }
-    
+    override func prefersStatusBarHidden() -> Bool {
+        self.navigationController!.setNavigationBarHidden(true
+            , animated: false)
+        self.navigationController!.setToolbarHidden(true, animated: false)
+        return true
+    }
+
     
 }

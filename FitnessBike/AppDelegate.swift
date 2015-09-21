@@ -38,8 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var viewCtrl:UIViewController!
         
         viewCtrl = AccessViewController()
-
-        self.window!.rootViewController = viewCtrl
+//
+//        self.window!.rootViewController = viewCtrl
+//        self.window!.makeKeyAndVisible()
+        
+        
+        var navController = UINavigationController (rootViewController:viewCtrl)
+        self.window!.rootViewController = navController
+       
         
         
         return true

@@ -17,24 +17,18 @@ class RegisterViewController: UIViewController {
     var psw2:UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "注册"
+        self.view.backgroundColor = UIColor.grayColor()
         
         layout()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+      
     }
-    
+  
     func layout(){
         
         
-        var headerBar = UIView(frame: CGMakeRect(0, 0,375, 80))
-        headerBar.backgroundColor = UIColor.grayColor()
-        var backItem = UIButton(frame: CGMakeRect(20, 25, 35, 30))
-        backItem.setImage(UIImage(named: "back"), forState:UIControlState.Normal)
-        backItem.addTarget(self, action: "onBackSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
-        headerBar.addSubview(backItem)
-        
-        self.view.addSubview(headerBar)
-        
+
         
         name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
@@ -197,10 +191,11 @@ class RegisterViewController: UIViewController {
     
     func onBackSeleted(sender:AnyObject?){
         
-        println("onBackSeleted")
+        //println("onBackSeleted")
         
-        var viewCtrl=LoginViewController()
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+        //var viewCtrl=LoginViewController()
+         //  self.navigationController?.popToRootViewControllerAnimated(true)
+        //self.presentViewController(viewCtrl, animated: true, completion: nil)
         
     }
-}
+   }

@@ -16,10 +16,11 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         self.view.backgroundColor = UIColor.grayColor()
+        self.title = "登陆"
         layout()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+       
 
         
     }
@@ -27,23 +28,12 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     func layout(){
         
-        var headerBar = UIView(frame: CGMakeRect(0, 0,375, 80))
+
         
-        var backItem = UIButton(frame: CGMakeRect(20, 25, 35, 30))
-        backItem.setImage(UIImage(named: "back"), forState:UIControlState.Normal)
-        backItem.addTarget(self, action: "onBackSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
-        headerBar.addSubview(backItem)
+      var signupBtn = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Bordered, target: self, action: "onRegisterSeleted:")
         
-        var title = UILabel(frame: CGMakeRect(170, 20, 100, 60))
-        title.text = "登陆"
-        headerBar.addSubview(title)
-        
-        var signupItem = UIButton(frame: CGMakeRect(300, 20, 100, 60))
-        signupItem.setTitle("注册", forState: UIControlState.Normal)
-        signupItem.addTarget(self, action: "onRegisterSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
-        headerBar.addSubview(signupItem)
-        
-        headerBar.backgroundColor = UIColor.darkGrayColor()
+        //  添加到到导航栏上
+        self.navigationItem.rightBarButtonItem = signupBtn;
         
         name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
@@ -80,7 +70,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         
         
         
-        self.view.addSubview(headerBar)
+//        self.view.addSubview(headerBar)
         
      
         
@@ -187,7 +177,9 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     func onRegisterSeleted(sender:AnyObject?){
         var viewCtrl = RegisterViewController()
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+        self.navigationController!.pushViewController(viewCtrl, animated: true)
+        
+       // self.presentViewController(viewCtrl, animated: true, completion: nil)
     }
     
     func onBackSeleted(sender:AnyObject?){
@@ -195,8 +187,15 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         println("onBackSeleted")
         
         var viewCtrl=AccessViewController()
-        self.presentViewController(viewCtrl, animated: true, completion: nil)
+       // self.presentViewController(viewCtrl, animated: true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
 
+    }
+    override func prefersStatusBarHidden() -> Bool {
+        self.navigationController!.setNavigationBarHidden(false
+            , animated: false)
+      
+        return false
     }
     
     
