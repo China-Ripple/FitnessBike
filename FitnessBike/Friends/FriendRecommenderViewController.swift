@@ -66,18 +66,18 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
        layout.headerReferenceSize = CGMakeSize(0, 30);
         layout.itemSize = CGMakeSize(160, 160);
         layout.scrollDirection = UICollectionViewScrollDirection.Vertical;
-        layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         
 //        var collHeight = UIScreen.mainScreen().bounds.size.height - self.navigationController!.navigationBar.frame.size.height - self.tabBarController!.tabBar.frame.size.height!
         
-        collection = UICollectionView(frame: CGMakeRect(0, 60, 375,720), collectionViewLayout: layout)
+        collection = UICollectionView(frame: CGMakeRect(0, 70, 375,720), collectionViewLayout: layout)
         
         collection.dataSource = self;
         collection.delegate = self;
         
         
         self.view.addSubview(collection)
-        collection.backgroundColor = UIColor.grayColor()
+        collection.backgroundColor = UIColor.whiteColor()
         
         
         collection.registerClass(FriendRecommenderCollectionCell.self, forCellWithReuseIdentifier: "friendCell")
@@ -139,7 +139,6 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         
         if (kind == UICollectionElementKindSectionHeader){
             var aView:UIView = UIView(frame: CGMakeRect(10 , 6, 7, 18));
-            
             aView.backgroundColor = UIColor.greenColor()
             aView.layer.cornerRadius = 3;
             reusableview.addSubview(aView)
@@ -156,6 +155,11 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
             if(indexPath.section == 0){
                 
                  headerTitle.text = "附近的人"
+                 var partLine:UIView = UIView(frame: CGMakeRect(10 , 40, 355, 1));
+                 partLine.backgroundColor = UIColor.lightGrayColor()
+  
+                 reusableview.addSubview(partLine)
+                
             }
             else{
                 headerTitle.text = "骑行达人"
