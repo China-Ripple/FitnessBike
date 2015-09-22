@@ -17,22 +17,40 @@ class SearchTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        picture = UIImageView(frame: CGMakeRect(25,5,60,60))
+        picture = UIImageView()
         picture.image = UIImage(named: "profile")
         picture.layer.cornerRadius = picture.frame.size.width/2
         picture.clipsToBounds = true
         self.addSubview(picture)
+        picture.snp_makeConstraints { (make) -> Void in
+            make.width.height.equalTo(50)
+            make.left.equalTo(self.snp_left).offset(10)
+            make.top.equalTo(self.snp_top).offset(10)
+        }
         
         
         
-        name = UILabel(frame: CGMakeRect(30,70,200,40))
+        
+        name = UILabel()
         self.addSubview(name)
+        name.snp_makeConstraints { (make) -> Void in
+            make.width.height.equalTo(60)
+            make.left.equalTo(picture.snp_left)
+            make.bottom.equalTo(self.snp_bottom).offset(10)
+        }
         
-        add2Contact = UIButton(frame: CGMakeRect(250, 30, 100, 60))
+        add2Contact = UIButton()
         add2Contact.setTitle("添加", forState: UIControlState.Normal)
         add2Contact.backgroundColor = UIColor.grayColor()
         add2Contact.addTarget(self, action: "sendRequest:", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(add2Contact)
+        add2Contact.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(70)
+            make.height.equalTo(50)
+            make.right.equalTo(self.snp_right).offset(-10)
+            make.centerYWithinMargins.equalTo(self.snp_centerY)
+        }
+
         
     }
     
