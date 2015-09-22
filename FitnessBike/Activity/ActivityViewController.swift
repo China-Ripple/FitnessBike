@@ -19,9 +19,11 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
+        //var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
         
-        tableView = UITableView(frame: CGRectMake(0, paddingTop, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
+        
+        
+        tableView = UITableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
         self.view.addSubview(tableView)
         
         tableView.dataSource = self
@@ -51,7 +53,7 @@ class ActivityViewController: UIViewController {
 //                self.loadData(self.GetBookType(),maxId:maxId, isPullRefresh: false)
 //            }
             
-             self.loadData(0,maxId:0, isPullRefresh: true)
+             self.loadData(0,maxId:0, isPullRefresh: false)
         }
         
         self.tableView.headerBeginRefreshing()

@@ -15,7 +15,7 @@ let RUNNING_DURATION = "runningDuration"
 
 
 protocol BTSyncCallBack {
-    func getCurrData(data:Int64,duration:Int64);
+    func getCurrData(data:Double,duration:Int64);
 }
 enum WorkState :Int{
     
@@ -64,6 +64,8 @@ class GearModel{
     var distance:Int64!
 }
 
+
+
 class SyncProcessor{
     var callbacks:[BTSyncCallBack] = [BTSyncCallBack]()
     var totalDistance:Int64 = 0
@@ -76,10 +78,82 @@ class SyncProcessor{
     //运行时间
     var duration:Int64! = 0
     
-    
     var count:Int! = 0
+    
     var prefs = NSUserDefaultsPrefs(prefix: BLE_DATA_PREFS_NAME)
+    
+     var weight:Int =  User.sharedInstance.weight
+    
     internal var things: NSMutableDictionary = NSMutableDictionary()
+    
+    //const unsigned int aw_BI_Watts[16][24]
+    //RMP:25 30 35  40  45  50  55  60  65  70  75  80  85  90  95  100 105 110 115 120 125 130 135 140
+    let  aw_BI_Watts =                                                                                 //阻力
+    [
+        [8,11,13, 14, 16, 17, 19, 21, 22, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 39, 51, 52],//L1
+        [19,23,24, 25, 30, 35, 36, 37, 42, 47, 48, 49, 50, 52, 55, 59, 63, 68, 72, 77, 80, 84, 90, 97], //L2
+        [33,30,33, 36, 42, 49, 51, 52, 58, 65, 66, 67, 71, 75, 78, 81, 86, 92, 98, 105,108,110,117,125], //L3
+        [40,39,43, 47, 54, 62, 64, 67, 76, 84, 86, 89, 93, 98, 103,108,113,119,125,131,134,138,145,153], //L4
+        [48,46,51, 56, 64, 73, 78, 82, 91, 100,103,107,113,119,125,131,136,142,150,158,163,168,176,185], //L5
+        [57,55,62, 68, 78, 88, 93, 98, 109,120,125,130,137,145,152,159,166,174,183,192,197,203,213,224], //L6
+        [58,64,71, 78, 89, 101,107,113,126,140,136,151,160,169,178,187,194,202,213,224,230,237,247,258], //L7
+        
+        
+        //        [58,71,79, 87, 99, 112,120,128,141,154,161,168,179,190,199,208,217,226,237,248,257,266,228,290], //L8
+        //        [58,78,87, 98, 111,124,133,143,157,172,180,189,200,212,223,235,244,253,267,281,290,300,314,328], //L9
+        //        [58,78,98, 109,123,138,148,159,174,190,199,209,221,234,247,260,272,284,298,313,325,337,352,368], //L10
+        //        [58,78,102,119,136,151,162,174,190,207,219,230,244,258,271,285,297,310,326,342,354,367,386,405], //L11
+        //        [58,78,102,124,148,163,176,189,207,225,237,250,265,281,297,313,325,338,356,374,388,403,424,445], //L12
+        //        [58,78,102,124,159,177,192,204,223,243,256,269,286,304,320,336,351,366,384,402,418,434,457,480], //L13
+        //        [58,78,102,124,159,183,209,219,240,261,275,290,307,325,342,360,377,394,414,434,450,467,490,513], //L14
+        //        [58,78,102,124,159,183,223,234,255,277,292,308,327,347,364,382,399,416,438,460,478,497,522,547], //L15
+        //        [58,78,102,124,159,183,224,245,269,293,310,327,347,367,387,407,423,440,464,489,506,524,551,578]//L16
+    ];
+    
+    let RPM = [25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140]
+    
+    func getCalorie(rpm:Int, gear:Int)->Float{
+        //卡路里/每分钟=(((瓦特×6)×2)+(3.5×体重(千克.)))×0.005
+        //先计算大概的瓦特
+        
+        var r = gear - 1
+        
+        if(rpm < RPM[0] || rpm > RPM[RPM.count-1] || rpm < 24 || r < 0 || r >= 7){
+            return -1
+        }
+        
+        
+        
+        
+        
+        var greaterIndex:Int = -1
+        
+        for (index,item) in enumerate(RPM) {
+            if(item > rpm){
+                greaterIndex = index
+                break
+            }
+        }
+        
+       
+        
+        var watt:Int = aw_BI_Watts[r][greaterIndex]
+        
+         println("rpm: \(rpm) ,gear:\(r), watt:\(watt), greaterIndex:\(greaterIndex)")
+       
+        var calorie =   (Float((watt*6)*2) + (3.5 * Float(weight))) * 0.005
+        
+        
+        println("calorie : \(calorie)")
+        
+        return calorie
+        
+        
+       
+        
+        
+    }
+    
     class var shared: SyncProcessor {
         return Inner.instance
     }
@@ -97,6 +171,14 @@ class SyncProcessor{
     private func name(key: String) -> String {
         var nameWithDot =  BLE_DATA_PREFS_NAME+"."
         return nameWithDot+key
+    }
+    
+    func update(data:BlueToothBaseModel){
+
+        
+        
+        invokeCallBacks(Double(getCalorie(data.velocity,gear: data.gear)),duration: duration)
+        
     }
     
     
@@ -123,6 +205,8 @@ class SyncProcessor{
             //
             //            }
         }
+        
+     
         count = count + 1
         duration = duration + Int64(data.timeInterval)
         
@@ -133,11 +217,15 @@ class SyncProcessor{
             return
         }
         
+        invokeCallBacks(Double(totalDistance),duration: duration)
+       
         
+    }
+    
+    func invokeCallBacks( data:Double, duration:Int64){
         for cb  in callbacks {
-            cb.getCurrData(totalDistance,duration: duration)
+            cb.getCurrData(data,duration: duration)
         }
-        
     }
     
     func save(){
@@ -198,12 +286,12 @@ class SyncProcessor{
         Alamofire.request(Router.Sync(parameter:json as! [String : AnyObject] )).responseJSON{
             (_,_,json,error) in
             
-                println("data: \(json)")
-                
-                var result = JSON(json!)
-                Utility.showNetMsg(result)
+            println("data: \(json)")
+            
+            var result = JSON(json!)
+            Utility.showNetMsg(result)
         }
-
+        
     }
     
     var json: AnyObject {
@@ -213,7 +301,7 @@ class SyncProcessor{
             
             json["calorie"] = fetch() as! AnyObject
             json["distance"] = fetch() as! AnyObject
-
+            
             return json
         }
     }
@@ -232,7 +320,7 @@ class SyncProcessor{
                 return distance + totalDistance
             }
         }
-
+        
         return totalDistance+temDataOnDB
     }
     
@@ -254,24 +342,6 @@ class SyncProcessor{
 class BlueToothBiz:BleDataReslover{
     
     
-//    const unsigned int aw_BI_Watts[16][24]=
-//    //25 30 35  40  45  50  55  60  65  70  75  80  85  90  95  100 105 110 115 120 125 130 135 140
-//    {{8, 11,13, 14, 16, 17, 19, 21, 22, 23, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 39, 51, 52},  //L1
-//    {19,23,24, 25, 30, 35, 36, 37, 42, 47, 48, 49, 50, 52, 55, 59, 63, 68, 72, 77, 80, 84, 90, 97}, //L2
-//    {33,30,33, 36, 42, 49, 51, 52, 58, 65, 66, 67, 71, 75, 78, 81, 86, 92, 98, 105,108,110,117,125}, //L3
-//    {40,39,43, 47, 54, 62, 64, 67, 76, 84, 86, 89, 93, 98, 103,108,113,119,125,131,134,138,145,153}, //L4
-//    {48,46,51, 56, 64, 73, 78, 82, 91, 100,103,107,113,119,125,131,136,142,150,158,163,168,176,185}, //L5
-//    {57,55,62, 68, 78, 88, 93, 98, 109,120,125,130,137,145,152,159,166,174,183,192,197,203,213,224}, //L6
-//    {58,64,71, 78, 89, 101,107,113,126,140,136,151,160,169,178,187,194,202,213,224,230,237,247,258}, //L7
-//    {58,71,79, 87, 99, 112,120,128,141,154,161,168,179,190,199,208,217,226,237,248,257,266,228,290}, //L8
-//    {58,78,87, 98, 111,124,133,143,157,172,180,189,200,212,223,235,244,253,267,281,290,300,314,328}, //L9
-//    {58,78,98, 109,123,138,148,159,174,190,199,209,221,234,247,260,272,284,298,313,325,337,352,368}, //L10
-//    {58,78,102,119,136,151,162,174,190,207,219,230,244,258,271,285,297,310,326,342,354,367,386,405}, //L11
-//    {58,78,102,124,148,163,176,189,207,225,237,250,265,281,297,313,325,338,356,374,388,403,424,445}, //L12
-//    {58,78,102,124,159,177,192,204,223,243,256,269,286,304,320,336,351,366,384,402,418,434,457,480}, //L13
-//    {58,78,102,124,159,183,209,219,240,261,275,290,307,325,342,360,377,394,414,434,450,467,490,513}, //L14
-//    {58,78,102,124,159,183,223,234,255,277,292,308,327,347,364,382,399,416,438,460,478,497,522,547}, //L15
-//    {58,78,102,124,159,183,224,245,269,293,310,327,347,367,387,407,423,440,464,489,506,524,551,578}};//L16
     
     
     var  transferBuffer:UnsafeMutablePointer<UInt8>!
@@ -289,13 +359,13 @@ class BlueToothBiz:BleDataReslover{
         data.gear = Int(transferBuffer[2] & 0x0f)
         //println("阻力：\(data.gear)")
         data.velocity = Int(transferBuffer[3] & 0x7f)
-        //println("速度：\(data.velocity)")
+        println("速度：\(data.velocity)")
         data.timeInterval = Int(((transferBuffer[4] & 0x7f) << 7)|(transferBuffer[5] & 0x7f))
         //println("时间：\(data.timeInterval)")
         data.checkSum =  Int(transferBuffer[6] & 0x7f)
         //println("checkSum：\(data.checkSum)")
         
-        
+        SyncProcessor.shared.update(data)
         
     }
     

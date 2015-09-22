@@ -30,17 +30,23 @@ class RankingViewController: UIViewController {
         
         self.title = ""
         
-        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
+//        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
+//        
+//       var  tableHeight = self.view.frame.size.height - tabBarHeight - paddingTop
+//        
+//        var selfHeight = self.view.frame.size.height
+//        
+//        println("paddingTop: \(paddingTop) ,tableHeight:\(tableHeight) ,tabBarHeight:\(tabBarHeight) ,selfHeight:\(selfHeight)")
         
-        
-        tableView = UITableView(frame: CGRectMake(0, paddingTop, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
+        tableView = UITableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
+        self.view.addSubview(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self
         
       
         
-        self.view.addSubview(tableView)
+     
         
         
         self.tableView.addHeaderWithCallback{
@@ -94,6 +100,9 @@ class RankingViewController: UIViewController {
                 alert.show()
                 return
             }
+            
+         
+            
             
             var result = JSON(json!)
             
@@ -279,7 +288,13 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         
-        return 100
+        return CGFloat(80)
+        
+//        var cell:RankingTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! RankingTableViewCell
+//        
+//        //tableView.ccellForRowAtIndexPathindexPath);
+//        
+//        return cell.frame.size.height;
     }
     
     
@@ -287,6 +302,16 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
         
         return memberList.count
     }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+//        
+//        var cell:TableViewCell = tableView.cellForRowAtIndexPath(indexPath)
+//        
+//        //tableView.ccellForRowAtIndexPathindexPath);
+//        
+//        return cell.frame.size.height;
+//    }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
@@ -302,10 +327,9 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
         if (cell == nil) {
             cell = RankingTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         }
-        
-        //        cell!.accessoryType = accessory;
+
         cell!.delegate = self;
-        //  cell!.allowsMultipleSwipe = false;
+       
         var obj = memberList[indexPath.row]
         
         var model = RankingModel()
@@ -318,8 +342,12 @@ extension RankingViewController:UITableViewDataSource,UITableViewDelegate{
         cell!.fillCell(model)
         
         
+  
+        
         
         return cell!
+        
+       
     }
     
     

@@ -138,6 +138,7 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
         var model = messageData.objectAtIndex(indexPath.row) as! MessageModel
         cell!.makeCell(model)
         
+                      
         return cell!
     }
     

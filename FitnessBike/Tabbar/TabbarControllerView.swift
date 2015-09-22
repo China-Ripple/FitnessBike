@@ -43,6 +43,8 @@ class RAMAnimatedTabBarItem: UITabBarItem {
     }
 }
 
+var tabBarHeight:CGFloat = 0
+
 class RAMAnimatedTabBarController: UITabBarController {
     
     var iconsView: [(icon: UIImageView, textLabel: UILabel)] = []
@@ -53,12 +55,17 @@ class RAMAnimatedTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         
         createViewControllers()
         
         let containers = createViewContainers()
         
         createCustomIcons(containers)
+    }
+    
+    class func getHeight(){
+        
     }
     
     func createViewControllers(){
@@ -101,6 +108,7 @@ class RAMAnimatedTabBarController: UITabBarController {
         tabBarItems.append(item4)
         
         
+       
         
     }
     
@@ -271,6 +279,8 @@ class RAMAnimatedTabBarController: UITabBarController {
             multiplier: 1,
             constant: tabBar.frame.size.height)
         viewContainer.addConstraint(constH)
+        
+        tabBarHeight = viewContainer.frame.size.height
         
         return viewContainer
     }

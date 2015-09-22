@@ -11,7 +11,7 @@ import UIKit
 class User: NSObject {
 
     var account:String = "10001"
-    
+    var weight:Int = 0
     
     class var sharedInstance : User {
         struct Static {
