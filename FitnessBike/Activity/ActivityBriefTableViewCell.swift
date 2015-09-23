@@ -34,7 +34,8 @@ class ActivityBriefTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = UITableViewCellSelectionStyle.None
-        self.backgroundColor = UIColor.blackColor();
+      
+        self.backgroundColor = UIColor(hexString: "21262c")
         
         initTopViews();
         
@@ -129,13 +130,29 @@ class ActivityBriefTableViewCell: UITableViewCell {
         }
 
         
-        // 为活动的主宣传图 设置约束
-        activityImageView.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(UIScreen.mainScreen().bounds.width / 8 * 7);
-            make.height.equalTo((UIScreen.mainScreen().bounds.height) / 5 * 3 / 2 - 10);
-            make.centerXWithinMargins.equalTo(bgView);
-            make.top.equalTo(bgView);
-        }
+//        // 为活动的主宣传图 设置约束
+//        activityImageView.snp_makeConstraints { (make) -> Void in
+//            make.width.equalTo(UIScreen.mainScreen().bounds.width / 8 * 7);
+//            make.height.equalTo((UIScreen.mainScreen().bounds.height) / 5 * 3 / 2 - 10);
+//            make.centerXWithinMargins.equalTo(bgView);
+//            make.top.equalTo(bgView);
+//            
+////            activityImageView.layer.cornerRadius = 8
+////            activityImageView.layer.masksToBounds = true
+//            
+//        
+//        }
+        
+        
+        var  maskPath:UIBezierPath = UIBezierPath(roundedRect: activityImageView.bounds, byRoundingCorners: UIRectCorner.TopLeft|UIRectCorner.TopRight, cornerRadii: CGSize(width: 8,height: 8))
+        var maskLayer: CAShapeLayer = CAShapeLayer()
+        maskLayer.frame = activityImageView.bounds;
+        maskLayer.path = maskPath.CGPath;
+        activityImageView.layer.mask = maskLayer;
+        
+        println("activityImageView: \(activityImageView.bounds),  self.frame.width:\( self.frame.width)")
+        
+        
         
         // 为最外层的视图容器设置约束
         bgView.snp_makeConstraints { (make) -> Void in
@@ -254,13 +271,14 @@ class ActivityBriefTableViewCell: UITableViewCell {
         bgView = UIView();
         //设置圆角
         bgView.layer.masksToBounds = true;
-        bgView.layer.cornerRadius = 5;
+        bgView.layer.cornerRadius = 9;
         bgView.backgroundColor = UIColor.whiteColor();
         
         // 活动的主宣传图 视图
-        activityImageView = UIImageView();
-        var activiyImage = UIImage(named: "test")
-        activityImageView.image = activiyImage;
+        activityImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.width, 200));
+        activityImageView.backgroundColor = UIColor.redColor()
+        var activiyImage:UIImage! = UIImage(named: "activity.jpg")
+        activityImageView.image = ImageUtil.scaleImage(CGSize(width: self.frame.width,height: 200), img:activiyImage);
         
         // 活动标题
         activityTitle = UILabel();

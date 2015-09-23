@@ -131,7 +131,7 @@ class AccessViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         self.navigationController!.setNavigationBarHidden(true
             , animated: false)
-        self.navigationController!.setToolbarHidden(true, animated: false)
+        
         return true
     }
 

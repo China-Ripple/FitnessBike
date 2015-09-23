@@ -16,102 +16,90 @@ class CtrlViewController: UIViewController {
     let imageOffsetY:CGFloat = 100
     var scrollView:UIScrollView!
     var pageCtrl:UIPageControl!
-    var shareButton:UIButton!
     var calorieValue:UILabel!
     var timeValue:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //  var bleService = MyBleService.getInstance()
-        
-        //        shareButton = UIButton(frame: CGRectMake(15, 30, 18, 18))
-//        var shareButton = UIButton()
-//        shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
-//        self.view.addSubview(shareButton)
-//        shareButton.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(self.view.snp_top).offset(22)
-//            make.left.equalTo(self.view.snp_left).offset(9.5)
-//            make.width.equalTo(20)
-//            make.height.equalTo(20)
-//            
-//        }
-//        
-        
+
         
         layoutScrollPage()
         layoutDataView()
-        
-       // testNSThread()
+        self.view.backgroundColor = UIColor(hexString: "#21262c")
+
         var ble =  MyBleService.getInstance(BlueToothBiz())
         
+        
+        var signupBtn = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Bordered, target: self, action: "onRegisterSeleted:")
+        
+        //  添加到到导航栏上
+        self.navigationItem.rightBarButtonItem = signupBtn;
+
     }
     
     func layoutScrollPage(){
-        scrollView = UIScrollView(frame:CGRectMake(imageOffsetX,imageOffsetY,imageSize,imageSize))
-        scrollView = UIScrollView()
-        //scrollView.backgroundColor = UIColor.grayColor()
+        
+        //
+        scrollView = UIScrollView(frame:CGRectMake(0,0,imageSize,imageSize))
         scrollView.pagingEnabled=true
         scrollView.showsHorizontalScrollIndicator=false
         scrollView.showsVerticalScrollIndicator=false
+        scrollView.contentSize =  CGSize(width: imageSize*2,  height:imageSize)
+        scrollView.indicatorStyle = UIScrollViewIndicatorStyle.White
         scrollView.delegate = self
-        
-        var bikeImage = UIImage(named: "bike_image")
-        //var bikeScaledImage = ImageUtil.scaleImage(bikeImage!,scaleSize:imageSize)
-        
-        var bikeImageView = UIImageView(image:bikeImage)
-        bikeImageView.frame = CGRectMake(0, 0, imageSize, imageSize)
+        scrollView.backgroundColor = UIColor.redColor()
         self.view.addSubview(scrollView)
-        scrollView.addSubview(bikeImageView)
+        
         scrollView.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(200)
-            make.height.equalTo(200)
+            make.width.equalTo(imageSize)
+            make.height.equalTo(imageSize)
             make.centerXWithinMargins.equalTo(self.view)
-            make.top.equalTo(self.view).offset(80)
+            make.top.equalTo(self.view).offset(65)
         }
         
+//        scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        scrollView.contentOffset = CGPointMake(0, 0);
         
+        var bikeImage:UIImage! = UIImage(named: "bike_image")
+        var bikeScaledImage =  ImageUtil.scaleImage( CGSize(width: imageSize,  height: imageSize), img:bikeImage)
+        var bikeImageView = UIImageView(frame: CGRectMake(0, 0, imageSize, imageSize))
+        bikeImageView.image = bikeScaledImage
         
+        scrollView.addSubview(bikeImageView)
         
+
+
         
+//        println("scrollView.frame.size.width \(scrollView.frame.size.width)")
+//
+       
+       
         
-        
+//        
+//        
+//        
+//        
         var dataImage = UIImage(named: "data_image")
-        var dataImageView = UIImageView(image:dataImage)
+        var dataScaledImage =  ImageUtil.scaleImage( CGSize(width: imageSize,  height: imageSize), img:dataImage!)
+        var dataImageView = UIImageView(image:dataScaledImage)
         dataImageView.frame = CGRectMake(imageSize, 0, imageSize, imageSize)
         scrollView.addSubview(dataImageView)
+
         
-        
-        scrollView.contentSize = CGSizeMake(imageSize*2, imageSize)
-        scrollView.indicatorStyle = UIScrollViewIndicatorStyle.White
-        
-        
-        
-        
-        
-        
-        
-        
-        self.view.addSubview(scrollView)
-        self.view.backgroundColor = UIColor.darkGrayColor()
-        
-        
-        
+//
         pageCtrl = UIPageControl(frame:CGRectMake(imageOffsetX, imageOffsetY+imageSize+10, imageSize, 60))
-        
-        
         pageCtrl.numberOfPages = 2
         pageCtrl.currentPage = 0
         pageCtrl.addTarget(self, action: "pageTurn:", forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(pageCtrl)
         
         pageCtrl.snp_updateConstraints { (make) -> Void in
-            make.centerWithinMargins.equalTo(self.view)
-            make.top.equalTo(self.view.snp_top).offset(320)
+            make.centerXWithinMargins.equalTo(scrollView)
+            make.top.equalTo(scrollView.snp_bottom).offset(20)
         }
-        
-        
-        
+//
+//        
+        scrollView.contentOffset = CGPointMake(0,0)
         
     }
     
@@ -127,83 +115,72 @@ class CtrlViewController: UIViewController {
     func layoutDataView(){
         
         var calorieView = UIView()
-        //        calorieView.frame = CGRectMake(imageOffsetX, 400, 200, 200)
-        
-        var calorieImg = UIImage(named: "calorie")
-        var calorieImageView = UIImageView(image: calorieImg)
         self.view.addSubview(calorieView)
-        //        calorieImageView.frame = CGRectMake(25, 0, 20, 25)
-        calorieView.addSubview(calorieImageView)
+        
         calorieView.snp_makeConstraints { (make) -> Void in
-            //
-            make.left.equalTo(self.view.snp_left).offset(60)
-            make.bottom.equalTo(self.view.snp_bottom).offset(-150)
-            
-            //
-            
-            
-            
+            make.bottom.equalTo(self.view.snp_bottom).offset(-100)
+            make.width.equalTo(200)
+            make.height.equalTo(100)
         }
         
-        
-        
-        
-        
+        var calorieImageView = UIImageView()
+        calorieImageView.image = UIImage(named: "calorie")
+        calorieView.addSubview(calorieImageView)
+        calorieImageView.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(calorieView.snp_top).offset(10)
+            make.left.equalTo(calorieView.snp_left).offset(40)
+        }
+//
+//        
         calorieValue = UILabel()
         calorieValue.text = "100 cal"
         calorieValue.textColor = UIColor.lightGrayColor()
-        //        calorieValue.frame = CGRectMake(0, 25, 200, 25)
         calorieView.addSubview(calorieValue)
+
         
-        self.view.addSubview(calorieView)
+        
         calorieValue.snp_makeConstraints { (make) -> Void in
             
-            make.left.equalTo(self.view.snp_left).offset(50)
-            make.bottom.equalTo(self.view.snp_bottom).offset(-70)
+            make.centerXWithinMargins.equalTo(calorieImageView)
+            make.top.equalTo(calorieImageView.snp_bottom).offset(20)
             
         }
-        
-        
+
         
         var timeView = UIView()
-        //        timeView.frame = CGRectMake(200, 400, 200, 200)
+        self.view.addSubview(timeView)
+        
+        timeView.snp_remakeConstraints { (make) -> Void in
+            make.right.equalTo(self.view.snp_right)
+            make.bottom.equalTo(self.view.snp_bottom).offset(-100)
+            make.height.equalTo(100)
+            make.width.equalTo(200)
+        }
         
         var timeImg = UIImage(named: "time_clock")
         var timeImageView = UIImageView(image: timeImg)
-        //        timeImageView.frame = CGRectMake(25, 0, 25, 25)
         timeView.addSubview(timeImageView)
-        self.view.addSubview(timeView)
-        timeView.snp_remakeConstraints { (make) -> Void in
-            make.right.equalTo(self.view.snp_right).offset(-110)
-            make.bottom.equalTo(self.view.snp_bottom).offset(-150)
-            
+        timeImageView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(timeView.snp_top).offset(10)
+            make.right.equalTo(timeView.snp_right).offset(-40)
+
         }
         
-        
-        
+ 
         timeValue = UILabel()
         timeValue.text = "00:00:00"
         timeValue.textColor = UIColor.lightGrayColor()
-        //        timeValue.frame = CGRectMake(0, 25, 200, 25)
         timeView.addSubview(timeValue)
         
-        
-        
-        
-        self.view.addSubview(timeView)
         timeValue.snp_makeConstraints { (make) -> Void in
-            
-            make.right.equalTo(self.view.snp_right).offset(-50)
-            make.bottom.equalTo(self.view.snp_bottom).offset(-70)
-            
+            make.centerXWithinMargins.equalTo(timeImageView)
+            make.top.equalTo(timeImageView.snp_bottom).offset(20)
         }
-        
-        
-        
-        let shareItem=UIBarButtonItem(image: UIImage(named: "share"), style: UIBarButtonItemStyle.Bordered, target: self, action: "share:")
-        //  添加到到导航栏上
-        self.navigationItem.leftBarButtonItems = [shareItem];
-        
+
+    }
+    
+    func createViews(){
         
     }
     

@@ -55,12 +55,8 @@ class RAMAnimatedTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        
         createViewControllers()
-        
         let containers = createViewContainers()
-        
         createCustomIcons(containers)
     }
     

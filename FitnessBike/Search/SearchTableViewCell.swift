@@ -24,8 +24,10 @@ class SearchTableViewCell: UITableViewCell {
         self.addSubview(picture)
         picture.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(50)
-            make.left.equalTo(self.snp_left).offset(10)
+            make.left.equalTo(self.snp_left).offset(18)
             make.top.equalTo(self.snp_top).offset(10)
+            picture.layer.cornerRadius = 8
+            picture.clipsToBounds = true
         }
         
         
@@ -34,20 +36,21 @@ class SearchTableViewCell: UITableViewCell {
         name = UILabel()
         self.addSubview(name)
         name.snp_makeConstraints { (make) -> Void in
-            make.width.height.equalTo(60)
+            make.height.equalTo(60)
+            make.width.equalTo(100)
             make.left.equalTo(picture.snp_left)
             make.bottom.equalTo(self.snp_bottom).offset(10)
         }
         
         add2Contact = UIButton()
+        add2Contact.setBackgroundImage(UIImage(named: "btn_left"), forState: UIControlState.Normal)
         add2Contact.setTitle("添加", forState: UIControlState.Normal)
-        add2Contact.backgroundColor = UIColor.grayColor()
         add2Contact.addTarget(self, action: "sendRequest:", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(add2Contact)
         add2Contact.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(70)
             make.height.equalTo(50)
-            make.right.equalTo(self.snp_right).offset(-10)
+            make.right.equalTo(self.snp_right)
             make.centerYWithinMargins.equalTo(self.snp_centerY)
         }
 

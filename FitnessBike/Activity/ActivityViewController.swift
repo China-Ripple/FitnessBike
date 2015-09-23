@@ -19,9 +19,8 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
-        
-        
+       self.view.backgroundColor = UIColor.whiteColor() //UIColor(hexString: "#21262c")
+       self.navigationItem.title = "活动"
         
         tableView = UITableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
         self.view.addSubview(tableView)
@@ -39,6 +38,8 @@ class ActivityViewController: UIViewController {
             activities.addObject(model)
             
         }
+        
+        
         
         
         self.tableView.addHeaderWithCallback{
@@ -67,8 +68,7 @@ class ActivityViewController: UIViewController {
         
     }
     func loadData(type:Int,maxId:Int,isPullRefresh:Bool){
-//        
-//        Alamofire.request(Router.BookList(type: type, maxId: maxId, count: 16)).responseJSON{
+
         
         
         

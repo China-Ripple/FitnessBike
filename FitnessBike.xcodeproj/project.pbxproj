@@ -76,6 +76,10 @@
 		8A9A034F1BAFBAE700745766 /* TabItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A034C1BAFBAE700745766 /* TabItemAnimationProtocol.swift */; };
 		8A9A036A1BAFF66C00745766 /* NewMsgFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A03691BAFF66C00745766 /* NewMsgFlag.swift */; };
 		8A9A03761BAFF6E600745766 /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9A03751BAFF6E600745766 /* SwiftColors.swift */; };
+		8A9FE63D1BB292B1009BED94 /* has_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9FE63C1BB292B1009BED94 /* has_message.png */; };
+		8A9FE6491BB29475009BED94 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9FE6481BB29475009BED94 /* message.png */; };
+		8A9FE64B1BB29EEE009BED94 /* UIRoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE64A1BB29EEE009BED94 /* UIRoundedImageView.swift */; };
+		8A9FE64D1BB2A973009BED94 /* activity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A9FE64C1BB2A973009BED94 /* activity.jpg */; };
 		8AC11CD71B957B91003E8D78 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD61B957B91003E8D78 /* MessageModel.swift */; };
 		8AC11CD91B957C7D003E8D78 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */; };
 		8AC11CDB1B9585AC003E8D78 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */; };
@@ -310,6 +314,10 @@
 		8A9A034C1BAFBAE700745766 /* TabItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8A9A03691BAFF66C00745766 /* NewMsgFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMsgFlag.swift; sourceTree = "<group>"; };
 		8A9A03751BAFF6E600745766 /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
+		8A9FE63C1BB292B1009BED94 /* has_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = has_message.png; sourceTree = "<group>"; };
+		8A9FE6481BB29475009BED94 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		8A9FE64A1BB29EEE009BED94 /* UIRoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedImageView.swift; sourceTree = "<group>"; };
+		8A9FE64C1BB2A973009BED94 /* activity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = activity.jpg; sourceTree = "<group>"; };
 		8AC11CD61B957B91003E8D78 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		8AC11CD81B957C7D003E8D78 /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		8AC11CDA1B9585AC003E8D78 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -521,6 +529,7 @@
 				8A3B7D0C1BA834C10057A864 /* AppInfo.swift */,
 				8A3B7D0E1BA839FE0057A864 /* Bytes.swift */,
 				8A3B7D101BA83AEE0057A864 /* HexExtensions.swift */,
+				8A9FE64A1BB29EEE009BED94 /* UIRoundedImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -689,6 +698,9 @@
 		8AE0F00E1BB170810080A3EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8A9FE64C1BB2A973009BED94 /* activity.jpg */,
+				8A9FE63C1BB292B1009BED94 /* has_message.png */,
+				8A9FE6481BB29475009BED94 /* message.png */,
 				8A8EAA201BB271DF00E51FCD /* speed_flag.png */,
 				8A8EAA211BB271DF00E51FCD /* stamina_flag.png */,
 				8A8EAA1E1BB270EB00E51FCD /* btn_left.png */,
@@ -921,6 +933,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9FE63D1BB292B1009BED94 /* has_message.png in Resources */,
 				8A7739841BA9145600E020EC /* Info.plist in Resources */,
 				8A993AE91B9D7426003737C6 /* shadow_up@2x.png in Resources */,
 				8A8EAA1F1BB270EB00E51FCD /* btn_left.png in Resources */,
@@ -928,12 +941,14 @@
 				8A2149B91B7DB3D8002BADDA /* Main.storyboard in Resources */,
 				8A8EAA1D1BB2603500E51FCD /* btn_right.png in Resources */,
 				8A2149BE1B7DB3D8002BADDA /* LaunchScreen.xib in Resources */,
+				8A9FE64D1BB2A973009BED94 /* activity.jpg in Resources */,
 				8A993AE81B9D7426003737C6 /* shadow_up.png in Resources */,
 				8A993AE71B9D7426003737C6 /* arrow_up@2x.png in Resources */,
 				8A8EAA231BB271DF00E51FCD /* stamina_flag.png in Resources */,
 				8A993AE61B9D7426003737C6 /* arrow_up.png in Resources */,
 				8AE0F0121BB170A50080A3EE /* vs.png in Resources */,
 				8A2149BB1B7DB3D8002BADDA /* Images.xcassets in Resources */,
+				8A9FE6491BB29475009BED94 /* message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,6 +977,7 @@
 				8A57C2791B8595FB0003E1C8 /* PNChartLabel.swift in Sources */,
 				8A7739831BA9145600E020EC /* Base32.swift in Sources */,
 				8A9A034D1BAFBAE700745766 /* TabbarControllerView.swift in Sources */,
+				8A9FE64B1BB29EEE009BED94 /* UIRoundedImageView.swift in Sources */,
 				8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */,
 				8A71F11E1B9EB7F100E57AE9 /* SwiftNotice.swift in Sources */,
 				8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */,

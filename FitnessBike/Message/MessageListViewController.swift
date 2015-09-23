@@ -47,6 +47,7 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
         }
         self.tableView.headerBeginRefreshing()
         
+     
     }
     
     override func viewWillAppear(animated: Bool){

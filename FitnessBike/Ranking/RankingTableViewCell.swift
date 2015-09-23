@@ -47,8 +47,7 @@ class RankingTableViewCell: MGSwipeTableCell{
 
         pictureImageView = UIImageView()
         pictureImageView.image = UIImage(named: "nzt")
-        pictureImageView.layer.cornerRadius = pictureImageView.frame.size.width/2
-        pictureImageView.clipsToBounds = true
+   
         self.contentView.addSubview(pictureImageView)
         
 //        pictureImageView.snp_makeConstraints { (make) -> Void in
@@ -116,6 +115,8 @@ class RankingTableViewCell: MGSwipeTableCell{
                 make.height.equalTo(60)
                 make.left.equalTo(awardImageView.snp_right).offset(30)
                 make.centerYWithinMargins.equalTo(self.snp_centerY)
+                pictureImageView.layer.cornerRadius = 8
+                pictureImageView.clipsToBounds = true
             }
         }
         else{
@@ -131,6 +132,8 @@ class RankingTableViewCell: MGSwipeTableCell{
                 make.height.equalTo(60)
                 make.left.equalTo(positionLabel.snp_right).offset(30)
                 make.centerYWithinMargins.equalTo(self.snp_centerY)
+                pictureImageView.layer.cornerRadius = 8
+                pictureImageView.clipsToBounds = true
             }
 
             positionLabel.text = "\(model.position)"
@@ -149,26 +152,7 @@ class RankingTableViewCell: MGSwipeTableCell{
         
         fatalError("init(coder:) has not been implemented")
    }
-//    
-//    
-//     
-//    override func layoutSubviews() {
-//        
-//        super.layoutSubviews()
-//        
-//                positionLabel.frame = CGRectMake(40, 30, 30, 30)
-//        
-//        
-//                pictureImageView.frame =  CGRectMake(65, 10, 40, 40)
-//        
-//        
-//                name.frame =  CGRectMake(65, 60, 100, 30)
-//                
-//                
-//                awardImageView.frame =  CGRectMake(20,30,30,50)
-//        
-//    }
-//    
+
 
     
     }

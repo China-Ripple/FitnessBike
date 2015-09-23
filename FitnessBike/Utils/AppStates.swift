@@ -13,4 +13,10 @@ class AppStates: NSObject {
     //挑战模式站内信
     static  var compMsg:[AnyObject]?
     
+    static var hasMessage :Bool!{
+        get{
+            return true
+        }
+    }
+    
 }

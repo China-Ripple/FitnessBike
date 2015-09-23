@@ -28,15 +28,7 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = ""
-        
-//        var paddingTop = self.navigationController!.navigationBar.frame.height + Utility.getStatusHeight()
-//        
-//       var  tableHeight = self.view.frame.size.height - tabBarHeight - paddingTop
-//        
-//        var selfHeight = self.view.frame.size.height
-//        
-//        println("paddingTop: \(paddingTop) ,tableHeight:\(tableHeight) ,tabBarHeight:\(tabBarHeight) ,selfHeight:\(selfHeight)")
+      
         
         tableView = UITableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: UITableViewStyle.Plain)
         self.view.addSubview(tableView)
@@ -70,12 +62,11 @@ class RankingViewController: UIViewController {
         
         
         
-     
-        
-       
-        
+
         
     }
+    
+    
     
     
     func loadData(maxId:Int,isPullRefresh:Bool){
@@ -137,41 +128,54 @@ class RankingViewController: UIViewController {
                 }
             }
         }
+        
+    }
+    
+    func makeConstraints(){
+        
+        addItem.setTranslatesAutoresizingMaskIntoConstraints(false)
+        segmentedCtrl.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        addItem.snp_makeConstraints { (make) -> Void in
+            make.centerYWithinMargins.equalTo(segmentedCtrl.snp_centerY)
+        }
+        
+
     }
     
     func layoutNavigationBar(){
         
+      
+        var gapy = (self.navigationController!.navigationBar.frame.height - CGMakeFloat(30))/2.0
+
         
-        let shareItem=UIBarButtonItem(image: UIImage(named: "share"), style: UIBarButtonItemStyle.Bordered, target: self, action: "share:")
-        //  添加到到导航栏上
-        self.navigationItem.leftBarButtonItems = [shareItem];
-        
-        
-//        addItem=UIImageView(image: UIImage(named: "item_ctrl_press"), style: UIBarButtonItemStyle.Bordered, target: self, action: "addFriends:")
-        //  添加到到导航栏上
-        
-        addItem = UIButton(frame:CGRect( x: UIScreen.mainScreen().bounds.size.width-30-10,y: 10,width: 30,height: 30))
+        addItem = UIButton(frame:CGRectMake(self.navigationController!.navigationBar.frame.width - CGMakeFloat(40), gapy, 30, 30))
         addItem.addTarget(self, action: "addFriends:", forControlEvents: UIControlEvents.TouchUpInside)
         addItem.setImage(UIImage(named: "add"), forState: UIControlState.allZeros)
-        
         self.navigationController!.navigationBar.addSubview(addItem)
-  
         
    
+       
         
-        self.navigationItem.hidesBackButton = false
+        var msg_img:String!
+        
+        if(AppStates.hasMessage == true){
+            
+            msg_img = "has_message"
+        }
+        else{
+            msg_img = "message"
+        }
+        
         
 
-        msgItem=UIButton(frame: CGMakeRect(270, 10, 30, 30))
-        msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
+        msgItem=UIButton(frame: CGMakeRect(10, gapy, 30, 30))
+        msgItem.setBackgroundImage(UIImage(named: msg_img), forState: UIControlState.Normal)
         msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
         //  添加到到导航栏上
         self.navigationController!.navigationBar.addSubview(msgItem)
         
-        newMsg = NewMsgFlag(frame: CGMakeRect(270, 10, 10, 10))
-        newMsg.backgroundColor = UIColor.clearColor()
-        //  添加到到导航栏上
-        self.navigationController!.navigationBar.addSubview(newMsg)
+
         
 
         
@@ -179,16 +183,17 @@ class RankingViewController: UIViewController {
         segmentedCtrl.insertSegmentWithTitle("排行榜", atIndex: 0, animated: false)
         segmentedCtrl.insertSegmentWithTitle("PK榜", atIndex: 1, animated: false)
         segmentedCtrl.selectedSegmentIndex = 0;
-        
         self.navigationController!.navigationBar.topItem?.titleView = segmentedCtrl
         
 
 
-       
+        // makeConstraints()
         
         
         
     }
+    
+    
      override func  viewWillAppear(animated: Bool) {
         if viewsHiden == false{
             layoutNavigationBar()
@@ -196,7 +201,6 @@ class RankingViewController: UIViewController {
         else{
             segmentedCtrl.hidden = false
             msgItem.hidden = false
-            newMsg.hidden = false
             addItem.hidden = false
         }
         super.viewWillAppear(animated)
@@ -214,7 +218,6 @@ class RankingViewController: UIViewController {
         viewsHiden = true
         segmentedCtrl.hidden = true
         msgItem.hidden = true
-        newMsg.hidden = true
         addItem.hidden = true
 
     }
@@ -222,6 +225,8 @@ class RankingViewController: UIViewController {
     func checkMessage(sender:AnyObject?){
         
         var msgVC = MessageListViewController();
+        
+        msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
         
         self.navigationController!.pushViewController(msgVC, animated:true)
         

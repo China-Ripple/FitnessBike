@@ -14,42 +14,44 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
     var profileImgView:UIImageView!
     var dataView:UIView!
     var barChart:PNBarChart!
+    var ChartLabel:UILabel!
     var segmentedCtrl:UISegmentedControl!
     var loading = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-        
+        createViews()
         showImage()
         showDataView()
         showChart()
-        //showLineChart()
         showSegment()
         
-       // SyncProcessor.shared.registerCallBace(self)
+        // SyncProcessor.shared.registerCallBace(self)
         
         // Do any additional setup after loading the view.
     }
     
     func getCurrData(data: Double,duration:Int64) {
-       dispatch_async(dispatch_get_main_queue(), {
-              self.burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
+        dispatch_async(dispatch_get_main_queue(), {
+            self.burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
         })
-      
+        
     }
     
     func showImage(){
         
-        profileImgView = UIImageView()
+        
         var proImage = UIImage(named: "profile")
         profileImgView.image = proImage
         profileImgView.clipsToBounds = true
-        self.view.addSubview(profileImgView)
+       
         profileImgView.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(80)
             make.height.equalTo(80)
             make.centerXWithinMargins.equalTo(self.view)
             make.top.equalTo(self.view).offset(74)
+            profileImgView.layer.cornerRadius = 40
+            profileImgView.clipsToBounds = true
         }
         
         
@@ -69,12 +71,12 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         
         
         //frame: CGRectMake(0, 200, UIScreen.mainScreen().bounds.size.width, 100)
-        dataView = UIView()
+        
         
         dataView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         
-     
-        self.view.addSubview(dataView)
+        
+        
         
         
         dataView.snp_makeConstraints{ (make) -> Void in
@@ -82,7 +84,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
             
             make.top.equalTo(self.profileImgView.snp_bottom).offset(10)
             make.width.equalTo(self.view.frame.size.width)
-            make.height.equalTo(80)
+            make.height.equalTo(60)
             
         }
         //        var burnLabel = UILabel(frame: CGRectMake(20, 10, 80, 30))
@@ -92,18 +94,18 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         dataView.addSubview(burnLabel)
         burnLabel.snp_makeConstraints { (make) -> Void in
             
-            make.top.equalTo(dataView.snp_top).offset(20)
+            make.top.equalTo(dataView.snp_top).offset(10)
             make.left.equalTo(dataView.snp_left).offset(30)
             
         }
         //      var burnValueLabel = UILabel(frame: CGRectMake(30, 50, 80, 30))
-         burnValueLabel = UILabel()
+        burnValueLabel = UILabel()
         burnValueLabel.text = "\(SyncProcessor.shared.fetch()) cal"
         burnValueLabel.font = UIFont.boldSystemFontOfSize(10)
         dataView.addSubview(burnValueLabel)
         burnValueLabel.snp_makeConstraints { (make) -> Void in
             make.centerXWithinMargins.equalTo(burnLabel)
-            make.top.equalTo(burnLabel.snp_bottom).offset(20)
+            make.top.equalTo(burnLabel.snp_bottom).offset(10)
         }
         //        var totalBurnLabel = UILabel(frame: CGRectMake(130, 10, 80, 30))
         var totalBurnLabel = UILabel()
@@ -111,7 +113,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         totalBurnLabel.font = UIFont.boldSystemFontOfSize(10)
         dataView.addSubview(totalBurnLabel)
         totalBurnLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(dataView).offset(20)
+            make.top.equalTo(dataView).offset(10)
             make.centerXWithinMargins.equalTo(dataView)
         }
         
@@ -123,7 +125,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         totalBurnValueLabel.snp_makeConstraints { (make) -> Void in
             totalBurnValueLabel.snp_makeConstraints(closure: { (make) -> Void in
                 make.centerXWithinMargins.equalTo(totalBurnLabel)
-                make.top.equalTo(burnLabel.snp_bottom).offset(20)
+                make.top.equalTo(burnLabel.snp_bottom).offset(10)
             })
         }
         //        var maxBurnLabel = UILabel(frame: CGRectMake(240, 10, 80, 30))
@@ -132,7 +134,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         maxBurnLabel.font = UIFont.boldSystemFontOfSize(10)
         dataView.addSubview(maxBurnLabel)
         maxBurnLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(dataView.snp_top).offset(20)
+            make.top.equalTo(dataView.snp_top).offset(10)
             make.right.equalTo(dataView.snp_right).offset(-30)
         }
         //                var maxBurnValueLabel = UILabel(frame: CGRectMake(250, 40, 80, 30))
@@ -143,7 +145,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         self.view.addSubview(dataView)
         maxBurnValueLabel.snp_makeConstraints { (make) -> Void in
             make.centerXWithinMargins.equalTo(maxBurnLabel)
-            make.top.equalTo(maxBurnLabel.snp_bottom).offset(20)
+            make.top.equalTo(maxBurnLabel.snp_bottom).offset(10)
             
         }
         
@@ -154,53 +156,25 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         
     }
     
-    func showLineChart(){
-        
-        
-        var ChartLabel:UILabel = UILabel(frame: CGRectMake(200, 300, 320, 300))
-        ChartLabel.text = "Line Chart"
-        
-        var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 135.0, 320, 200.0))
-        lineChart.yLabelFormat = "%1.1f"
-        lineChart.showLabel = true
-        lineChart.backgroundColor = UIColor.clearColor()
-        lineChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
-        lineChart.showCoordinateAxis = false
-        lineChart.delegate = self
-        
-        // Line Chart Nr.1
-        var data01Array: [CGFloat] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
-        var data01:PNLineChartData = PNLineChartData()
-        data01.color = PNGreenColor
-        data01.itemCount = data01Array.count
-        data01.inflexionPointStyle = PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle
-        data01.getData = ({(index: Int) -> PNLineChartDataItem in
-            var yValue:CGFloat = data01Array[index]
-            var item = PNLineChartDataItem()
-            item.y = yValue
-            return item
-        })
-        
-        lineChart.chartData = [data01]
-        lineChart.strokeChart()
-        
-        //        lineChart.delegate = self
-        
-        self.view.addSubview(lineChart)
-        self.view.addSubview(ChartLabel)
-       
-    }
-    
     func showChart(){
-        //        var ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
-        //        var ChartLabel:UILabel = UILabel()
-        //        ChartLabel.textColor = PNGreenColor
-        //        ChartLabel.font = UIFont(name: "Avenir-Medium", size:23.0)
-        //        ChartLabel.textAlignment = NSTextAlignment.Center
-        //        ChartLabel.text = "Bar Chart"
         
         
-        barChart = PNBarChart(frame: CGRectMake(0, 285.0, 320.0, 150.0))
+        
+        ChartLabel.textColor = PNGreenColor
+        ChartLabel.font = UIFont(name: "Avenir-Medium", size:12.0)
+        ChartLabel.textAlignment = NSTextAlignment.Center
+        ChartLabel.text = "过去七天燃烧卡路里的记录"
+        ChartLabel.snp_makeConstraints { (make) -> Void in
+            
+            make.top.greaterThanOrEqualTo(self.dataView.snp_bottom).offset(0)
+            make.bottom.lessThanOrEqualTo(self.barChart.snp_top).offset(-10)
+            make.centerXWithinMargins.equalTo(self.view.snp_centerX)
+        }
+        
+
+        
+        
+        
         
         
         
@@ -209,25 +183,25 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         barChart.animationType = .Waterfall
         barChart.labelMarginTop = 5.0
         barChart.yLabelSum = 5
-       
-        barChart.strokeColor = UIColor.redColor()
-//        barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
-//            var yValueParsed:CGFloat = yValue
-//            var labelText:NSString = NSString(format:"%1.f",yValueParsed)
-//            println("labelText:\(labelText) ,yValue:\(yValue)")
-//            return labelText;
-//        })
-        barChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+        
+        barChart.strokeColor = UIColor(hexString: "#3ED8EE")!
+        //        barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
+        //            var yValueParsed:CGFloat = yValue
+        //            var labelText:NSString = NSString(format:"%1.f",yValueParsed)
+        //            println("labelText:\(labelText) ,yValue:\(yValue)")
+        //            return labelText;
+        //        })
+        barChart.xLabels = ["150","24","120","240","100","10","88"]
         //barChart.yLabels = ["30","60","90","120","150"]
         barChart.yValues = [150,24,120,240,100,10,88]
         barChart.strokeChart()
         barChart.delegate = self
-        self.view.addSubview(barChart)
+       
         barChart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         
         barChart.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.dataView.snp_bottom).offset(10)
-            make.bottom.equalTo(self.view.frame.size.height).offset(-100)
+            make.top.equalTo(ChartLabel.snp_bottom).offset(10)
+            make.bottom.greaterThanOrEqualTo(segmentedCtrl.snp_top).offset(0)
             make.centerXWithinMargins.equalTo(self.view)
             make.width.equalTo(320)
             make.height.equalTo(200)
@@ -235,24 +209,37 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         
         
     }
+    
+    func createViews(){
+        profileImgView = UIImageView()
+         self.view.addSubview(profileImgView)
+        
+        
+        ChartLabel = UILabel()
+         self.view.addSubview(ChartLabel)
+        
+        self.segmentedCtrl = UISegmentedControl()
+        self.view.addSubview(segmentedCtrl)
+        
+        dataView = UIView()
+        self.view.addSubview(dataView)
+        
+        barChart = PNBarChart(frame: CGRectMake(0, 285.0, 320.0, 150.0))
+        self.view.addSubview(barChart)
+    }
     func showSegment(){
         
-        var segmentedCtrl = UISegmentedControl()
-        //        segmentedCtrl.frame = CGRectMake(100, 450, 100, 30)
-        self.segmentedCtrl = segmentedCtrl;
+        
+        
         segmentedCtrl.insertSegmentWithTitle("里程", atIndex: 0, animated: false)
         segmentedCtrl.insertSegmentWithTitle("卡路里", atIndex: 1, animated: false)
         
         segmentedCtrl.selectedSegmentIndex = 0;
-        self.view.addSubview(segmentedCtrl)
+       
         segmentedCtrl.snp_makeConstraints { (make) -> Void in
-            
-            
-            make.top.equalTo(barChart.snp_bottom).offset(10)
-            
-            
+
             make.centerXWithinMargins.equalTo(self.view)
-            
+            make.bottom.equalTo(self.view.snp_bottom).offset(-60)
             make.width.equalTo(100)
             make.height.equalTo(20)
         }
@@ -287,7 +274,7 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
     {
         println("Click  on bar \(barIndex)")
         
-        loadCalorie()
+       // loadCalorie()
     }
     
     
@@ -304,22 +291,22 @@ extension PersonViewController{
         Alamofire.request(Router.WeeklyCalories()).responseJSON{
             (_,_,json,error) in
             self.loading = false
-
-//            if error != nil {
-//                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
-//                alert.show()
-//                return
-//            }
+            
+            //            if error != nil {
+            //                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+            //                alert.show()
+            //                return
+            //            }
             dispatch_async(dispatch_get_main_queue(), {
-             self.barChart.xLabels = ["3400","34340","23340","9952111","90034","23434","14343"]
-                 self.barChart.strokeChart()
+                self.barChart.xLabels = ["3400","34340","23340","9952111","90034","23434","14343"]
+                self.barChart.strokeChart()
             })
-
+            
         }
     }
     
     func loadDistance(){
-    
+        
     }
     
 }
