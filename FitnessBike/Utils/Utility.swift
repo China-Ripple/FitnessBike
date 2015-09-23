@@ -20,12 +20,14 @@ class Utility: NSObject {
         
 
         var mainViewController = RAMAnimatedTabBarController()
-        var navigationViewController = UINavigationController(rootViewController: mainViewController)
+        //var navigationViewController = UINavigationController(rootViewController: mainViewController)
         
-        selfCtrler.presentViewController(navigationViewController, animated: true, completion: nil)
+        //selfCtrler.presentViewController(navigationViewController, animated: true)
         
         
-        
+        selfCtrler.presentViewController(mainViewController, animated: true) { () -> Void in
+            
+        }
       
 
     }

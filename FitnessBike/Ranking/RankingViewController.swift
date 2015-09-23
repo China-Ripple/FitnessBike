@@ -19,9 +19,9 @@ class RankingViewController: UIViewController {
     var loading:Bool = false
     
     var segmentedCtrl:UISegmentedControl!
-    var msgItem:UIButton!
+    var msgItem:UIBarButtonItem!
     var memberList:[AnyObject] = [AnyObject]()
-    var addItem:UIButton!
+    var addItem:UIBarButtonItem!
     var newMsg:NewMsgFlag!
     //判断views是否已经被创建过了，如果创建过了就不需要重新创建，直接显示即可
     var viewsHiden = false
@@ -131,28 +131,18 @@ class RankingViewController: UIViewController {
         
     }
     
-    func makeConstraints(){
-        
-        addItem.setTranslatesAutoresizingMaskIntoConstraints(false)
-        segmentedCtrl.setTranslatesAutoresizingMaskIntoConstraints(false)
-
-        addItem.snp_makeConstraints { (make) -> Void in
-            make.centerYWithinMargins.equalTo(segmentedCtrl.snp_centerY)
-        }
-        
-
-    }
     
     func layoutNavigationBar(){
         
       
         var gapy = (self.navigationController!.navigationBar.frame.height - CGMakeFloat(30))/2.0
 
+        addItem = UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.Plain, target: self, action: "addFriends:")
         
-        addItem = UIButton(frame:CGRectMake(self.navigationController!.navigationBar.frame.width - CGMakeFloat(40), gapy, 30, 30))
-        addItem.addTarget(self, action: "addFriends:", forControlEvents: UIControlEvents.TouchUpInside)
-        addItem.setImage(UIImage(named: "add"), forState: UIControlState.allZeros)
-        self.navigationController!.navigationBar.addSubview(addItem)
+       // addItem = UIButton(frame:CGRectMake(self.navigationController!.navigationBar.frame.width - CGMakeFloat(40), gapy, 30, 30))
+        //addItem.addTarget(self, action: "addFriends:", forControlEvents: UIControlEvents.TouchUpInside)
+      //  addItem.setImage(UIImage(named: "add"), forState: UIControlState.allZeros)
+        self.navigationItem.leftBarButtonItem = addItem
         
    
        
@@ -169,11 +159,12 @@ class RankingViewController: UIViewController {
         
         
 
-        msgItem=UIButton(frame: CGMakeRect(10, gapy, 30, 30))
-        msgItem.setBackgroundImage(UIImage(named: msg_img), forState: UIControlState.Normal)
-        msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
+        msgItem=UIBarButtonItem(image: UIImage(named: "message"), style: UIBarButtonItemStyle.Plain, target: self, action: "checkMessage:")
+        self.navigationItem.rightBarButtonItem = msgItem
+        //msgItem.setBackgroundImage(UIImage(named: msg_img), forState: UIControlState.Normal)
+        //msgItem.addTarget(self, action: "checkMessage:", forControlEvents: UIControlEvents.TouchUpInside)
         //  添加到到导航栏上
-        self.navigationController!.navigationBar.addSubview(msgItem)
+        //self.navigationController!.navigationBar.addSubview(msgItem)
         
 
         
@@ -200,8 +191,8 @@ class RankingViewController: UIViewController {
         }
         else{
             segmentedCtrl.hidden = false
-            msgItem.hidden = false
-            addItem.hidden = false
+            //msgItem.hidden = false
+          //  addItem.hidden = false
         }
         super.viewWillAppear(animated)
     }
@@ -217,16 +208,21 @@ class RankingViewController: UIViewController {
         
         viewsHiden = true
         segmentedCtrl.hidden = true
-        msgItem.hidden = true
-        addItem.hidden = true
+        //msgItem.hidden = true
+       // addItem.hidden = true
 
     }
     
     func checkMessage(sender:AnyObject?){
         
+        if(Router.token == nil){
+            self.navigationController!.pushViewController(LoginViewController(), animated:true)
+            return
+        }
+        
         var msgVC = MessageListViewController();
         
-        msgItem.setBackgroundImage(UIImage(named: "message"), forState: UIControlState.Normal)
+        msgItem.image = UIImage(named: "message")
         
         self.navigationController!.pushViewController(msgVC, animated:true)
         

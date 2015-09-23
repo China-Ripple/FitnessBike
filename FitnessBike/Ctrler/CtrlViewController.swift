@@ -30,13 +30,11 @@ class CtrlViewController: UIViewController {
         var ble =  MyBleService.getInstance(BlueToothBiz())
         
         
-        var signupBtn = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Bordered, target: self, action: "onRegisterSeleted:")
         
-        //  添加到到导航栏上
-        self.navigationItem.rightBarButtonItem = signupBtn;
-
     }
     
+    
+       
     func layoutScrollPage(){
         
         //

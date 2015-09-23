@@ -15,10 +15,13 @@ class AccessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
     
         layout()
         
-        self.view.backgroundColor = UIColor.grayColor()
+        
+        self.title = "欢迎使用"
+        
         
     }
     
@@ -36,6 +39,7 @@ class AccessViewController: UIViewController {
         
         var btnLogin = UIButton(frame: CGMakeRect(130, 200, 120, 60))
         btnLogin.setTitle("登陆、注册", forState: UIControlState.Normal)
+        btnLogin.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         btnLogin.addTarget(self, action: "onLoginSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(btnLogin)
         
@@ -53,10 +57,11 @@ class AccessViewController: UIViewController {
         self.view.addSubview(weixinLogin)
         
         
-        var skipBtn = UIButton(frame: CGMakeRect(130, 500, 100, 60))
-        skipBtn.setTitle("跳过", forState: UIControlState.Normal)
-        skipBtn.addTarget(self, action: "onSkipSelected:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(skipBtn)
+//        var skipBtn = UIButton(frame: CGMakeRect(130, 500, 100, 60))
+//        
+//        skipBtn.setTitle("跳过", forState: UIControlState.Normal)
+//        skipBtn.addTarget(self, action: "onSkipSelected:", forControlEvents: UIControlEvents.TouchUpInside)
+//        self.view.addSubview(skipBtn)
 
         
     }
@@ -128,12 +133,12 @@ class AccessViewController: UIViewController {
             }
         }
     }
-    override func prefersStatusBarHidden() -> Bool {
-        self.navigationController!.setNavigationBarHidden(true
-            , animated: false)
-        
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        self.navigationController!.setNavigationBarHidden(true
+//            , animated: false)
+//        
+//        return true
+//    }
 
     
 }

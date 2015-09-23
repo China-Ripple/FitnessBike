@@ -68,10 +68,10 @@ class RAMAnimatedTabBarController: UITabBarController {
         
         var scale:CGFloat = 0.6
         
-        var vc1 = CtrlViewController()
-        var vc2 = PersonViewController()
-        var vc3 = RankingViewController()
-        var vc4 = ActivityViewController()
+        var vc1 = UINavigationController (rootViewController:CtrlViewController())
+        var vc2 = UINavigationController (rootViewController:PersonViewController())
+        var vc3 = UINavigationController (rootViewController:RankingViewController())
+        var vc4 = UINavigationController (rootViewController:ActivityViewController())
         selectedIndex = 0
         self.viewControllers = [vc1,vc2,vc3,vc4]
         
@@ -104,7 +104,21 @@ class RAMAnimatedTabBarController: UITabBarController {
         tabBarItems.append(item4)
         
         
+        
+        
        
+        
+    }
+    
+    func setHiden(hide:Bool){
+        
+//        if( hide == true)
+//        {
+//            for item in tabBarItems
+//            {
+//                (item as! UITabBarItem). = true
+//            }
+//        }
         
     }
     

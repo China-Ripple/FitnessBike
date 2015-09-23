@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
        
-        Router.token  = KeychainWrapper.stringForKey("token")
+ 
         
         var size = UIScreen.mainScreen().bounds.size
         
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.baseY = size.height / 667
         
-        Router.token = KeychainWrapper.stringForKey("token")
+     //   Router.token = KeychainWrapper.stringForKey("token")
 //
        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
@@ -42,9 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window!.rootViewController = viewCtrl
 //        self.window!.makeKeyAndVisible()
         
+         var mainViewController = RAMAnimatedTabBarController()
         
-        var navController = UINavigationController (rootViewController:viewCtrl)
-        self.window!.rootViewController = navController
+        var navController = UINavigationController (rootViewController:mainViewController)
+        
+        
+        self.window!.rootViewController = mainViewController
        
         
         

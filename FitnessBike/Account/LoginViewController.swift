@@ -21,7 +21,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         layout()
         
         
-        
+        self.tabBarController?.tabBar.hidden = true
         
     }
     
@@ -191,12 +191,12 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         self.navigationController?.popToRootViewControllerAnimated(true)
         
     }
-    override func prefersStatusBarHidden() -> Bool {
-        self.navigationController!.setNavigationBarHidden(false
-            , animated: false)
-        
-        return false
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        self.navigationController!.setNavigationBarHidden(false
+//            , animated: false)
+//        
+//        return false
+//    }
     
     
 }
