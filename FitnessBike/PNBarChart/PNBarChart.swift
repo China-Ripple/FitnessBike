@@ -51,7 +51,7 @@ public class PNBarChart: UIView {
     /*
     chartMargin changes chart margin
     */
-    public var yChartLabelWidth:CGFloat = 18.0
+    public var yChartLabelWidth:CGFloat = 30.0
     
     /*
     yLabelFormatter will format the ylabel text
@@ -194,6 +194,7 @@ public class PNBarChart: UIView {
                 label.textColor = labelTextColor
                 label.textAlignment = NSTextAlignment.Right
                 label.text = labelText as String
+            
                 
                 labels.addObject(label)
                 self.addSubview(label)

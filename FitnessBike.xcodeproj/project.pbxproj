@@ -56,6 +56,7 @@
 		8A7739CD1BA95A4F00E020EC /* BlueToothBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739CC1BA95A4F00E020EC /* BlueToothBiz.swift */; };
 		8A7739EC1BA967A200E020EC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; };
 		8A7739ED1BA967A200E020EC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A8EAA111BB247C700E51FCD /* AlertPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EAA101BB247C700E51FCD /* AlertPickerViewController.swift */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
 		8A993ADD1B9D6F22003737C6 /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD71B9D6F22003737C6 /* RefreshConst.swift */; };
@@ -83,6 +84,7 @@
 		8AD74DEB1B81B98C007DD04A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */; };
 		8AD74DED1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */; };
 		8AD74DEF1B81BBBA007DD04A /* ActivityBriefModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */; };
+		8AE0F0121BB170A50080A3EE /* vs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE0F00F1BB170A50080A3EE /* vs.png */; };
 		8AE6A70F1B96DB9400561ADB /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A70C1B96DB9400561ADB /* MGSwipeButton.m */; };
 		8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A70E1B96DB9400561ADB /* MGSwipeTableCell.m */; };
 		8AE6A7231B96E79A00561ADB /* ServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6A7221B96E79A00561ADB /* ServiceApi.swift */; };
@@ -284,6 +286,7 @@
 		8A7739B91BA9458D00E020EC /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		8A7739CC1BA95A4F00E020EC /* BlueToothBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueToothBiz.swift; sourceTree = "<group>"; };
 		8A7739DD1BA9679600E020EC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		8A8EAA101BB247C700E51FCD /* AlertPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPickerViewController.swift; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
 		8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
 		8A993AD71B9D6F22003737C6 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
@@ -315,6 +318,7 @@
 		8AD74DEA1B81B98C007DD04A /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8AD74DEC1B81B9E0007DD04A /* ActivityBriefTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefTableViewCell.swift; sourceTree = "<group>"; };
 		8AD74DEE1B81BBBA007DD04A /* ActivityBriefModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBriefModel.swift; sourceTree = "<group>"; };
+		8AE0F00F1BB170A50080A3EE /* vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs.png; sourceTree = "<group>"; };
 		8AE6A70B1B96DB9400561ADB /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
 		8AE6A70C1B96DB9400561ADB /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		8AE6A70D1B96DB9400561ADB /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -395,6 +399,7 @@
 		8A2149AD1B7DB3D8002BADDA /* FitnessBike */ = {
 			isa = PBXGroup;
 			children = (
+				8AE0F0031BB170760080A3EE /* Resource */,
 				8A77397C1BA9142500E020EC /* Base32 */,
 				8A3B7D091BA8341A0057A864 /* Extensions */,
 				8A3B7CEC1BA81D630057A864 /* Tabbar */,
@@ -494,6 +499,7 @@
 		8A2149D91B7DCA14002BADDA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8A8EAA101BB247C700E51FCD /* AlertPickerViewController.swift */,
 				8A9A03751BAFF6E600745766 /* SwiftColors.swift */,
 				8A71F11F1B9EBB0B00E57AE9 /* KeychainWrapper.swift */,
 				8A71F11D1B9EB7F100E57AE9 /* SwiftNotice.swift */,
@@ -662,6 +668,22 @@
 				8AC46A561B8334E10025D25A /* MyBleService.m */,
 			);
 			path = BLE;
+			sourceTree = "<group>";
+		};
+		8AE0F0031BB170760080A3EE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8AE0F00E1BB170810080A3EE /* Images */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		8AE0F00E1BB170810080A3EE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8AE0F00F1BB170A50080A3EE /* vs.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		8AE6A70A1B96DB6400561ADB /* MGSwipeTableCell */ = {
@@ -894,6 +916,7 @@
 				8A993AE81B9D7426003737C6 /* shadow_up.png in Resources */,
 				8A993AE71B9D7426003737C6 /* arrow_up@2x.png in Resources */,
 				8A993AE61B9D7426003737C6 /* arrow_up.png in Resources */,
+				8AE0F0121BB170A50080A3EE /* vs.png in Resources */,
 				8A2149BB1B7DB3D8002BADDA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,6 +964,7 @@
 				8A7739821BA9145600E020EC /* Base16.swift in Sources */,
 				8A3B7D111BA83AEE0057A864 /* HexExtensions.swift in Sources */,
 				8AE6A7101B96DB9400561ADB /* MGSwipeTableCell.m in Sources */,
+				8A8EAA111BB247C700E51FCD /* AlertPickerViewController.swift in Sources */,
 				8A57C2801B85965B0003E1C8 /* PNValue.swift in Sources */,
 				8A1C3C4C1B94388400E4B53B /* FriendModel.swift in Sources */,
 				8A2149B11B7DB3D8002BADDA /* AppDelegate.swift in Sources */,

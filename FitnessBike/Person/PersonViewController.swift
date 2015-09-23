@@ -8,20 +8,25 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
     var burnValueLabel:UILabel!
     var profileImgView:UIImageView!
     var dataView:UIView!
     var barChart:PNBarChart!
     var segmentedCtrl:UISegmentedControl!
+    var loading = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         showImage()
         showDataView()
         showChart()
+        //showLineChart()
         showSegment()
         
-        SyncProcessor.shared.registerCallBace(self)
+       // SyncProcessor.shared.registerCallBace(self)
         
         // Do any additional setup after loading the view.
     }
@@ -149,6 +154,43 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         
     }
     
+    func showLineChart(){
+        
+        
+        var ChartLabel:UILabel = UILabel(frame: CGRectMake(200, 300, 320, 300))
+        ChartLabel.text = "Line Chart"
+        
+        var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 135.0, 320, 200.0))
+        lineChart.yLabelFormat = "%1.1f"
+        lineChart.showLabel = true
+        lineChart.backgroundColor = UIColor.clearColor()
+        lineChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+        lineChart.showCoordinateAxis = false
+        lineChart.delegate = self
+        
+        // Line Chart Nr.1
+        var data01Array: [CGFloat] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
+        var data01:PNLineChartData = PNLineChartData()
+        data01.color = PNGreenColor
+        data01.itemCount = data01Array.count
+        data01.inflexionPointStyle = PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle
+        data01.getData = ({(index: Int) -> PNLineChartDataItem in
+            var yValue:CGFloat = data01Array[index]
+            var item = PNLineChartDataItem()
+            item.y = yValue
+            return item
+        })
+        
+        lineChart.chartData = [data01]
+        lineChart.strokeChart()
+        
+        //        lineChart.delegate = self
+        
+        self.view.addSubview(lineChart)
+        self.view.addSubview(ChartLabel)
+       
+    }
+    
     func showChart(){
         //        var ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
         //        var ChartLabel:UILabel = UILabel()
@@ -166,8 +208,18 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
         barChart.backgroundColor = UIColor.clearColor()
         barChart.animationType = .Waterfall
         barChart.labelMarginTop = 5.0
+        barChart.yLabelSum = 5
+       
+        barChart.strokeColor = UIColor.redColor()
+//        barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
+//            var yValueParsed:CGFloat = yValue
+//            var labelText:NSString = NSString(format:"%1.f",yValueParsed)
+//            println("labelText:\(labelText) ,yValue:\(yValue)")
+//            return labelText;
+//        })
         barChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
-        barChart.yValues = [1,24,12,18,30,10,21]
+        //barChart.yLabels = ["30","60","90","120","150"]
+        barChart.yValues = [150,24,120,240,100,10,88]
         barChart.strokeChart()
         barChart.delegate = self
         self.view.addSubview(barChart)
@@ -234,7 +286,40 @@ class PersonViewController: UIViewController,PNChartDelegate,BTSyncCallBack{
     func userClickedOnBarChartIndex(barIndex: Int)
     {
         println("Click  on bar \(barIndex)")
+        
+        loadCalorie()
     }
     
+    
+}
+
+extension PersonViewController{
+    
+    func loadCalorie(){
+        if self.loading {
+            return
+        }
+        self.loading = true
+        
+        Alamofire.request(Router.WeeklyCalories()).responseJSON{
+            (_,_,json,error) in
+            self.loading = false
+
+//            if error != nil {
+//                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+//                alert.show()
+//                return
+//            }
+            dispatch_async(dispatch_get_main_queue(), {
+             self.barChart.xLabels = ["3400","34340","23340","9952111","90034","23434","14343"]
+                 self.barChart.strokeChart()
+            })
+
+        }
+    }
+    
+    func loadDistance(){
+    
+    }
     
 }

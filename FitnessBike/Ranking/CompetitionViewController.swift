@@ -38,10 +38,10 @@ class CompetitionViewController: UIViewController {
         peopleView.addSubview(oneView)
         
         var pkView = UIImageView(frame: CGRectMake(150, 10, 40, 40))
-        var pk = UIImage(named: "pk")
+        var pk = UIImage(named: "vs")
         pkView.image = pk
-        pkView.layer.cornerRadius = pkView.frame.size.width/2
-        pkView.clipsToBounds = true
+//        pkView.layer.cornerRadius = pkView.frame.size.width/2
+//        pkView.clipsToBounds = true
         peopleView.addSubview(pkView)
         
         

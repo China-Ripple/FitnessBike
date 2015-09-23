@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>88AACD5B-C6B4-4E1D-B5E9-306C2FE78100</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>FitnessBike</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>
 		<string>https://github.com/China-Ripple/FitnessBike.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FitnessBike.xcodeproj/project.xcworkspace</string>
+	<string>FitnessBike.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9CA3A697D6255ACC4A2744857A256BEF56CCF9D4</key>

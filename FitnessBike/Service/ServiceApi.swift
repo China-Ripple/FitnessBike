@@ -46,9 +46,9 @@ class ServiceApi: NSObject {
         return "\(host)/weeklymile?account=\(account)"
     }
     
-    internal class func getWeeklyCalories(account:String)->String{
+    internal class func getWeeklyCalories()->String{
         
-        return "\(host)/weeklycalorie?account=\(account)"
+        return "\(host)/weeklycalorie"
     }
    
     internal class func getCompMsgUrl(maxId:Int,num:Int)->String{

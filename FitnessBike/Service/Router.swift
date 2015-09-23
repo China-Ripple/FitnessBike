@@ -20,7 +20,7 @@ enum Router: URLRequestConvertible{
     case SignIn(account:String,password:String)
     case SignUp(parameters:[String: AnyObject])
     case WeeklyMiles(account:String)
-    case WeeklyCalories(account:String)
+    case WeeklyCalories()
     case Competition(defenderid:String,type:Int,time:String)
     case CompMsg(maxId:Int,num:Int)
     case MsgResponse(parameters:[String: AnyObject])
@@ -29,6 +29,7 @@ enum Router: URLRequestConvertible{
     case Regulation(account:String,name:String)
     case Makefriends(account:String)
     case Sync(parameter:[String:AnyObject])
+    
     
     var method: Alamofire.Method {
         switch self {
@@ -79,8 +80,8 @@ enum Router: URLRequestConvertible{
             return ServiceApi.getWeeklyMiles(account)
         case .Exercise(let account):
             return ServiceApi.getExercise(account)
-        case .WeeklyCalories(let account):
-            return ServiceApi.getWeeklyCalories(account)
+        case .WeeklyCalories():
+            return ServiceApi.getWeeklyCalories()
         case .Competition(let defenderid,let type, let time):
             return ServiceApi.getCompetitionUrl(defenderid,type: type,time: time)
         case .CompMsg(let maxId,let num):

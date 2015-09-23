@@ -15,11 +15,21 @@ class RegisterViewController: UIViewController {
     var psw :UITextField!
     var registerItem:UIButton!
     var psw2:UITextField!
+   let alertPicker:AlertPickerViewController=AlertPickerViewController()
+    var weight:[String]=[String]()
+     var weightTF = UITextField()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "注册"
-        self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        alertPicker.delegate = self
+        alertPicker.dataSource = self
+        alertPicker.mUIViewController=self
+        alertPicker.mViewControllerDelegate=self
         
+        for i in 10...105 {
+            weight.append("\(i) 千克")
+        }
         layout()
         
       
@@ -75,21 +85,66 @@ class RegisterViewController: UIViewController {
         line4.backgroundColor = UIColor.grayColor()
         self.view.addSubview(line4)
         
+       
+      
+        
+        weightTF.addTarget(self, action: "selectWeight:", forControlEvents: UIControlEvents.TouchDown)
+        self.view.addSubview(weightTF)
+        weightTF.placeholder = "请输入体重"
+        weightTF.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(line4).offset(10)
+            make.height.equalTo(50)
+            make.width.equalTo(320)
+            make.left.equalTo(line4.snp_left)
+            
+        }
+//        // add gesture
+//        let tapGesture = UITapGestureRecognizer(target: self, action: "selectWeight:")
+//        tapGesture.numberOfTouchesRequired = 1
+//        weightTF.addGestureRecognizer(tapGesture)
+        
+        var line5 = UIView(frame: CGMakeRect(15, 360,350, 1))
+        line5.backgroundColor = UIColor.grayColor()
+        self.view.addSubview(line5)
+        line5.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(weightTF.snp_bottom).offset(2)
+            make.height.equalTo(1)
+            make.width.equalTo(320)
+            make.left.equalTo(weightTF.snp_left)
+        }
+        
 
         
-        registerItem = UIButton(frame: CGMakeRect(40, 400, 300, 40))
+        registerItem = UIButton()
         registerItem.setBackgroundImage(UIImage(named: "login_btn_bg"), forState: UIControlState.Normal)
         registerItem.setTitle("确认", forState: UIControlState.Normal)
         registerItem.addTarget(self, action: "onRegisterSeleted:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(registerItem)
+        registerItem.snp_makeConstraints { (make) -> Void in
+            
+            make.bottom.equalTo(self.view.snp_bottom).offset(-80)
+            make.height.equalTo(40)
+            make.width.equalTo(200)
+
+            make.centerXWithinMargins.equalTo(self.view.snp_centerX)
+            
+        }
 
         
         
       requesRegister()
         
+ 
         
+        //
     }
     
+    
+    func selectWeight(sender:AnyObject?){
+        
+        alertPicker.showPickerInActionSheet(0)
+    }
     func requesRegister(){
 //         let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
 //         Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: parameters, encoding: .JSON)
@@ -199,3 +254,74 @@ class RegisterViewController: UIViewController {
         
     }
    }
+
+extension RegisterViewController:UIPickerViewDelegate,UIPickerViewDataSource{
+    
+    
+    
+    
+    
+    
+    // returns the number of 'columns' to display.
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        
+        return 1
+    }
+    
+    // returns the # of rows in each component..
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        
+        return weight.count
+    }
+
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        
+        if(pickerView.tag == 0){
+            
+            return "\(weight[row])"
+        }
+            
+//        else if(pickerView.tag == 1){
+//            return "\(self.age[row] )"
+//        } else if(pickerView.tag == 2){
+//            
+//            
+//            return "\(self.weight[row < self.weight.count ? row:(row-1)])kg"
+//            
+//        }
+//        else if(pickerView.tag==3){
+//            return "\(self.height[row < self.height.count ? row:(row-1)])cm"
+//        }
+        else  {
+            
+            return "";
+            
+        }
+        
+    }
+    //
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+            println("you selected the name: \(self.weight[row])")
+        weightTF.text = "\(self.weight[row])"
+    
+    }
+
+}
+
+extension RegisterViewController:AlertPickerViewControllerDelegate{
+    func didSelect(){
+        
+       //weightTF.text = "\(self.weight[row])"
+        
+        println("didSelect")
+        
+    }
+    func didCancel()
+    {
+        println("didCancel")
+    }
+}
+
+

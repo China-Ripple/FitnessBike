@@ -38,6 +38,7 @@ class RankingTableViewCell: MGSwipeTableCell{
             make.centerYWithinMargins.equalTo(self.snp_centerY)
             make.left.equalTo(self.snp_left).offset(10)
         }
+        positionLabel.textAlignment = NSTextAlignment.Center
         positionLabel.text = "1"
         
         
