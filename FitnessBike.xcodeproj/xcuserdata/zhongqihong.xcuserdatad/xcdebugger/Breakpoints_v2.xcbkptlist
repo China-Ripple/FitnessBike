@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Message/MessageTableViewCell.swift"
-            timestampString = "462787964.692038"
+            timestampString = "464681311.299771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "init(style:reuseIdentifier:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -679,11 +679,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitnessBike/Friends/FriendRecommenderViewController.swift"
-            timestampString = "464532691.067425"
+            timestampString = "464673401.650793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -909,6 +909,101 @@
             startingLineNumber = "145"
             endingLineNumber = "145"
             landmarkName = "selectWeight(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Message/MessageTableViewCell.swift"
+            timestampString = "464681311.299771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "init(style:reuseIdentifier:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Message/MessageTableViewCell.swift"
+            timestampString = "464681311.299771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "makeCell(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitnessBike.MessageTableViewCell.__allocating_init (FitnessBike.MessageTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.MessageTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/Documents/project/FitnessBike/FitnessBike/Message/MessageTableViewCell.swift"
+                  timestampString = "464679986.864447"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "161">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitnessBike.MessageTableViewCell.init (FitnessBike.MessageTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.MessageTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/Documents/project/FitnessBike/FitnessBike/Message/MessageTableViewCell.swift"
+                  timestampString = "464679986.864658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "113">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc FitnessBike.MessageTableViewCell.init (FitnessBike.MessageTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; FitnessBike.MessageTableViewCell"
+                  moduleName = "FitnessBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhongqihong/Documents/project/FitnessBike/FitnessBike/Message/MessageTableViewCell.swift"
+                  timestampString = "464679986.86479"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "121">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitnessBike/Message/MessageTableViewCell.swift"
+            timestampString = "464681311.299771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "makeCell(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

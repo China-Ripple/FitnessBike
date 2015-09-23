@@ -12,89 +12,112 @@ class MessageTableViewCell: UITableViewCell {
     
     var refuseBtn:UIButton!
     var acceptBtn:UIButton!
+    var defier:UILabel!
     var titleLabel:UILabel!
+    var matchLabel:UILabel!
     var matchImage:UIImageView!
     var matchName:UILabel!
+    var matchImg:UIImageView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        //        refuseBtn = UIButton(frame: CGMakeRect(5, 10, 100, 60))
-        var  refuseBtn = UIButton()
+
+        refuseBtn = UIButton()
         refuseBtn.setTitle("拒绝", forState: UIControlState.Normal)
+        refuseBtn.titleLabel?.textColor = UIColor.redColor()
         refuseBtn.addTarget(self, action: "refuse:", forControlEvents: UIControlEvents.TouchUpInside)
-        refuseBtn.backgroundColor = UIColor.darkGrayColor()
-        //         refuseBtn.backgroundColor = UIColor.redColor()
+        refuseBtn.setBackgroundImage(UIImage(named: "btn_right"), forState: UIControlState.allZeros)
         self.addSubview(refuseBtn)
         refuseBtn.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.contentView.snp_top).offset(10)
-            make.left.equalTo(self.contentView.snp_left).offset(0)
-            make.centerYWithinMargins.equalTo(self.contentView)
+            make.left.equalTo(self.snp_left).offset(0)
+            make.centerYWithinMargins.equalTo(self.snp_centerY)
             make.width.equalTo(60)
             make.height.equalTo(40)
             
         }
+      
         
-        
-        
-        
-        
-        
-        
-        //        acceptBtn = UIButton(frame: CGMakeRect(300, 10, 80, 60))
-        var acceptBtn = UIButton()
+        acceptBtn = UIButton()
         acceptBtn.setTitle("接受", forState: UIControlState.Normal)
+        acceptBtn.setBackgroundImage(UIImage(named: "btn_left"), forState: UIControlState.allZeros)
         acceptBtn.addTarget(self, action: "accept:", forControlEvents: UIControlEvents.TouchUpInside)
-        acceptBtn.backgroundColor = UIColor.darkGrayColor()
-        //        acceptBtn.backgroundColor = UIColor.redColor()
         self.addSubview(acceptBtn)
         acceptBtn.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp_top).offset(10)
-            
             make.right.equalTo(self.snp_right).offset(0)
             make.centerYWithinMargins.equalTo(self.contentView)
-            
-            //            make.centerYWithinMargins.equalTo(self)
-            
-            
-            
             make.width.equalTo(60)
             make.height.equalTo(40)
         }
         
+
         
+        defier = UILabel()
+        defier.textColor = UIColor(hexString: "#0099e2")
+        defier.font = UIFont(name: "Arial", size: 15)
+        self.addSubview(defier)
+    
         
-        
-        
-        
-        titleLabel = UILabel(frame: CGMakeRect(120, 5, 200, 40))
-        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel = UILabel()
+        titleLabel.text = "发起了"
+        titleLabel.textColor = UIColor(hexString: "#003355")
         titleLabel.font = UIFont(name: "Arial", size: 15)
         self.addSubview(titleLabel)
         
+        matchLabel = UILabel()
+        matchLabel.textColor = UIColor.blueColor()
+        matchLabel.text = "pk"
+        matchLabel.font = UIFont(name: "Arial", size: 15)
+        self.addSubview(matchLabel)
+        
         matchImage = UIImageView(frame: CGMakeRect(129, 50, 40, 40))
         self.addSubview(matchImage)
+       
         
+
         matchName = UILabel(frame: CGMakeRect(140, 50, 100, 40))
-        matchName.textColor = UIColor.whiteColor()
+        matchName.textColor = UIColor(hexString: "#21262c")
         self.addSubview(matchName)
         
-        self.backgroundColor = UIColor.grayColor()
+       
         
-    }
-        override func layoutSubviews() {
-    
-            super.layoutSubviews()
-    
-//            self.addSubview(refuseBtn)
-//            self.addSubview(acceptBtn)
-//            self.addSubview(matchName)
-//            self.addSubview(matchImage)
-//            self.addSubview(titleLabel)
-    
+        matchName.snp_makeConstraints { (make) -> Void in
+            make.centerXWithinMargins.equalTo(self.contentView)
+            make.bottom.equalTo(self.snp_bottom).offset(-10)
+            
+            
         }
-    
-    
+        
+        matchLabel.snp_makeConstraints { (make) -> Void in
+            
+            make.left.equalTo(self.titleLabel.snp_right).offset(10)
+            make.bottom.top.equalTo(titleLabel)
+            
+            
+        }
+
+        defier.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(self.snp_top).offset(15)
+            make.right.equalTo(titleLabel.snp_left).offset(-10)
+        }
+
+        titleLabel.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(defier.snp_top)
+            make.centerXWithinMargins.equalTo(self.snp_centerX)
+            make.width.height.equalTo(defier)
+        }
+        matchImage.snp_makeConstraints { (make) -> Void in
+            
+            make.right.equalTo(matchName.snp_left).offset(-10)
+            make.top.equalTo(matchName)
+            make.bottom.equalTo(matchName)
+            make.height.equalTo(matchName)
+            
+        }
+    }
+
     
     
     
@@ -119,29 +142,34 @@ class MessageTableViewCell: UITableViewCell {
     }
     
     func makeCell(model:MessageModel){
+        var scale:CGFloat = 0.5
         if(model.defierId == 0){
-            
+            var img:UIImage! = UIImage(named: "stamina_flag")
+            matchImage.image =  ImageUtil.scaleImage(CGSizeMake(img!.size.width*scale, img.size.height*scale), img:img)
             matchName.text = "耐力之王"
             
         }
-        else{
+        else if(model.defierId == 1){
+            var img:UIImage! = UIImage(named: "speed_flag")
+            matchImage.image =  ImageUtil.scaleImage(CGSizeMake(img!.size.width*scale, img.size.height*scale), img:img)
             matchName.text = "竞速冠军"
         }
-        titleLabel.text = "\(model.defierName)发起了PK"
-        matchName.snp_makeConstraints { (make) -> Void in
-            //            make.left.equalTo(self.contentView.snp_left).offset(50)
-            make.centerXWithinMargins.equalTo(self.contentView)
-            make.bottom.equalTo(self.snp_bottom).offset(-10)
-            
-            
+        else if(model.defierId == 2){
+            var img:UIImage! = UIImage(named: "stamina_flag")
+            matchImage.image =  ImageUtil.scaleImage(CGSizeMake(img!.size.width*scale, img.size.height*scale), img:img)
+            matchLabel.text = "好友申请"
+            matchName.text = "我很崇拜你"
         }
-        titleLabel.snp_makeConstraints { (make) -> Void in
-            
-            make.top.equalTo(self.snp_top).offset(15)
-            
-            make.centerXWithinMargins.equalTo(self.contentView)
+        else{
+            var img:UIImage! = UIImage(named: "speed_flag")
+            matchImage.image =  ImageUtil.scaleImage(CGSizeMake(img!.size.width*scale, img.size.height*scale), img:img)
+            matchLabel.text = "约会"
+            matchName.text = "海天盛筵"
         }
+       
+        defier.text = "\(model.defierName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))"
         
+
     }
     
 }

@@ -57,6 +57,10 @@
 		8A7739EC1BA967A200E020EC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; };
 		8A7739ED1BA967A200E020EC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7739E51BA9679600E020EC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A8EAA111BB247C700E51FCD /* AlertPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EAA101BB247C700E51FCD /* AlertPickerViewController.swift */; };
+		8A8EAA1D1BB2603500E51FCD /* btn_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EAA1C1BB2603500E51FCD /* btn_right.png */; };
+		8A8EAA1F1BB270EB00E51FCD /* btn_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EAA1E1BB270EB00E51FCD /* btn_left.png */; };
+		8A8EAA221BB271DF00E51FCD /* speed_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EAA201BB271DF00E51FCD /* speed_flag.png */; };
+		8A8EAA231BB271DF00E51FCD /* stamina_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EAA211BB271DF00E51FCD /* stamina_flag.png */; };
 		8A993ADB1B9D6F22003737C6 /* BreakOutToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */; };
 		8A993ADC1B9D6F22003737C6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */; };
 		8A993ADD1B9D6F22003737C6 /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A993AD71B9D6F22003737C6 /* RefreshConst.swift */; };
@@ -287,6 +291,10 @@
 		8A7739CC1BA95A4F00E020EC /* BlueToothBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueToothBiz.swift; sourceTree = "<group>"; };
 		8A7739DD1BA9679600E020EC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		8A8EAA101BB247C700E51FCD /* AlertPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPickerViewController.swift; sourceTree = "<group>"; };
+		8A8EAA1C1BB2603500E51FCD /* btn_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_right.png; sourceTree = "<group>"; };
+		8A8EAA1E1BB270EB00E51FCD /* btn_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_left.png; sourceTree = "<group>"; };
+		8A8EAA201BB271DF00E51FCD /* speed_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_flag.png; sourceTree = "<group>"; };
+		8A8EAA211BB271DF00E51FCD /* stamina_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamina_flag.png; sourceTree = "<group>"; };
 		8A993AD51B9D6F22003737C6 /* BreakOutToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOutToRefreshView.swift; sourceTree = "<group>"; };
 		8A993AD61B9D6F22003737C6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
 		8A993AD71B9D6F22003737C6 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
@@ -681,6 +689,10 @@
 		8AE0F00E1BB170810080A3EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8A8EAA201BB271DF00E51FCD /* speed_flag.png */,
+				8A8EAA211BB271DF00E51FCD /* stamina_flag.png */,
+				8A8EAA1E1BB270EB00E51FCD /* btn_left.png */,
+				8A8EAA1C1BB2603500E51FCD /* btn_right.png */,
 				8AE0F00F1BB170A50080A3EE /* vs.png */,
 			);
 			path = Images;
@@ -911,10 +923,14 @@
 			files = (
 				8A7739841BA9145600E020EC /* Info.plist in Resources */,
 				8A993AE91B9D7426003737C6 /* shadow_up@2x.png in Resources */,
+				8A8EAA1F1BB270EB00E51FCD /* btn_left.png in Resources */,
+				8A8EAA221BB271DF00E51FCD /* speed_flag.png in Resources */,
 				8A2149B91B7DB3D8002BADDA /* Main.storyboard in Resources */,
+				8A8EAA1D1BB2603500E51FCD /* btn_right.png in Resources */,
 				8A2149BE1B7DB3D8002BADDA /* LaunchScreen.xib in Resources */,
 				8A993AE81B9D7426003737C6 /* shadow_up.png in Resources */,
 				8A993AE71B9D7426003737C6 /* arrow_up@2x.png in Resources */,
+				8A8EAA231BB271DF00E51FCD /* stamina_flag.png in Resources */,
 				8A993AE61B9D7426003737C6 /* arrow_up.png in Resources */,
 				8AE0F0121BB170A50080A3EE /* vs.png in Resources */,
 				8A2149BB1B7DB3D8002BADDA /* Images.xcassets in Resources */,

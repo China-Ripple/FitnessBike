@@ -47,11 +47,13 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
 
    var searchBar: UISearchBar!
     var searchResultTable:UITableView!
-    
+    var searchedFriends:[AnyObject] = [AnyObject]()
     var headerTitle:UILabel!
     let TITLE_TAG:Int = 1000
     let BUTTON_TAG:Int = 1001
     var collection:UICollectionView!
+    
+   
     override func viewDidLoad() {
        
         super.viewDidLoad()
@@ -91,11 +93,20 @@ class FriendRecommenderViewController: UIViewController,UICollectionViewDataSour
         
          setupSearchBar()
        
-        
+       
     }
     
     
-    
+    func setup(){
+        
+        var model = SearchModel()
+        model.userId = 12333323
+        model.userName = "韩梅梅"
+        
+        searchedFriends.append(model)
+        
+    }
+
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
@@ -248,8 +259,10 @@ extension FriendRecommenderViewController: UISearchBarDelegate{
 
         self.view.addSubview(searchBar)
         
-       searchResultTable = UITableView(frame: CGRectMake(0, 130, self.view.frame.size.width,     self.view.frame.size.height))
+        searchResultTable = UITableView(frame: CGRectMake(0, 115, self.view.frame.size.width,     self.view.frame.size.height))
         searchResultTable.hidden = true
+        searchResultTable.dataSource = self
+        searchResultTable.delegate = self
         self.view.addSubview(searchResultTable)
         
       
@@ -286,6 +299,7 @@ extension FriendRecommenderViewController: UISearchBarDelegate{
          collection.hidden = false
         searchResultTable.hidden = true
          searchBar.resignFirstResponder()
+        clearSearchResultTableView()
         //searchResultTable.removeFromSuperview()
 
     }
@@ -294,11 +308,57 @@ extension FriendRecommenderViewController: UISearchBarDelegate{
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 
-            println("开始搜索")
+        println("开始搜索")
         
         collection.hidden = true
         searchResultTable.hidden = false
         
+       setupSearchResultTableView()
 
+    }
+    
+    func setupSearchResultTableView(){
+        setup()
+        searchResultTable.reloadData()
+    }
+    
+    func clearSearchResultTableView(){
+        searchedFriends.removeAll(keepCapacity: false)
+        searchResultTable.reloadData()
+    }
+}
+
+extension FriendRecommenderViewController:UITableViewDataSource,UITableViewDelegate{
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return searchedFriends.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        
+        return CGFloat(100)
+    }
+
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        
+        
+        let TAG = "searchedTag"
+        var cell:SearchTableViewCell? = tableView.dequeueReusableCellWithIdentifier(TAG) as? SearchTableViewCell
+        
+        if(cell == nil){
+            cell = SearchTableViewCell(style:UITableViewCellStyle.Default,reuseIdentifier:TAG)
+        }
+        
+        var model = searchedFriends[indexPath.row] as! SearchModel
+        cell!.makeCell(model)
+        
+        return cell!
+
+        
     }
 }

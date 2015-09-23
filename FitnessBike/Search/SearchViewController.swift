@@ -32,7 +32,7 @@ class SearchViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
         setup()
         
         
@@ -51,6 +51,7 @@ class SearchViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         
         self.tableView.headerBeginRefreshing()
+        
         
         
     }

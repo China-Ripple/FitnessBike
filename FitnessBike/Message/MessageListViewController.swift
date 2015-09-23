@@ -99,9 +99,8 @@ class MessageListViewController: UIViewController,UITableViewDataSource,UITableV
     func setupData(){
         for i in 0...20{
             var model = MessageModel()
-            model.defierId = i%3
-            model.defierName = "宁泽涛"
-            
+            model.defierId = i%4
+            model.defierName = "张含韵"
             messageData.addObject(model)
         }
         
