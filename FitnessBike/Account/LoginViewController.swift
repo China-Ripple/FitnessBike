@@ -16,21 +16,21 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         self.title = "登陆"
         layout()
         
-       
-
+        
+        
         
     }
     
     
     func layout(){
         
-
         
-      var signupBtn = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Bordered, target: self, action: "onRegisterSeleted:")
+        
+        var signupBtn = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Bordered, target: self, action: "onRegisterSeleted:")
         
         //  添加到到导航栏上
         self.navigationItem.rightBarButtonItem = signupBtn;
@@ -70,9 +70,9 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         
         
         
-//        self.view.addSubview(headerBar)
+        //        self.view.addSubview(headerBar)
         
-     
+        
         
         
         
@@ -93,13 +93,13 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         let secret = Bytes.generateRandomBytes(Length).base64EncodedString
         KeychainWrapper.setString(secret, forKey: key)
         return secret
-     }()
+        }()
     
-
-
-     func onLoginSeleted(sender:AnyObject?){
+    
+    
+    func onLoginSeleted(sender:AnyObject?){
         
-//
+        //
         if(name.text.isEmpty){
             Utility.showMsg("账号不能为空")
             return
@@ -108,7 +108,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
             Utility.showMsg("密码不能为空")
             return
         }
-
+        
         var loginname = name.text
         var loginpass = psw.text
         
@@ -136,7 +136,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
                 return
             }
             
-             var result = JSON(json!)
+            var result = JSON(json!)
             
             println("result: \(result)")
             
@@ -159,7 +159,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
                 
                 Utility.enterMainScreen(self)
                 
-              
+                
                 
             }
             else{
@@ -169,8 +169,8 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
                 alert.show()
             }
         }
-
-
+        
+        
         
         
     }
@@ -179,7 +179,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         var viewCtrl = RegisterViewController()
         self.navigationController!.pushViewController(viewCtrl, animated: true)
         
-       // self.presentViewController(viewCtrl, animated: true, completion: nil)
+        // self.presentViewController(viewCtrl, animated: true, completion: nil)
     }
     
     func onBackSeleted(sender:AnyObject?){
@@ -187,14 +187,14 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         println("onBackSeleted")
         
         var viewCtrl=AccessViewController()
-       // self.presentViewController(viewCtrl, animated: true, completion: nil)
+        // self.presentViewController(viewCtrl, animated: true, completion: nil)
         self.navigationController?.popToRootViewControllerAnimated(true)
-
+        
     }
     override func prefersStatusBarHidden() -> Bool {
         self.navigationController!.setNavigationBarHidden(false
             , animated: false)
-      
+        
         return false
     }
     

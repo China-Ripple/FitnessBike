@@ -9,15 +9,15 @@
 import UIKit
 import Alamofire
 class RegisterViewController: UIViewController {
-
+    
     var name:UITextField!
     var checkNum :UITextField!
     var psw :UITextField!
     var registerItem:UIButton!
     var psw2:UITextField!
-   let alertPicker:AlertPickerViewController=AlertPickerViewController()
+    let alertPicker:AlertPickerViewController=AlertPickerViewController()
     var weight:[String]=[String]()
-     var weightTF = UITextField()
+    var weightTF = UITextField()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "注册"
@@ -32,13 +32,13 @@ class RegisterViewController: UIViewController {
         }
         layout()
         
-      
+        
     }
-  
+    
     func layout(){
         
         
-
+        
         
         name = UITextField(frame: CGMakeRect(20, 90, 375, 50))
         name.tintColor = UIColor.grayColor()
@@ -85,8 +85,8 @@ class RegisterViewController: UIViewController {
         line4.backgroundColor = UIColor.grayColor()
         self.view.addSubview(line4)
         
-       
-      
+        
+        
         
         weightTF.addTarget(self, action: "selectWeight:", forControlEvents: UIControlEvents.TouchDown)
         self.view.addSubview(weightTF)
@@ -99,10 +99,10 @@ class RegisterViewController: UIViewController {
             make.left.equalTo(line4.snp_left)
             
         }
-//        // add gesture
-//        let tapGesture = UITapGestureRecognizer(target: self, action: "selectWeight:")
-//        tapGesture.numberOfTouchesRequired = 1
-//        weightTF.addGestureRecognizer(tapGesture)
+        //        // add gesture
+        //        let tapGesture = UITapGestureRecognizer(target: self, action: "selectWeight:")
+        //        tapGesture.numberOfTouchesRequired = 1
+        //        weightTF.addGestureRecognizer(tapGesture)
         
         var line5 = UIView(frame: CGMakeRect(15, 360,350, 1))
         line5.backgroundColor = UIColor.grayColor()
@@ -114,7 +114,7 @@ class RegisterViewController: UIViewController {
             make.left.equalTo(weightTF.snp_left)
         }
         
-
+        
         
         registerItem = UIButton()
         registerItem.setBackgroundImage(UIImage(named: "login_btn_bg"), forState: UIControlState.Normal)
@@ -126,16 +126,15 @@ class RegisterViewController: UIViewController {
             make.bottom.equalTo(self.view.snp_bottom).offset(-80)
             make.height.equalTo(40)
             make.width.equalTo(200)
-
+            
             make.centerXWithinMargins.equalTo(self.view.snp_centerX)
             
         }
-
         
         
-      requesRegister()
         
- 
+        
+        
         
         //
     }
@@ -145,20 +144,9 @@ class RegisterViewController: UIViewController {
         
         alertPicker.showPickerInActionSheet(0)
     }
-    func requesRegister(){
-//         let parameters = ["account":"bbbb","password":"cccc","checknum":"11111"]
-//         Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: parameters, encoding: .JSON)
-//            .responseJSON { (request, response, data, error) in
-//                
-//                println("data: \(data)")
-//                
-//                var result = JSON(data!)
-//                Utility.showNetMsg(result)
-//         }
-    }
     func onRegisterSeleted(sender:AnyObject?){
         
-//        
+        //
         if(name.text.isEmpty){
             Utility.showMsg("账号不能为空")
             return
@@ -192,54 +180,54 @@ class RegisterViewController: UIViewController {
         registerItem.enabled = false
         registerItem.setTitle("注册ing...", forState: UIControlState.allZeros)
         
-
         
-//         let params:[String:AnyObject] = ["account":name.text,"password":psw.text,"checknum":checkNum.text]
-//
-      
-
-        let params = ["account":"zzzz","password":"cccc","checknum":"11111"]
         
-//        Alamofire.request(.GET, "http://wx.rongtai-china.com/fitnessbike/signup", parameters: params, encoding: .JSON)
+        //         let params:[String:AnyObject] = ["account":name.text,"password":psw.text,"checknum":checkNum.text]
+        //
         
-        let req =  "http://wx.rongtai-china.com/fitnessbike/signup?account=\(loginname)&password=\(loginpass)&&checknum=\(number)"
-            
-               Alamofire.request(.GET, req)
+        
+        let params = ["account":loginname,"password":loginpass,"checknum":number]
+        
+        
+        
+        
+        
+        Alamofire.request(Router.SignUp(parameters: params))
             .responseJSON { (request, response, json, error) in
-
+                
+                
+                
+                self.clearAllNotice()
+                
+                self.registerItem.enabled  = true
+                self.registerItem.setTitle("注册", forState: UIControlState.allZeros)
+                if error != nil {
                     
-            
-            self.clearAllNotice()
-            
-            self.registerItem.enabled  = true
-            self.registerItem.setTitle("注册", forState: UIControlState.allZeros)
-            if error != nil {
+                    var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
+                    alert.show()
+                    return
+                }
                 
-                var alert = UIAlertView(title: "网络异常", message: "请检查网络设置", delegate: nil, cancelButtonTitle: "确定")
-                alert.show()
-                return
-            }
-            
-            var result = JSON(json!)
-            
-            if(result["response"].stringValue != "error"){
+                var result = JSON(json!)
                 
-                var token = result["token"].stringValue
-                KeychainWrapper.setString(token, forKey: "token")
-                Router.token  = token
-                
-                Utility.enterMainScreen(self)
-            }
-            else{
-                var errMsg = result["error"]
-                
-                var errTxt = errMsg["text"].stringValue
-                
-                
-                var alert = UIAlertView(title: "注册失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
-                
-                alert.show()
-            }
+                if(result["response"].stringValue != "error"){
+                    
+                    var token = result["token"].stringValue
+                    KeychainWrapper.setString(token, forKey: "token")
+                    Router.token  = token
+                    
+                    Utility.enterMainScreen(self)
+                }
+                else{
+                    var errMsg = result["error"]
+                    
+                    var errTxt = errMsg["text"].stringValue
+                    
+                    
+                    var alert = UIAlertView(title: "注册失败", message: "\(errTxt)", delegate: nil, cancelButtonTitle: "确定")
+                    
+                    alert.show()
+                }
         }
         
     }
@@ -249,11 +237,11 @@ class RegisterViewController: UIViewController {
         //println("onBackSeleted")
         
         //var viewCtrl=LoginViewController()
-         //  self.navigationController?.popToRootViewControllerAnimated(true)
+        //  self.navigationController?.popToRootViewControllerAnimated(true)
         //self.presentViewController(viewCtrl, animated: true, completion: nil)
         
     }
-   }
+}
 
 extension RegisterViewController:UIPickerViewDelegate,UIPickerViewDataSource{
     
@@ -273,7 +261,7 @@ extension RegisterViewController:UIPickerViewDelegate,UIPickerViewDataSource{
         
         return weight.count
     }
-
+    
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         
@@ -282,17 +270,17 @@ extension RegisterViewController:UIPickerViewDelegate,UIPickerViewDataSource{
             return "\(weight[row])"
         }
             
-//        else if(pickerView.tag == 1){
-//            return "\(self.age[row] )"
-//        } else if(pickerView.tag == 2){
-//            
-//            
-//            return "\(self.weight[row < self.weight.count ? row:(row-1)])kg"
-//            
-//        }
-//        else if(pickerView.tag==3){
-//            return "\(self.height[row < self.height.count ? row:(row-1)])cm"
-//        }
+            //        else if(pickerView.tag == 1){
+            //            return "\(self.age[row] )"
+            //        } else if(pickerView.tag == 2){
+            //
+            //
+            //            return "\(self.weight[row < self.weight.count ? row:(row-1)])kg"
+            //
+            //        }
+            //        else if(pickerView.tag==3){
+            //            return "\(self.height[row < self.height.count ? row:(row-1)])cm"
+            //        }
         else  {
             
             return "";
@@ -302,18 +290,18 @@ extension RegisterViewController:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     //
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-            println("you selected the name: \(self.weight[row])")
+        
+        println("you selected the name: \(self.weight[row])")
         weightTF.text = "\(self.weight[row])"
-    
+        
     }
-
+    
 }
 
 extension RegisterViewController:AlertPickerViewControllerDelegate{
     func didSelect(){
         
-       //weightTF.text = "\(self.weight[row])"
+        //weightTF.text = "\(self.weight[row])"
         
         println("didSelect")
         
